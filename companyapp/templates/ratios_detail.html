@@ -1,3 +1,8 @@
+<style>
+    .mybold {
+        font-weight: bold;
+    }
+</style>
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block title %} {% endblock %}
@@ -13,101 +18,96 @@
 
     <div style="width: 35%">
         <table class="table">
-        <thead>
-            <tr>
-                <th>ASSETS</th><th></th><th>LIABILITIES AND EQUITY</th><th></th><th>PROFIT AND LOSS ACCOUNT</th><th></th><th>Ratios</th>
-            </tr>
-        </thead>
             <tbody>
                 <tr>
-                    <td>Fixed assets: </td>
+                    <td class="mybold">Aktywa trwałe: </td>
                     <td>{{ assets_fixed }}PLN</td>
-                    <td>Equity: </td>
+                    <td class="mybold">Kapitał własny: </td>
                     <td>{{ equity }}PLN</td>
-                    <td>Revenue: </td>
+                    <td class="mybold">Przychody: </td>
                     <td>{{ revenue }}PLN</td>
-                    <td>Capitalization: </td>
+                    <td>Kapitał własny / suma bilansowa: </td>
                     <td>{{ capitalization }}%</td>
                 </tr>
                 <tr>
-                    <td>Current assets: </td>
+                    <td class="mybold">Aktywa obrotowe: </td>
                     <td>{{ assets_current }}PLN</td>
-                    <td>Shere capital: </td>
+                    <td>Kapitał podstawowy: </td>
                     <td>{{ capital_share }}PLN</td>
-                    <td>Profit operating: </td>
+                    <td class="mybold">Zysk / Strata działalność operacyjna: </td>
                     <td>{{ profit_operating }}PLN</td>
-                    <td>Current ratio:</td>
+                    <td>Płynność bieżąca:</td>
                     <td>{{ current_ratio }}x</td>
                 </tr>
                 <tr>
-                    <td>Stock: </td>
+                    <td>Zapasy: </td>
                     <td>{{ stock }}PLN</td>
-                    <td>Provision and accruals: </td>
+                    <td class="mybold">Rezerwy i rozliczenia międzyokresowe: </td>
                     <td>{{ provision_and_accruals }}PLN</td>
-                    <td>Depreciation: </td>
+                    <td>Amortyzacja: </td>
                     <td>{{ depreciation }}PLN</td>
-                    <td>Debt ratio: </td>
+                    <td>Zobowiązania: </td>
                     <td>{{ debt_ratio }}PLN</td>
                 </tr>
                 <tr>
-                    <td>Short term receivables: </td>
+                    <td class="mybold">Należności krótkoterminowe: </td>
                     <td>{{ receivables_short_term }}PLN</td>
-                    <td>Long therm liabilities: </td>
+                    <td class="mybold">Zobowiązania długoterminowe: </td>
                     <td>{{ liabilities_long_therm }}PLN</td>
-                    <td>Gross profit: </td>
+                    <td class="mybold">Zysk / Strata brutto: </td>
                     <td>{{ profit_gross }}PLN</td>
-                    <td>Debt to equity ratio: </td>
+                    <td>Zobowiązania / kapitał własny: </td>
                     <td>{{ debt_to_equity_ratio }}%</td>
                 </tr>
                 <tr>
-                    <td>Trade receivables: </td>
+                    <td>Należności handlowe: </td>
                     <td>{{ receivables_trade }}PLN</td>
-                    <td>Credits and loans: </td>
+                    <td>Zobowiązania finansowe </td>
                     <td>{{ liabilities_long_therm_financial }}PLN</td>
-                    <td>Income tax: </td>
+                    <td>Podatek dochodowy: </td>
                     <td>{{ tax_income }}PLN</td>
-                    <td>Receivables turnover ratio: </td>
+                    <td>Obrót zobowiązaniami w dniach: </td>
+                    <td>{{ liabilities_turnover_ratio }}dni</td>
+                </tr>
+                <tr>
+                    <td>Należności z tyt. podatków, ceł, ubezp. społ: </td>
+                    <td>{{ receivables_tax }}PLN</td>
+                    <td class="mybold">Zobowiązania krótkoterminowe: </td>
+                    <td>{{ liabilities_short_therm }}PLN</td>
+                    <td class="mybold">Zysk / Strata netto: </td>
+                    <td>{{ profit_net }}PLN</td>
+                    <td>Obrót należnościami w dniach: </td>
                     <td>{{ receivables_turnover_ratio }}day</td>
                 </tr>
                 <tr>
-                    <td>Tax receivables: </td>
-                    <td>{{ receivables_tax }}PLN</td>
-                    <td>Short therm liabilities: </td>
-                    <td>{{ liabilities_short_therm }}PLN</td>
-                    <td>Net profit: </td>
-                    <td>{{ profit_net }}PLN</td>
-                    <td>Liabilities turnover ratio: </td>
-                    <td>{{ liabilities_turnover_ratio }}day</td>
-                </tr>
-                <tr>
-                    <td>Short term investments: </td>
+                    <td class="mybold">Inwestycje krótkoterminowe: </td>
                     <td>{{ investments_short_term }}PLN</td>
-                    <td>Credits and loans: </td>
+                    <td>Zobowiązania finansowe: </td>
                     <td>{{ liabilities_short_therm_financial }}PLN</td>
                     <td></td>
                     <td></td>
-                    <td>Operating profit margin:</td>
+                    <td>Marża operacyjna:</td>
                     <td>{{ profit_operating_margin }}%</td>
 
                 </tr>
                 <tr>
-                    <td>Cash assets: </td>
+                    <td>Środki pieniężne: </td>
                     <td>{{ assets_cash }}PLN</td>
-                    <td>Trade payables: </td>
-                    <td>{{ liabilities_short_therm_trade }}PLN</td>
+                    <td>Zobowiązania handlowe: </td>
+                    <td>{{ liabilities_trade }}PLN</td>
                     <td></td>
                     <td></td>
-                    <td>Net profit margin:</td>
+                    <td>Marża zysku netto:</td>
                     <td>{{ profit_net_margin }}%</td>
                 </tr>
                 <tr>
-                    <td>TOTAL ASSETS: </td>
+                    <td class="mybold">SUMA AKTYWÓW: </td>
                     <td>{{ assets_total }}PLN</td>
-                    <td>TOTAL LIABILITIES AND EQUITY: </td>
+                    <td class="mybold">SUMA PASYWÓW: </td>
                     <td>{{ liabilities_and_equity }}PLN</td>
                     <td></td>
                     <td></td>
-                    <td>Debt financial net:</td>
+                    <td>Zadłużenie fiansowe netto:</td>
                     <td>{{ debt_financial_net }}PLN</td>
                 </tr>
                 <tr>
@@ -117,7 +117,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>EBITDA:</td>
+                    <td>EBITDA 12M:</td>
                     <td>{{ ebitda }}PLN</td>
                 </tr>
                 <tr>
@@ -127,11 +127,10 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>Debt financial net/EBITDA:</td>
+                    <td>Zadłuzenie finansowe netto/EBITDA:</td>
                     <td>{{ debt_financial_net_to_ebitda }}x</td>
                 </tr>
             </tbody>
         </table>
     </div>
-
 {% endblock %}
