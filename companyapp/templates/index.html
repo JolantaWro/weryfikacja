@@ -1,0 +1,34 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Check company</title>
+   <link rel="stylesheet" href="{% static 'css/styl.css' %}">
+</head>
+<body>
+   <br>
+   <br>
+   <br>
+    <br>
+   <br>
+   <br>
+   <br><br><br><br><br><br><br><br>
+   <section>
+       <article>
+           <div class="analys">
+               <h2>Welcome to the financial metrics analysis page</h2><br><br>
+           </div>
+           <div class="check">
+               <h1>
+                   <a href="{% url 'ratios_add' %}">Manual analysis</a></h1>
+               <h1>
+                   <a href="{% url 'file_add' %}">File analysis</a></h1>
+           </div>
+
+               <br><br><br><br>
+
+       </article>
+   </section>
+</body>
+</html>
