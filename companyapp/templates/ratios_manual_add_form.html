@@ -12,33 +12,32 @@
 <form action="#" method="post">
     {% csrf_token %}
     <div>
-        {{ form.company_name|as_crispy_field }}
+        {{ form.nazwa_firmy|as_crispy_field }}
     </div>
-    <div class="row">
-        <div class="col-3">
-            {{ form.number_NIP|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.year_results|as_crispy_field }}
-        </div>
+    <div>
+        {{ form.numer_NIP|as_crispy_field }}
     </div>
+    <div>
+        {{ form.rok|as_crispy_field }}
+    </div>
+    <br><br>
         <div>
             <table>
                 <thead>
                     <tr>
-                        <th>ASSETS</th>
+                        <th>AKTYWA</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ form.assets_fixed|as_crispy_field }}</td>
-                        <td>{{ form.assets_current|as_crispy_field }}</td>
-                        <td>{{ form.stock|as_crispy_field }}</td>
-                        <td>{{ form.receivables_short_term|as_crispy_field }}</td>
-                        <td>{{ form.receivables_trade|as_crispy_field }}</td>
-                        <td>{{ form.receivables_tax|as_crispy_field }}</td>
-                        <td>{{ form.investments_short_term|as_crispy_field }}</td>
-                        <td>{{ form.assets_cash|as_crispy_field }}</td>
+                        <td>{{ form.aktywa_trwałe|as_crispy_field }}</td>
+                        <td>{{ form.aktywa_obrotowe|as_crispy_field }}</td>
+                        <td>{{ form.zapasy|as_crispy_field }}</td>
+                        <td>{{ form.należności_krótkoterminowe|as_crispy_field }}</td>
+                        <td>{{ form.należności_handlowe|as_crispy_field }}</td>
+                        <td>{{ form.należności_podatkowe|as_crispy_field }}</td>
+                        <td>{{ form.inwestycje_krótkoterminowe|as_crispy_field }}</td>
+                        <td>{{ form.środki_pieniężne|as_crispy_field }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -47,18 +46,18 @@
             <table>
                 <thead>
                     <tr>
-                        <th>LIABILITIES AND EQUITY</th>
+                        <th>PASYWA</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ form.capital_share|as_crispy_field }}</td>
-                        <td>{{ form.provision_and_accruals|as_crispy_field }}</td>
-                        <td>{{ form.liabilities_long_therm|as_crispy_field }}</td>
-                        <td>{{ form.liabilities_long_therm_financial|as_crispy_field }}</td>
-                        <td>{{ form.liabilities_short_therm|as_crispy_field }}</td>
-                        <td>{{ form.liabilities_short_therm_financial|as_crispy_field }}</td>
-                        <td>{{ form.liabilities_trade|as_crispy_field }}</td>
+                        <td>{{ form.kapitał_podstawowy|as_crispy_field }}</td>
+                        <td>{{ form.rezerwy_i_rozliczenia_międzyokresowe|as_crispy_field }}</td>
+                        <td>{{ form.zobowiązania_długoterminowe|as_crispy_field }}</td>
+                        <td>{{ form.zobowiązania_długoterminowe_finansowe|as_crispy_field }}</td>
+                        <td>{{ form.zobowiązania_krótkoterminowe|as_crispy_field }}</td>
+                        <td>{{ form.zobowiązania_krótkoterminowe_finansowe|as_crispy_field }}</td>
+                        <td>{{ form.zobowiązania_handlowe|as_crispy_field }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -67,21 +66,21 @@
             <table>
                 <thead>
                     <tr>
-                        <th>PROFIT AND LOSS ACCOUNT</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ form.revenue|as_crispy_field }}</td>
-                        <td>{{ form.profit_operating|as_crispy_field }}</td>
-                        <td>{{ form.depreciation|as_crispy_field }}</td>
-                        <td>{{ form.profit_gross|as_crispy_field }}</td>
-                        <td>{{ form.tax_income|as_crispy_field }}</td>
+                        <td>{{ form.przychody|as_crispy_field }}</td>
+                        <td>{{ form.wynik_z_działalności_operacyjnej|as_crispy_field }}</td>
+                        <td>{{ form.amortyzacja|as_crispy_field }}</td>
+                        <td>{{ form.wynik_brutto|as_crispy_field }}</td>
+                        <td>{{ form.podatek_dochodowy|as_crispy_field }}</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-    <input type="submit" value="Accept"/>
+        </div><br><br>
+    <input type="submit" value="Przelicz"/>
 </form>
 
 {% endblock %}
