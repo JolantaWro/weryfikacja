@@ -2,12 +2,12 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <br>
-<h3>Enter your file xml:</h3>
+<h3>Wprowadz plik w formacie xml:</h3>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.file_name|as_crispy_field }}
     <br>
-      <input type="submit" value="Accept">
+      <input type="submit" value="Zatwierdz">
 </form>
 
 {% endblock %}

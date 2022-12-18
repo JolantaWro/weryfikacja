@@ -2,32 +2,42 @@
 {% load static %}
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <title>Check company</title>
-   <link rel="stylesheet" href="{% static 'css/styl.css' %}">
+    <meta charset="UTF-8">
+    <title>Check company</title>
+    <link rel="stylesheet" href="{% static 'css/styl.css' %}">
+    <style>
+        h2 {
+            color: black;
+            text-decoration: none;
+            font-size: 3.2rem;
+            font-weight: bold;
+            margin: 50px;
+        }
+        h2 a {
+            color: black;
+            text-decoration: none;
+            font-size: 2.0rem;
+            margin: 0 0px 10px 30px;
+        }
+    </style>
 </head>
 <body>
-   <br>
-   <br>
-   <br>
-    <br>
-   <br>
-   <br>
-   <br><br><br><br><br><br><br><br>
+<br>
    <section>
        <article>
            <div class="analys">
-               <h2>Welcome to the financial metrics analysis page</h2><br><br>
+               <h2>Dokonaj analizy wyników finansowych</h2><br><br>
            </div>
            <div class="check">
-               <h1>
-                   <a href="{% url 'ratios_add' %}">Manual analysis</a></h1>
-               <h1>
-                   <a href="{% url 'file_add' %}">File analysis</a></h1>
+               <h2>
+                   <a href="{% url 'ratios_add' %}">Wprowadz dane samodzielnie</a></h2>
+               <h2>
+                   <a href="{% url 'file_add' %}">Wprowadz link i edytuj dane</a></h2>
+               <h2>
+                   <a href="{% url 'ratios_link' %}">Wprowadz link, zobacz wyniki</a></h2>
            </div>
 
                <br><br><br><br>
-
        </article>
    </section>
 </body>
