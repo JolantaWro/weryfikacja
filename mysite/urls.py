@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from companyapp.views import IndexView, RatiosAddFile, RatiosAdd, RatiosEdit, RatiosViewFile
+from companyapp.views import IndexView, RatiosAddFile, RatiosAdd, RatiosEdit, RatiosViewFile, FileDetail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name="index"),
     path('file_add/', RatiosAddFile.as_view(), name="file_add"),
+    path('file_detail/', FileDetail.as_view(), name="file_detail"),
     path('ratios_link/', RatiosViewFile.as_view(), name="ratios_link"),
     path('ratios_add/', RatiosAdd.as_view(), name="ratios_add"),
     # path('ratios_edit/<str:liabilities_long_therm_financial>/<str:liabilities_short_therm_financial>/', RatiosEdit.as_view(), name="ratios_edit"),
