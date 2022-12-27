@@ -1,561 +1,635 @@
 <style>
-   .mybold {
-       font-weight: bold;
-   }
-   .mymarg {
-       margin: 10px;
-   }
-   .mymarg2 {
-       margin: 20px;
-   }
-   .mymarg3 {
-       margin: 30px;
-   }
-    .mymarg4 {
-       margin: 50px;
-   }
+  .mybold {
+      font-weight: bold;
+  }
+  .mymarg {
+      margin: 10px;
+  }
+  .mymarg2 {
+      margin: 20px;
+  }
+  .mymarg3 {
+      margin: 30px;
+  }
+   .mymarg4 {
+      margin: 50px;
+  }
 
 </style>
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block title %} {% endblock %}
 {% block content %}
-   <h1>Dokument nie jest sprawozdaniem finansowym, stanowi podgląd z dokumentów przekazanych do KRS</h1>
-   <br>
-   <br>
-   <h3>Podstawowe informacje dokumentu</h3>
-   <h5>Okres od: {{ year_before }}</h5>
-   <h5>Okres do: {{ year_result }}</h5>
-   <h5>Data sporządzenia: {{ report_date }}</h5>
-   <h5>Kod sprawozdania: {{ report_code }}</h5>
-   <br>
-   <h3>Dane identyfikujące jednostkę </h3>
-   <h5>Nazwa firmy: {{ company_name }}</h5>
-   <h5>Adres firmy:</h5>
-   <h6>Miasto: {{ company_address_city }}, Kod pocztowy: {{  company_address_post_code }} </h6>
-   <h6>Ulica: {{ company_address_street }}, nr {{ company_address_street_number }}</h6>
-   <h5>PKD: {{ company_pkd }}</h5>
-   <h5>NIP: {{ number_nip }}</h5>
-   <h5>KRS: {{ company_krs }}</h5>
-   <h5>Okres objęty sprawozdaniem finansowym: {{ report_date_start }} - {{ report_date_finish  }} </h5>
-   <h5>Sprawozdanie finansowe zawiera dane łączne, jeśli w skład jednostki wchodzą wewnętrzne jednostki organizacyjne sporządzające samodzielnie sprawozdania finansowe : {{ report_joint }} </h5>
-   <h5>Założenie kontynuacji działalności:</h5>
-    <h6> - czy sprawozdanie finansowe zostało sporządzone przy założeniu kontynuowania działalności gospodarczej przez jednostkę w dającej się przewidzieć przyszłości: {{ report_continuing_future }}</h6>
-    <h6> - czy nie istnieją okoliczności wskazujące na zagrożenie kontynuowania przez nią działalności {{ report_continuing_denger }}</h6>
-   <br>
-   <br>
-   <h3>Bilans</h3>
-       <div class="row">
-            <div class="col-3">
-
-            </div>
-            <div class="col-3">
-                Kwota na dzień kończący bieżący rok obrachunkowy
-            </div>
+  <h1>Dokument nie jest sprawozdaniem finansowym, stanowi podgląd z dokumentów przekazanych do KRS</h1>
+  <br>
+  <br>
+  <h3>Podstawowe informacje dokumentu</h3>
+  <h5>Okres od: {{ year_before }}</h5>
+  <h5>Okres do: {{ year_result }}</h5>
+  <h5>Data sporządzenia: {{ report_date }}</h5>
+  <h5>Kod sprawozdania: {{ report_code }}</h5>
+  <br>
+  <h3>Dane identyfikujące jednostkę </h3>
+  <h5>Nazwa firmy: {{ company_name }}</h5>
+  <h5>Adres firmy:</h5>
+  <h6>Miasto: {{ company_address_city }}, Kod pocztowy: {{  company_address_post_code }} </h6>
+  <h6>Ulica: {{ company_address_street }}, nr {{ company_address_street_number }}</h6>
+  <h5>PKD: {{ company_pkd }}</h5>
+  <h5>NIP: {{ number_nip }}</h5>
+  <h5>KRS: {{ company_krs }}</h5>
+  <h5>Okres objęty sprawozdaniem finansowym: {{ report_date_start }} - {{ report_date_finish  }} </h5>
+  <h5>Sprawozdanie finansowe zawiera dane łączne, jeśli w skład jednostki wchodzą wewnętrzne jednostki organizacyjne sporządzające samodzielnie sprawozdania finansowe : {{ report_joint }} </h5>
+  <h5>Założenie kontynuacji działalności:</h5>
+   <h6> - czy sprawozdanie finansowe zostało sporządzone przy założeniu kontynuowania działalności gospodarczej przez jednostkę w dającej się przewidzieć przyszłości: {{ report_continuing_future }}</h6>
+   <h6> - czy nie istnieją okoliczności wskazujące na zagrożenie kontynuowania przez nią działalności {{ report_continuing_denger }}</h6>
+  <br>
+  <br>
+  <h3>Bilans</h3>
+      <div class="row">
            <div class="col-3">
-                Kwota na dzień kończący poprzedni rok obrachunkowy
-            </div>
-       </div>
-       <div class="row">
-            <div class="col-3">
-                <p>A. Aktywa trwałe</p><br>
-                I. Wartości niematerialne i prawne
-                <p class="mymarg">1. Koszty zakończonych prac rozwojowych<p>
-                <p class="mymarg">2. Wartość firmy</p>
-                <p class="mymarg">3. Inne wartości niematerialne i prawne</p>
-                <p class="mymarg">4. Zaliczki na wartości niematerialne i prawne</p>
-                II. Rzeczowe aktywa trwałe
-                <p class="mymarg">1. Środki trwałe<p>
-                <p class="mymarg2">a) grunty (w tym prawo użytkowania wieczystego gruntu)<p>
-                <p class="mymarg2">b) budynki, lokale, prawa do lokali i obiekty inżynierii lądowej i wodnej<p>
-                <p class="mymarg2">c) urządzenia techniczne i maszyny<p>
-                <p class="mymarg2">d) środki transportu<p>
-                <p class="mymarg2">e) inne środki trwałe<p>
-                <p class="mymarg">2. Środki trwałe w budowie<p>
-                <p class="mymarg">3. Zaliczki na środki trwałe w budowie<p>
-                III. Należności długoterminowe
-                <p class="mymarg">1. Od jednostek powiązanych<p>
-                <p class="mymarg">2. Od pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale<p>
-                <p class="mymarg">3. Od pozostałych jednostek<p>
-                IV. Inwestycje długoterminowe
-                <p class="mymarg">1. Nieruchomości<p>
-                <p class="mymarg">2. Wartości niematerialne i prawne<p>
-                <p class="mymarg">3. Długoterminowe aktywa finansowe<p>
-                <p class="mymarg2">a) w jednostkach powiązanych<p>
-                <p class="mymarg3">- udziały lub akcje<p>
-                <p class="mymarg3">- inne papiery wartościowe<p>
-                <p class="mymarg3">- udzielone pożyczki<p>
-                <p class="mymarg3">- inne długoterminowe aktywa finansowe<p>
-                <p class="mymarg2">b) w pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale<p>
-                <p class="mymarg3">- udziały lub akcje<p>
-                <p class="mymarg3">- inne papiery wartościowe<p>
-                <p class="mymarg3">- udzielone pożyczki<p>
-                <p class="mymarg3">- inne długoterminowe aktywa finansowe<p>
-                <p class="mymarg2">c) w pozostałych jednostek<p>
-                <p class="mymarg3">- udziały lub akcje<p>
-                <p class="mymarg3">- inne papiery wartościowe<p>
-                <p class="mymarg3">- udzielone pożyczki<p>
-                <p class="mymarg3">- inne długoterminowe aktywa finansowe<p>
-                <p class="mymarg">4. Inne inwestycje długoterminowe<p>
-                V. Długoterminowe rozliczenia międzyokresowe
-                <p class="mymarg">1. Aktywa z tytułu odroczonego podatku dochodowego<p><br><br>
-                <p>B. Aktywa obrotowe</p><br>
-                I. Zapasy
-                <p class="mymarg">1. Materiały<p>
-                <p class="mymarg">2. Półprodukty i produkty w toku</p>
-                <p class="mymarg">3. Produkty gotowe</p>
-                <p class="mymarg">4. Towary</p>
-                <p class="mymarg">5. Zaliczki na dostawy i usługi</p>
-                II. Należności krótkoterminowe
-                <p class="mymarg">1. Należności od jednostek powiązanych<p>
-                <p class="mymarg2">a) z tyt. dostaw i usług, o okresie spłaty<p>
-                <p class="mymarg3">- do 12 miesięcy<p>
-                <p class="mymarg3">- powyżej 12 miesięcy<p>
-                <p class="mymarg2">b) inne<p>
-                <p class="mymarg">2. Należności od pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale<p>
-                <p class="mymarg2">a) z tyt. dostaw i usług, o okresie spłaty<p>
-                <p class="mymarg3">- do 12 miesięcy<p>
-                <p class="mymarg3">- powyżej 12 miesięcy<p>
-                <p class="mymarg2">b) inne<p>
-                <p class="mymarg">3. Należności od pozostałych jednostek<p>
-                <p class="mymarg2">a) z tyt. dostaw i usług, o okresie spłaty<p>
-                <p class="mymarg3">- do 12 miesięcy<p>
-                <p class="mymarg3">- powyżej 12 miesięcy<p>
-                <p class="mymarg2">b) z tyt. podatków, dotacji, ceł, ubezpieczeń społecznych i zdrowotnych oraz innych tyt. publicznoprawnych<p>
-                <p class="mymarg2">c) inne<p>
-                <p class="mymarg2">d) dochodzone na drodze sądowej<p>
-                III. Inwestycje krótkoterminowe
-                <p class="mymarg">1. Krótkoterminowe aktywa finansowe<p>
-                <p class="mymarg2">a) w jednostkach powiązanych<p>
-                <p class="mymarg3">- udziały lub akcje<p>
-                <p class="mymarg3">- inne papiery wartościowe<p>
-                <p class="mymarg3">- udzielone pożyczki<p>
-                <p class="mymarg3">- inne krótkoterminowe aktywa finansowe<p>
-                <p class="mymarg2">b) w pozostałych jednostek<p>
-                <p class="mymarg3">- udziały lub akcje<p>
-                <p class="mymarg3">- inne papiery wartościowe<p>
-                <p class="mymarg3">- udzielone pożyczki<p>
-                <p class="mymarg3">- inne krótkoterminowe aktywa finansowe<p>
-                <p class="mymarg2">c) środki pieniężne i inne aktywa pieniężne<p>
-                <p class="mymarg3">- środki pieniężne w kasie i na rachunkach<p>
-                <p class="mymarg3">- inne środki pieniężne<p>
-                <p class="mymarg3">- inne aktywa pieniężne<p>
-                <p class="mymarg">2. Inne inwestycje krótkoterminowe<p>
-                IV. Krótkoterminowe rozliczenia międzyokresowe<br><br>
-                <p>A. Kapitał (fundusz) własny</p><br>
-                I. Kapitał (fundusz) podstawowy
-                II. Kapitał (fundusz) zapasowy, w tym:
-                <p class="mymarg">- nadwyżka wartości sprzedaży (wartości emisyjnej) nad wartością nominalną udziałów (akcji)<p>
-                III. Kapitał (fundusz) z aktualizacji wyceny, w tym:
-                <p class="mymarg">- z tyt. aktualizacji wartości godziwej<p>
-                IV. Pozostałe kapitały (fundusze) rezerwowe, w tym:
-                <p class="mymarg">- tworzone zgodnie z umową (statutem) spółki<p>
-                <p class="mymarg">- na udziały (akcje) własne<p>
-                V. Zysk (strata) z lat ubiegłych
-                VI. Zysk (strata) netto
-                VII. Odpisy z zysku netto w ciągu roku obrachunkowego (wartość ujemna)
-                <p>B. Zobowiązania i rezerwy na zobowiązania</p><br>
-                I. Rezerwy na zobowiązania
-                <p class="mymarg">1. Rezerwa z tyt. odroczonego podatku dochodowego<p>
-                <p class="mymarg">2. Rezerwa na świadczenia emerytalne i podobne<p>
-                <p class="mymarg2">- długoterminowa<p>
-                <p class="mymarg2">- krótkoterminowa<p>
-                <p class="mymarg">3. Pozostałe rezerwy<p>
-                 <p class="mymarg2">- długoterminowe<p>
-                <p class="mymarg2">- krótkoterminowe<p>
-                II. Zobowiązania długoterminowe
-                <p class="mymarg">1. Wobec jednostek powiązanych<p>
-                <p class="mymarg">2. Wobec pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale<p>
-                <p class="mymarg">3. Wobec pozostałych jednostek<p>
-                <p class="mymarg2">a) kredyty i pożyczki<p>
-                <p class="mymarg2">b) z tytułu emisji dłużnych papierów wartościowych<p>
-                <p class="mymarg2">c) inne zobowiązania finansowe<p>
-                <p class="mymarg2">d) zobowiązania wekslowe<p>
-                <p class="mymarg2">e) inne<p>
-                III. Zobowiązania krótkoterminowe
-                <p class="mymarg">1. Zobowiązania wobec jednostek powiązanych<p>
-                <p class="mymarg2">a) z tytułu dostaw i usług, o okresie wymagalności:</p>
-                <p class="mymarg">– do 12 miesięcy<p>
-                <p class="mymarg">– powyżej 12 miesięcy<p>
-                <p class="mymarg2">b) inne</p>
-                <p class="mymarg">2. Zobowiązania wobec pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale<p>
-                <p class="mymarg2">a) z tytułu dostaw i usług, o okresie wymagalności:</p>
-                <p class="mymarg">– do 12 miesięcy<p>
-                <p class="mymarg">– powyżej 12 miesięcy<p>
-                <p class="mymarg2">b) inne</p>
-                <p class="mymarg">3. Zobowiązania wobec pozostałych jednostek<p>
-                <p class="mymarg2">a) kredyty i pożyczki<p>
-                <p class="mymarg2">b) z tytułu emisji dłużnych papierów wartościowych<p>
-                <p class="mymarg2">c) inne zobowiązania finansowe<p>
-                <p class="mymarg2">d) z tytułu dostaw i usług, o okresie wymagalności:<p>
-                <p class="mymarg">– do 12 miesięcy<p>
-                <p class="mymarg">– powyżej 12 miesięcy<p>
-                <p class="mymarg2">e) zaliczki otrzymane na dostawy i usługi<p>
-                <p class="mymarg2">f) zobowiązania wekslowe<p>
-                <p class="mymarg2">g) z tytułu podatków, ceł, ubezpieczeń społecznych i zdrowotnych oraz innych tytułów publicznoprawnych<p>
-                <p class="mymarg2">h) z tytułu wynagrodzeń<p>
-                <p class="mymarg2">i) inne<p>
-                <p class="mymarg">4. Fundusze specjalne<p>
-                IV. Rozliczenia międzyokresowe
-                <p class="mymarg">1. Ujemna wartość firmy<p>
-                <p class="mymarg">2. Inne rozliczenia międzyokresowe<p>
-                <p class="mymarg2">– długoterminowe<p>
-                <p class="mymarg2">– krótkoterminowe<p>
 
-
-
-            </div>
-            <div class="col-3">
-                <p>{{ assets_fixed }}</p><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br><br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-            </div>
-            <div class="col-3">
-                <p>{{ assets_fixed }}</p><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br><br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-            </div>
-        </div>
-   <h3>Rachunek zysków i strat:</h3>
-   <h5>Rachunek zysków i strat (wariant kalkulacyjny):</h5>
-       <div class="row">
-            <div class="col-3">
-
-            </div>
-            <div class="col-3">
-                Kwota na dzień kończący bieżący rok obrachunkowy
-            </div>
+           </div>
            <div class="col-3">
-                Kwota na dzień kończący poprzedni rok obrachunkowy
-            </div>
-       </div>
-       <div class="row">
-            <div class="col-3">
-                <p>A. Przychody netto ze sprzedaży produktów, towarów i materiałów, w tym:</p>
-                <p class="mymarg">– od jednostek powiązanych<p>
-                <p class="mymarg">I. Przychody netto ze sprzedaży produktów<p>
-                <p class="mymarg">II. Przychody netto ze sprzedaży towarów i materiałów<p>
-                <p>B. Koszty sprzedanych produktów, towarów i materiałów, w tym:</p>
-                <p class="mymarg">– jednostkom powiązanym<p>
-                <p class="mymarg">I. Koszt wytworzenia sprzedanych produktów<p>
-                <p class="mymarg">II. Wartość sprzedanych towarów i materiałów<p>
-                <p>C. Zysk (strata) brutto ze sprzedaży (A–B)</p>
-                <p>D. Koszty sprzedaży</p>
-                <p>E. Koszty ogólnego zarządu</p>
-                <p>F. Zysk (strata) ze sprzedaży (C–D–E)</p>
-                <p>G. Pozostałe przychody operacyjne</p>
-                <p class="mymarg">I. Zysk z tytułu rozchodu niefinansowych aktywów trwałych<p>
-                <p class="mymarg">II. Dotacje<p>
-                <p class="mymarg">III. Aktualizacja wartości aktywów niefinansowych<p>
-                <p class="mymarg">IV. Inne przychody operacyjne<p>
-                <p>H. Pozostałe koszty operacyjne</p>
-                <p class="mymarg">I. I. Strata z tytułu rozchodu niefinansowych aktywów trwałych<p>
-                <p class="mymarg">II. Aktualizacja wartości aktywów niefinansowych<p>
-                <p class="mymarg">III. Inne koszty operacyjne<p>
-                <p>I. Zysk (strata) z działalności operacyjnej (F+G–H)</p>
-                <p>J. Przychody finansowe</p>
-                <p class="mymarg">I. Dywidendy i udziały w zyskach, w tym:<p>
-                <p class="mymarg2">a) od jednostek powiązanych, w tym:<p>
-                <p class="mymarg3">– w których jednostka posiada zaangażowanie w kapitale<p>
-                <p class="mymarg2">b) od jednostek pozostałych, w tym:<p>
-                <p class="mymarg3">– w których jednostka posiada zaangażowanie w kapitale<p>
-                <p class="mymarg">II. Odsetki, w tym:<p>
-                <p class="mymarg2">– od jednostek powiązanych<p>
-                <p class="mymarg">III. Zysk z tytułu rozchodu aktywów finansowych, w tym:<p>
-                <p class="mymarg2">– w jednostkach powiązanych<p>
-                <p class="mymarg">IV. Aktualizacja wartości aktywów finansowych
-                <p class="mymarg">V. Inne<p>
-                <p>K. Koszty finansowe</p>
-                <p class="mymarg">I. Odsetki, w tym:<p>
-                <p class="mymarg2">- od jednostek powiązanych, w tym:<p>
-                <p class="mymarg">II. Strata z tytułu rozchodu aktywów finansowych, w tym:<p>
-                <p class="mymarg2">– od jednostek powiązanych<p>
-                <p class="mymarg">III. Aktualizacja wartości aktywów finansowych<p>
-                <p class="mymarg">IV. Inne<p>
-                <p>L. Zysk (strata) brutto (I+J–K)</p>
-                <p>M. Podatek dochodowy</p>
-                <p>N. Pozostałe obowiązkowe zmniejszenia zysku (zwiększenia straty)</p>
-                <p>O. Zysk (strata) netto (L–M–N)</p>
-            </div>
-            <div class="col-3">
-                <p>{{ assets_fixed }}</p><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br><br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-            </div>
-            <div class="col-3">
-                <p>{{ assets_fixed }}</p><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br><br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-            </div>
-       </div>
-
-   <h3>Zestawienie zmian w kapitale (funduszu) własnym:</h3>
-
-       <div class="row">
-            <div class="col-3">
-
-            </div>
-            <div class="col-3">
-                Kwota na dzień kończący bieżący rok obrachunkowy
-            </div>
+               Kwota na dzień kończący bieżący rok obrachunkowy
+           </div>
+          <div class="col-3">
+               Kwota na dzień kończący poprzedni rok obrachunkowy
+           </div>
+      </div>
+      <div class="row">
            <div class="col-3">
-                Kwota na dzień kończący poprzedni rok obrachunkowy
-            </div>
-       </div>
-       <div class="row">
-            <div class="col-3">
-                <p>I. Kapitał (fundusz) własny na początek okresu (BO)</p>
-                <p class="mymarg">– zmiany przyjętych zasad (polityki) rachunkowości<p>
-                <p class="mymarg">– korekty błędów<p>
-                <p>Ia. Kapitał (fundusz) własny na początek okresu (BO), po korektach<p>
-                <p class="mymarg">1. Kapitał (fundusz) podstawowy na początek okresu<p>
-                <p class="mymarg2">1. Zmiany kapitału (funduszu) podstawowego<p>
-                <p class="mymarg3">a) zwiększenie (z tytułu)<p>
-                <p class="mymarg4">– wydania udziałów (emisji akcji)<p>
-                <p class="mymarg3">b) zmniejszenie (z tytułu)<p>
-                <p class="mymarg4">– umorzenia udziałów (akcji)<p>
-                <p class="mymarg2">2. Kapitał (fundusz) podstawowy na koniec okresu<p>
-                <p class="mymarg">2. Kapitał (fundusz) zapasowy na początek okresu<p>
-                <p class="mymarg2">1. Zmiany kapitału (funduszu) zapasowego<p>
-                <p class="mymarg3">a) zwiększenie (z tytułu)<p>
-                <p class="mymarg4">– emisji akcji powyżej wartości nominalnej<p>
-                <p class="mymarg4">– podziału zysku (ustawowo)<p>
-                <p class="mymarg4">– podziału zysku (ponad wymaganą ustawowo minimalną wartość)<p>
-                <p class="mymarg3">b) zmniejszenie (z tytułu)<p>
-                <p class="mymarg4">– pokrycia straty<p>
-                <p class="mymarg4">– dywidendy<p>
-                <p class="mymarg2">2. Stan kapitału (funduszu) zapasowego na koniec okresu<p>
-                <p class="mymarg">3. Kapitał (fundusz) z aktualizacji wyceny na początek okresu – zmiany przyjętych zasad (polityki) rachunkowości<p>
-                <p class="mymarg2">1. Zmiany kapitału (funduszu) z aktualizacji wyceny<p>
-                <p class="mymarg3">b) zmniejszenie (z tytułu)<p>
-                <p class="mymarg4">– zbycia środków trwałych<p>
-                <p class="mymarg2">2. Kapitał (fundusz) z aktualizacji wyceny na koniec okresu<p>
-                <p class="mymarg">4. Pozostałe kapitały (fundusze) rezerwowe na początek okresu<p>
-                <p class="mymarg2">2. Pozostałe kapitały (fundusze) rezerwowe na koniec okresu<p>
-                <p class="mymarg">5. Zysk (strata) z lat ubiegłych na początek okresu<p>
-                <p class="mymarg2">1. Zysk z lat ubiegłych na początek okresu<p>
-                <p class="mymarg3">– zmiany przyjętych zasad (polityki) rachunkowości<p>
-                <p class="mymarg3">– korekty błędów<p>
-                <p class="mymarg2">2. Zysk z lat ubiegłych na początek okresu, po korektach<p>
-                <p class="mymarg3">a) zwiększenie (z tytułu)<p>
-                <p class="mymarg4">– podziału zysku z lat ubiegłych<p>
-                <p class="mymarg3">b) zmniejszenie (z tytułu)<p>
-                <p class="mymarg4">– zwiększenia kapitału zapasowego<p>
-                <p class="mymarg2">3. Zysk z lat ubiegłych na koniec okresu<p>
-                <p class="mymarg2">4. Strata z lat ubiegłych na początek okresu<p>
-                <p class="mymarg3">– zmiany przyjętych zasad (polityki) rachunkowości<p>
-                <p class="mymarg3">– korekty błędów<p>
-                <p class="mymarg2">5. Strata z lat ubiegłych na początek okresu, po korektach<p>
-                <p class="mymarg3">a) zwiększenie (z tytułu)<p>
-                <p class="mymarg4">– przeniesienia straty z lat ubiegłych do pokrycia<p>
-                <p class="mymarg2">6. Strata z lat ubiegłych na koniec okresu<p>
-                <p class="mymarg2">7. Zysk (strata) z lat ubiegłych na koniec okresu<p>
-                <p class="mymarg">6. Wynik netto<p>
-                <p class="mymarg2">a) zysk netto<p>
-                <p class="mymarg2">b) strata netto<p>
-                <p class="mymarg2">c) odpisy z zysku<p>
-                <p>II. Kapitał (fundusz) własny na koniec okresu (BZ)</p>
-                <p>III. Kapitał (fundusz) własny, po uwzględnieniu proponowanego podziału zysku (pokrycia straty)</p>
+               <p class="mybold">A. Aktywa trwałe</p><br>
+               <p class="mybold">I. Wartości niematerialne i prawne</p>
+               <p class="mymarg">1. Koszty zakończonych prac rozwojowych</p>
+               <p class="mymarg">2. Wartość firmy</p>
+               <p class="mymarg">3. Inne wartości niematerialne i prawne</p>
+               <p class="mymarg">4. Zaliczki na wartości niematerialne i prawne</p>
+               <p class="mybold">II. Rzeczowe aktywa trwałe</p>
+               <p class="mymarg">1. Środki trwałe</p>
+               <p class="mymarg2">a) grunty (w tym prawo użytkowania wieczystego gruntu)</p>
+               <p class="mymarg2">b) budynki, lokale, prawa do lokali i obiekty inżynierii lądowej i wodnej</p>
+               <p class="mymarg2">c) urządzenia techniczne i maszyny</p>
+               <p class="mymarg2">d) środki transportu</p>
+               <p class="mymarg2">e) inne środki trwałe</p>
+               <p class="mymarg">2. Środki trwałe w budowie</p>
+               <p class="mymarg">3. Zaliczki na środki trwałe w budowie</p>
+               <p class="mybold">III. Należności długoterminowe</p>
+               <p class="mymarg">1. Od jednostek powiązanych</p>
+               <p class="mymarg">2. Od pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale</p>
+               <p class="mymarg">3. Od pozostałych jednostek</p>
+               <p class="mybold">IV. Inwestycje długoterminowe</p>
+               <p class="mymarg">1. Nieruchomości</p>
+               <p class="mymarg">2. Wartości niematerialne i prawne</p>
+               <p class="mymarg">3. Długoterminowe aktywa finansowe</p>
+               <p class="mymarg2">a) w jednostkach powiązanych</p>
+               <p class="mymarg3">- udziały lub akcje</p>
+               <p class="mymarg3">- inne papiery wartościowe</p>
+               <p class="mymarg3">- udzielone pożyczki</p>
+               <p class="mymarg3">- inne długoterminowe aktywa finansowe</p>
+               <p class="mymarg2">b) w pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale</p>
+               <p class="mymarg3">- udziały lub akcje</p>
+               <p class="mymarg3">- inne papiery wartościowe</p>
+               <p class="mymarg3">- udzielone pożyczki</p>
+               <p class="mymarg3">- inne długoterminowe aktywa finansowe</p>
+               <p class="mymarg2">c) w pozostałych jednostek</p>
+               <p class="mymarg3">- udziały lub akcje</p>
+               <p class="mymarg3">- inne papiery wartościowe</p>
+               <p class="mymarg3">- udzielone pożyczki</p>
+               <p class="mymarg3">- inne długoterminowe aktywa finansowe</p>
+               <p class="mymarg">4. Inne inwestycje długoterminowe</p>
+               <p class="mybold"> V. Długoterminowe rozliczenia międzyokresowe</p>
+               <p class="mymarg">1. Aktywa z tytułu odroczonego podatku dochodowego</p>
+               <p class="mymarg">2. Inne rozliczenia międzyokresowe</p><br><br>
+               <p class="mybold">B. Aktywa obrotowe</p><br>
+               <p class="mybold">I. Zapasy</p>
+               <p class="mymarg">1. Materiały</p>
+               <p class="mymarg">2. Półprodukty i produkty w toku</p>
+               <p class="mymarg">3. Produkty gotowe</p>
+               <p class="mymarg">4. Towary</p>
+               <p class="mymarg">5. Zaliczki na dostawy i usługi</p>
+               <p class="mybold">II. Należności krótkoterminowe</p>
+               <p class="mymarg">1. Należności od jednostek powiązanych</p>
+               <p class="mymarg2">a) z tyt. dostaw i usług, o okresie spłaty</p>
+               <p class="mymarg3">- do 12 miesięcy</p>
+               <p class="mymarg3">- powyżej 12 miesięcy</p>
+               <p class="mymarg2">b) inne<p>
+               <p class="mymarg">2. Należności od pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale</p>
+               <p class="mymarg2">a) z tyt. dostaw i usług, o okresie spłaty</p>
+               <p class="mymarg3">- do 12 miesięcy</p>
+               <p class="mymarg3">- powyżej 12 miesięcy</p>
+               <p class="mymarg2">b) inne</p>
+               <p class="mymarg">3. Należności od pozostałych jednostek</p>
+               <p class="mymarg2">a) z tyt. dostaw i usług, o okresie spłaty</p>
+               <p class="mymarg3">- do 12 miesięcy</p>
+               <p class="mymarg3">- powyżej 12 miesięcy</p>
+               <p class="mymarg2">b) z tyt. podatków, dotacji, ceł, ubezpieczeń społecznych i zdrowotnych oraz innych tyt. publicznoprawnych</p>
+               <p class="mymarg2">c) inne</p>
+               <p class="mymarg2">d) dochodzone na drodze sądowej</p>
+               <p class="mybold">III. Inwestycje krótkoterminowe</p>
+               <p class="mymarg">1. Krótkoterminowe aktywa finansowe</p>
+               <p class="mymarg2">a) w jednostkach powiązanych</p>
+               <p class="mymarg3">- udziały lub akcje</p>
+               <p class="mymarg3">- inne papiery wartościowe</p>
+               <p class="mymarg3">- udzielone pożyczki</p>
+               <p class="mymarg3">- inne krótkoterminowe aktywa finansowe</p>
+               <p class="mymarg2">b) w pozostałych jednostek</p>
+               <p class="mymarg3">- udziały lub akcje</p>
+               <p class="mymarg3">- inne papiery wartościowe</p>
+               <p class="mymarg3">- udzielone pożyczki</p>
+               <p class="mymarg3">- inne krótkoterminowe aktywa finansowe</p>
+               <p class="mymarg2">c) środki pieniężne i inne aktywa pieniężne</p>
+               <p class="mymarg3">- środki pieniężne w kasie i na rachunkach</p>
+               <p class="mymarg3">- inne środki pieniężne</p>
+               <p class="mymarg3">- inne aktywa pieniężne</p>
+               <p class="mymarg">2. Inne inwestycje krótkoterminowe</p>
+               <p class="mybold">IV. Krótkoterminowe rozliczenia międzyokresowe</p><br><br>
+               <p>A. Kapitał (fundusz) własny</p><br>
+               <p class="mybold">I. Kapitał (fundusz) podstawowy</p>
+               <p class="mybold">II. Kapitał (fundusz) zapasowy, w tym:</p>
+               <p class="mymarg">- nadwyżka wartości sprzedaży (wartości emisyjnej) nad wartością nominalną udziałów (akcji)<p>
+               <p class="mybold">III. Kapitał (fundusz) z aktualizacji wyceny, w tym:</p>
+               <p class="mymarg">- z tyt. aktualizacji wartości godziwej</p>
+               <p class="mybold">IV. Pozostałe kapitały (fundusze) rezerwowe, w tym:</p>
+               <p class="mymarg">- tworzone zgodnie z umową (statutem) spółki</p>
+               <p class="mymarg">- na udziały (akcje) własne</p>
+               <p class="mybold">V. Zysk (strata) z lat ubiegłych</p>
+               <p class="mybold">VI. Zysk (strata) netto</p>
+               VII. Odpisy z zysku netto w ciągu roku obrachunkowego (wartość ujemna)
+               <p class="mybold">B. Zobowiązania i rezerwy na zobowiązania</p><br>
+               <p class="mybold">I. Rezerwy na zobowiązania</p>
+               <p class="mymarg">1. Rezerwa z tyt. odroczonego podatku dochodowego</p>
+               <p class="mymarg">2. Rezerwa na świadczenia emerytalne i podobne</p>
+               <p class="mymarg2">- długoterminowa</p>
+               <p class="mymarg2">- krótkoterminowa</p>
+               <p class="mymarg">3. Pozostałe rezerwy</p>
+                <p class="mymarg2">- długoterminowe</p>
+               <p class="mymarg2">- krótkoterminowe</p>
+               <p class="mybold">II. Zobowiązania długoterminowe</p>
+               <p class="mymarg">1. Wobec jednostek powiązanych</p>
+               <p class="mymarg">2. Wobec pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale</p>
+               <p class="mymarg">3. Wobec pozostałych jednostek</p>
+               <p class="mymarg2">a) kredyty i pożyczki</p>
+               <p class="mymarg2">b) z tytułu emisji dłużnych papierów wartościowych</p>
+               <p class="mymarg2">c) inne zobowiązania finansowe</p>
+               <p class="mymarg2">d) zobowiązania wekslowe</p>
+               <p class="mymarg2">e) inne</p>
+               <p class="mybold">III. Zobowiązania krótkoterminowe</p>
+               <p class="mymarg">1. Zobowiązania wobec jednostek powiązanych</p>
+               <p class="mymarg2">a) z tytułu dostaw i usług, o okresie wymagalności:</p>
+               <p class="mymarg">– do 12 miesięcy</p>
+               <p class="mymarg">– powyżej 12 miesięcy</p>
+               <p class="mymarg2">b) inne</p>
+               <p class="mymarg">2. Zobowiązania wobec pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale</p>
+               <p class="mymarg2">a) z tytułu dostaw i usług, o okresie wymagalności:</p>
+               <p class="mymarg">– do 12 miesięcy</p>
+               <p class="mymarg">– powyżej 12 miesięcy</p>
+               <p class="mymarg2">b) inne</p>
+               <p class="mymarg">3. Zobowiązania wobec pozostałych jednostek</p>
+               <p class="mymarg2">a) kredyty i pożyczki</p>
+               <p class="mymarg2">b) z tytułu emisji dłużnych papierów wartościowych</p>
+               <p class="mymarg2">c) inne zobowiązania finansowe</p>
+               <p class="mymarg2">d) z tytułu dostaw i usług, o okresie wymagalności:</p>
+               <p class="mymarg">– do 12 miesięcy</p>
+               <p class="mymarg">– powyżej 12 miesięcy</p>
+               <p class="mymarg2">e) zaliczki otrzymane na dostawy i usługi</p>
+               <p class="mymarg2">f) zobowiązania wekslowe</p>
+               <p class="mymarg2">g) z tytułu podatków, ceł, ubezpieczeń społecznych i zdrowotnych oraz innych tytułów publicznoprawnych</p>
+               <p class="mymarg2">h) z tytułu wynagrodzeń</p>>
+               <p class="mymarg2">i) inne</p>
+               <p class="mymarg">4. Fundusze specjalne</p>
+               <p class="mybold">IV. Rozliczenia międzyokresowe</p>
+               <p class="mymarg">1. Ujemna wartość firmy</p>
+               <p class="mymarg">2. Inne rozliczenia międzyokresowe</p>
+               <p class="mymarg2">– długoterminowe</p>
+               <p class="mymarg2">– krótkoterminowe</p>
 
-            </div>
-            <div class="col-3">
-                <p>{{ assets_fixed }}</p><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br><br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-            </div>
-            <div class="col-3">
-                <p>{{ assets_fixed }}</p><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br><br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-            </div>
-       </div>
-   <h3>Rachunek przepływów pieniężnych:</h3>
-        metosa
 
-       <div class="row">
-            <div class="col-3">
 
-            </div>
-            <div class="col-3">
-                Kwota na dzień kończący bieżący rok obrachunkowy
-            </div>
+           </div>
            <div class="col-3">
-                Kwota na dzień kończący poprzedni rok obrachunkowy
-            </div>
-       </div>
-       <div class="row">
-            <div class="col-3">
-                <p>A. Przepływy środków pieniężnych z działalności operacyjnej</p>
-                <p class="mymarg">I. Zysk (strata) netto<p>
-                <p class="mymarg">II. Korekty razem<p>
-                <p class="mymarg2">1. Amortyzacja<p>
-                <p class="mymarg2">2. Zyski (straty) z tytułu różnic kursowych<p>
-                <p class="mymarg2">3. Odsetki i udziały w zyskach (dywidendy)<p>
-                <p class="mymarg2">4. Zysk (strata) z działalności inwestycyjnej<p>
-                <p class="mymarg2">5. Zmiana stanu rezerw<p>
-                <p class="mymarg2">6. Zmiana stanu zapasów<p>
-                <p class="mymarg2">7. Zmiana stanu należności<p>
-                <p class="mymarg2">8. Zmiana stanu zobowiązań krótkoterminowych, z wyjątkiem pożyczek i kredytów<p>
-                <p class="mymarg2">9. Zmiana stanu rozliczeń międzyokresowych<p>
-                <p class="mymarg2">10. Inne korekty<p>
-                <p class="mymarg">III. Przepływy pieniężne netto z działalności operacyjnej (I±II)<p>
-                <p>B. Przepływy środków pieniężnych z działalności inwestycyjnej</p>
-                <p class="mymarg">I. Wpływy<p>
-                <p class="mymarg2">1. Zbycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych<p>
-                <p class="mymarg2">2. Zbycie inwestycji w nieruchomości oraz wartości niematerialne i prawne<p>
-                <p class="mymarg2">3. Z aktywów finansowych, w tym:<p>
-                <p class="mymarg3">a) w jednostkach powiązanych<p>
-                <p class="mymarg3">b) w pozostałych jednostkach<p>
-                <p class="mymarg4">– zbycie aktywów finansowych<p>
-                <p class="mymarg4">– dywidendy i udziały w zyskach<p>
-                <p class="mymarg4">– spłata udzielonych pożyczek długoterminowych<p>
-                <p class="mymarg4">– odsetki<p>
-                <p class="mymarg4">– inne wpływy z aktywów finansowych<p>
-                <p class="mymarg2">4. Inne wpływy inwestycyjne<p>
-                <p class="mymarg">II. Wydatki<p>
-                <p class="mymarg2">1. Nabycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych<p>
-                <p class="mymarg2">2. Inwestycje w nieruchomości oraz wartości niematerialne i prawne<p>
-                <p class="mymarg2">3. Na aktywa finansowe, w tym:<p>
-                <p class="mymarg3">a) w jednostkach powiązanych<p>
-                <p class="mymarg3">b) w pozostałych jednostkach<p>
-                <p class="mymarg4">– nabycie aktywów finansowych<p>
-                <p class="mymarg4">– udzielone pożyczki długoterminowe<p>
-                <p class="mymarg2">4. Inne wydatki inwestycyjne<p>
-                <p class="mymarg">III. Przepływy pieniężne netto z działalności inwestycyjnej (I–II)
-                <p>C. Przepływy środków pieniężnych z działalności finansowej</p>
-                <p class="mymarg">I. Wpływy<p>
-                <p class="mymarg2">1. Wpływy netto z wydania udziałów (emisji akcji) i innych instrumentów kapitałowych oraz dopłat do kapitału<p>
-                <p class="mymarg2">2. Kredyty i pożyczki<p>
-                <p class="mymarg2">3. Emisja dłużnych papierów wartościowych<p>
-                <p class="mymarg2">4. Inne wpływy finansowe<p>
-                <p class="mymarg">II. Wydatki<p>
-                <p class="mymarg2">1. Nabycie udziałów (akcji) własnych<p>
-                <p class="mymarg2">2. Dywidendy i inne wypłaty na rzecz właścicieli<p>
-                <p class="mymarg2">3. Inne, niż wypłaty na rzecz właścicieli, wydatki z tytułu podziału zysku<p>
-                <p class="mymarg2">4. Spłaty kredytów i pożyczek<p>
-                <p class="mymarg2">5. Wykup dłużnych papierów wartościowych<p>
-                <p class="mymarg2">6. Z tytułu innych zobowiązań finansowych<p>
-                <p class="mymarg2">7. Płatności zobowiązań z tytułu umów leasingu finansowego<p>
-                <p class="mymarg2">8. Odsetki<p>
-                <p class="mymarg2">9. Inne wydatki finansowe<p>
-                <p class="mymarg">III. Przepływy pieniężne netto z działalności finansowej (I–II)<p>
-                <p>D. Przepływy pieniężne netto razem (A.III±B.III±C.III)</p>
-                <p>E. Bilansowa zmiana stanu środków pieniężnych, w tym:</p>
-                <p class="mymarg">– zmiana stanu środków pieniężnych z tytułu różnic kursowych<p>
-                <p>F. Środki pieniężne na początek okresu</p>
-                <p>G. Środki pieniężne na koniec okresu (F±D), w tym:</p>
-                <p class="mymarg">– o ograniczonej możliwości dysponowania<p>
+               <p class="mybold">{{ assets_fixed }}</p><br>
+               <p class="mybold">{{ assets_fixed_intangible }}</p><br>
+               {{ research_and_development }}<br><br>
+               {{ goodwill }}<br><br>
+               {{ assets_fixed_intangible_other }}<br><br>
+               {{ advances_for_assets_fixed_intangible }}<br><br><br>
+               <p class="mybold">{{ tangible_fixed_assets }}</p>
+               {{ assets_fixed_assets_fixed }}<br><br>
+               {{ freehold_land }}<br><br><br><br>
+               {{ buildings_and_constructions }}<br><br><br><br>
+               {{ plant_and_equipment }}<br><br><br>
+               {{ vehicles }}<br><br>
+               {{ assets_fixed_assets_fixed_other }}<br><br>
+               {{ assets_under_construction }}<br><br>
+               {{ advances_for_assets_under_construction }}<br>
+               <p></p>
+               <p class="mybold">{{ receivables_long_term }}</p><br>
+               {{ receivables_long_term_related }}<br><br><br>
+               {{ receivables_long_term_shares }}<br><br><br><br>
+               {{ receivables_long_term_other }}<br><br><br>
+               <p class="mybold">{{ investments_long_term }}</p>
+               {{ real_estate }}<br><br>
+               {{ investments_assets_fixed_intangible }}<br><br>
+               {{ assets_financial_long_term }}<br><br><br>
+               {{ assets_financial_long_term_related }}<br><br><br>
+               {{ assets_financial_long_term_related_shares_or_stocks }}<br><br><br>
+               {{ assets_financial_long_term_related_other_securities }}<br><br><br>
+               {{ assets_financial_long_term_related_loans_granted }}<br><br>
+               {{ assets_financial_long_term_related_other }}<br><br><br><br>
+               {{ assets_financial_long_term_shares }}<br><br><br><br><br>
+               {{ assets_financial_long_term_shares_shares_or_stocks }}<br><br><br>
+               {{ assets_financial_long_term_shares_other_securities }}<br><br><br>
+               {{ assets_financial_long_term_shares_loans_granted }}<br><br><br>
+               {{ assets_financial_long_term_shares_other }}<br><br><br>
+               {{ assets_financial_long_term_other }}<br><br><br>
+               {{ assets_financial_long_term_other_shares_or_stocks }}<br><br>
+               {{ assets_financial_long_term_other_other_securities }}<br><br><br>
+               {{ assets_financial_long_term_other_loans_granted }}<br><br><br>
+               {{ assets_financial_long_term_other_other }}<br><br><br>
+               {{ assets_financial_long_term_other_assets_financial_other }}<br><br>
+               <p class="mybold">{{ prepayments_long_term }}</p><br><br>
+               {{ deferred_tax_assets }}<br><br><br>
+               {{ prepayments_other }}<br><br><br><br>
+               <p class="mybold">{{ assets_current }}</p><br>
+               <p class="mybold">{{ stock }}</p>
+               {{ raw_materials }}<br><br>
+               {{ semi_finished_products }}<br><br>
+               {{ finished_products }}<br>
+               {{ goods_for_resale }}<br><br>
+               {{ advances_for_deliveries }}<br><br>
+               <p class="mybold">{{ receivables_short_term }}</p>
+           </div>
+           <div class="col-3">
+               <p class="mybold">{{ assets_fixed_before }}</p><br>
+               <p class="mybold">{{ assets_fixed_intangible_before }}</p><br>
+               {{ research_and_development_before }}<br><br>
+               {{ goodwill_before }}<br><br>
+               {{ assets_fixed_intangible_other_before }}<br><br>
+               {{ advances_for_assets_fixed_intangible_before }}<br><br><br>
+               <p class="mybold">{{ tangible_fixed_assets_before }}</p>
+               {{ assets_fixed_assets_fixed_before }}<br><br>
+               {{ freehold_land_before }}<br><br><br><br>
+               {{ buildings_and_constructions_before }}<br><br><br><br>
+               {{ plant_and_equipment_before }}<br><br><br>
+               {{ vehicles_before }}<br><br>
+               {{ assets_fixed_assets_fixed_other_before }}<br><br>
+               {{ assets_under_construction_before }}<br><br>
+               {{ advances_for_assets_under_construction_before }}<br>
+               <p></p>
+               <p class="mybold">{{ receivables_long_term_before }}</p><br>
+               {{ receivables_long_term_related_before }}<br><br><br>
+               {{ receivables_long_term_shares_before }}<br><br><br><br>
+               {{ receivables_long_term_other_before }}<br><br><br>
+               <p class="mybold">{{ investments_long_term_before }}</p>
+               {{ real_estate_before }}<br><br>
+               {{ investments_assets_fixed_intangible_before }}<br><br>
+               {{ assets_financial_long_term_before }}<br><br><br>
+               {{ assets_financial_long_term_related_before }}<br><br><br>
+               {{ assets_financial_long_term_related_shares_or_stocks_before }}<br><br><br>
+               {{ assets_financial_long_term_related_other_securities_before }}<br><br><br>
+               {{ assets_financial_long_term_related_loans_granted_before }}<br><br>
+               {{ assets_financial_long_term_related_other_before }}<br><br><br><br>
+               {{ assets_financial_long_term_shares_before }}<br><br><br><br><br>
+               {{ assets_financial_long_term_shares_shares_or_stocks_before }}<br><br><br>
+               {{ assets_financial_long_term_shares_other_securities_before }}<br><br><br>
+               {{ assets_financial_long_term_shares_loans_granted_before }}<br><br><br>
+               {{ assets_financial_long_term_shares_other_before }}<br><br><br>
+               {{ assets_financial_long_term_other_before }}<br><br><br>
+               {{ assets_financial_long_term_other_shares_or_stocks_before }}<br><br>
+               {{ assets_financial_long_term_other_other_securities_before }}<br><br><br>
+               {{ assets_financial_long_term_other_loans_granted_before }}<br><br><br>
+               {{ assets_financial_long_term_other_other_before }}<br><br><br>
+               {{ assets_financial_long_term_other_assets_financial_other_before }}<br><br>
+               <p class="mybold">{{ prepayments_long_term_before }}</p><br><br>
+               {{ deferred_tax_assets_before }}<br><br><br>
+               {{ prepayments_other_before }}<br><br><br><br>
+               <p class="mybold">{{ assets_current_before }}</p><br>
+               <p class="mybold">{{ stock_before }}</p>
+               {{ raw_materials_before }}<br><br>
+               {{ semi_finished_products_before }}<br><br>
+               {{ finished_products_before }}<br>
+               {{ goods_for_resale_before }}<br><br>
+               {{ advances_for_deliveries_before }}<br><br>
+               <p class="mybold">{{ receivables_short_term_before }}</p>
 
-            </div>
-            <div class="col-3">
-                <p>{{ assets_fixed }}</p><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br><br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-            </div>
-            <div class="col-3">
-                <p>{{ assets_fixed }}</p><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br><br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-            </div>
+           </div>
        </div>
+  <h3>Rachunek zysków i strat:</h3>
+  <h5>Rachunek zysków i strat (wariant kalkulacyjny):</h5>
+      <div class="row">
+           <div class="col-3">
 
-       <br>
-       <br>
+           </div>
+           <div class="col-3">
+               Kwota na dzień kończący bieżący rok obrachunkowy
+           </div>
+          <div class="col-3">
+               Kwota na dzień kończący poprzedni rok obrachunkowy
+           </div>
+      </div>
+      <div class="row">
+           <div class="col-3">
+               <p>A. Przychody netto ze sprzedaży produktów, towarów i materiałów, w tym:</p>
+               <p class="mymarg">– od jednostek powiązanych<p>
+               <p class="mymarg">I. Przychody netto ze sprzedaży produktów<p>
+               <p class="mymarg">II. Przychody netto ze sprzedaży towarów i materiałów<p>
+               <p>B. Koszty sprzedanych produktów, towarów i materiałów, w tym:</p>
+               <p class="mymarg">– jednostkom powiązanym<p>
+               <p class="mymarg">I. Koszt wytworzenia sprzedanych produktów<p>
+               <p class="mymarg">II. Wartość sprzedanych towarów i materiałów<p>
+               <p>C. Zysk (strata) brutto ze sprzedaży (A–B)</p>
+               <p>D. Koszty sprzedaży</p>
+               <p>E. Koszty ogólnego zarządu</p>
+               <p>F. Zysk (strata) ze sprzedaży (C–D–E)</p>
+               <p>G. Pozostałe przychody operacyjne</p>
+               <p class="mymarg">I. Zysk z tytułu rozchodu niefinansowych aktywów trwałych<p>
+               <p class="mymarg">II. Dotacje<p>
+               <p class="mymarg">III. Aktualizacja wartości aktywów niefinansowych<p>
+               <p class="mymarg">IV. Inne przychody operacyjne<p>
+               <p>H. Pozostałe koszty operacyjne</p>
+               <p class="mymarg">I. I. Strata z tytułu rozchodu niefinansowych aktywów trwałych<p>
+               <p class="mymarg">II. Aktualizacja wartości aktywów niefinansowych<p>
+               <p class="mymarg">III. Inne koszty operacyjne<p>
+               <p>I. Zysk (strata) z działalności operacyjnej (F+G–H)</p>
+               <p>J. Przychody finansowe</p>
+               <p class="mymarg">I. Dywidendy i udziały w zyskach, w tym:<p>
+               <p class="mymarg2">a) od jednostek powiązanych, w tym:<p>
+               <p class="mymarg3">– w których jednostka posiada zaangażowanie w kapitale<p>
+               <p class="mymarg2">b) od jednostek pozostałych, w tym:<p>
+               <p class="mymarg3">– w których jednostka posiada zaangażowanie w kapitale<p>
+               <p class="mymarg">II. Odsetki, w tym:<p>
+               <p class="mymarg2">– od jednostek powiązanych<p>
+               <p class="mymarg">III. Zysk z tytułu rozchodu aktywów finansowych, w tym:<p>
+               <p class="mymarg2">– w jednostkach powiązanych<p>
+               <p class="mymarg">IV. Aktualizacja wartości aktywów finansowych
+               <p class="mymarg">V. Inne<p>
+               <p>K. Koszty finansowe</p>
+               <p class="mymarg">I. Odsetki, w tym:<p>
+               <p class="mymarg2">- od jednostek powiązanych, w tym:<p>
+               <p class="mymarg">II. Strata z tytułu rozchodu aktywów finansowych, w tym:<p>
+               <p class="mymarg2">– od jednostek powiązanych<p>
+               <p class="mymarg">III. Aktualizacja wartości aktywów finansowych<p>
+               <p class="mymarg">IV. Inne<p>
+               <p>L. Zysk (strata) brutto (I+J–K)</p>
+               <p>M. Podatek dochodowy</p>
+               <p>N. Pozostałe obowiązkowe zmniejszenia zysku (zwiększenia straty)</p>
+               <p>O. Zysk (strata) netto (L–M–N)</p>
+           </div>
+           <div class="col-3">
+               <p>{{ assets_fixed }}</p><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br><br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+           </div>
+           <div class="col-3">
+               <p>{{ assets_fixed }}</p><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br><br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+           </div>
+      </div>
+
+  <h3>Zestawienie zmian w kapitale (funduszu) własnym:</h3>
+
+      <div class="row">
+           <div class="col-3">
+
+           </div>
+           <div class="col-3">
+               Kwota na dzień kończący bieżący rok obrachunkowy
+           </div>
+          <div class="col-3">
+               Kwota na dzień kończący poprzedni rok obrachunkowy
+           </div>
+      </div>
+      <div class="row">
+           <div class="col-3">
+               <p>I. Kapitał (fundusz) własny na początek okresu (BO)</p>
+               <p class="mymarg">– zmiany przyjętych zasad (polityki) rachunkowości<p>
+               <p class="mymarg">– korekty błędów<p>
+               <p>Ia. Kapitał (fundusz) własny na początek okresu (BO), po korektach<p>
+               <p class="mymarg">1. Kapitał (fundusz) podstawowy na początek okresu<p>
+               <p class="mymarg2">1. Zmiany kapitału (funduszu) podstawowego<p>
+               <p class="mymarg3">a) zwiększenie (z tytułu)<p>
+               <p class="mymarg4">– wydania udziałów (emisji akcji)<p>
+               <p class="mymarg3">b) zmniejszenie (z tytułu)<p>
+               <p class="mymarg4">– umorzenia udziałów (akcji)<p>
+               <p class="mymarg2">2. Kapitał (fundusz) podstawowy na koniec okresu<p>
+               <p class="mymarg">2. Kapitał (fundusz) zapasowy na początek okresu<p>
+               <p class="mymarg2">1. Zmiany kapitału (funduszu) zapasowego<p>
+               <p class="mymarg3">a) zwiększenie (z tytułu)<p>
+               <p class="mymarg4">– emisji akcji powyżej wartości nominalnej<p>
+               <p class="mymarg4">– podziału zysku (ustawowo)<p>
+               <p class="mymarg4">– podziału zysku (ponad wymaganą ustawowo minimalną wartość)<p>
+               <p class="mymarg3">b) zmniejszenie (z tytułu)<p>
+               <p class="mymarg4">– pokrycia straty<p>
+               <p class="mymarg4">– dywidendy<p>
+               <p class="mymarg2">2. Stan kapitału (funduszu) zapasowego na koniec okresu<p>
+               <p class="mymarg">3. Kapitał (fundusz) z aktualizacji wyceny na początek okresu – zmiany przyjętych zasad (polityki) rachunkowości<p>
+               <p class="mymarg2">1. Zmiany kapitału (funduszu) z aktualizacji wyceny<p>
+               <p class="mymarg3">b) zmniejszenie (z tytułu)<p>
+               <p class="mymarg4">– zbycia środków trwałych<p>
+               <p class="mymarg2">2. Kapitał (fundusz) z aktualizacji wyceny na koniec okresu<p>
+               <p class="mymarg">4. Pozostałe kapitały (fundusze) rezerwowe na początek okresu<p>
+               <p class="mymarg2">2. Pozostałe kapitały (fundusze) rezerwowe na koniec okresu<p>
+               <p class="mymarg">5. Zysk (strata) z lat ubiegłych na początek okresu<p>
+               <p class="mymarg2">1. Zysk z lat ubiegłych na początek okresu<p>
+               <p class="mymarg3">– zmiany przyjętych zasad (polityki) rachunkowości<p>
+               <p class="mymarg3">– korekty błędów<p>
+               <p class="mymarg2">2. Zysk z lat ubiegłych na początek okresu, po korektach<p>
+               <p class="mymarg3">a) zwiększenie (z tytułu)<p>
+               <p class="mymarg4">– podziału zysku z lat ubiegłych<p>
+               <p class="mymarg3">b) zmniejszenie (z tytułu)<p>
+               <p class="mymarg4">– zwiększenia kapitału zapasowego<p>
+               <p class="mymarg2">3. Zysk z lat ubiegłych na koniec okresu<p>
+               <p class="mymarg2">4. Strata z lat ubiegłych na początek okresu<p>
+               <p class="mymarg3">– zmiany przyjętych zasad (polityki) rachunkowości<p>
+               <p class="mymarg3">– korekty błędów<p>
+               <p class="mymarg2">5. Strata z lat ubiegłych na początek okresu, po korektach<p>
+               <p class="mymarg3">a) zwiększenie (z tytułu)<p>
+               <p class="mymarg4">– przeniesienia straty z lat ubiegłych do pokrycia<p>
+               <p class="mymarg2">6. Strata z lat ubiegłych na koniec okresu<p>
+               <p class="mymarg2">7. Zysk (strata) z lat ubiegłych na koniec okresu<p>
+               <p class="mymarg">6. Wynik netto<p>
+               <p class="mymarg2">a) zysk netto<p>
+               <p class="mymarg2">b) strata netto<p>
+               <p class="mymarg2">c) odpisy z zysku<p>
+               <p>II. Kapitał (fundusz) własny na koniec okresu (BZ)</p>
+               <p>III. Kapitał (fundusz) własny, po uwzględnieniu proponowanego podziału zysku (pokrycia straty)</p>
+
+           </div>
+           <div class="col-3">
+               <p>{{ assets_fixed }}</p><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br><br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+           </div>
+           <div class="col-3">
+               <p>{{ assets_fixed }}</p><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br><br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+           </div>
+      </div>
+  <h3>Rachunek przepływów pieniężnych:</h3>
+       metosa
+
+      <div class="row">
+           <div class="col-3">
+
+           </div>
+           <div class="col-3">
+               Kwota na dzień kończący bieżący rok obrachunkowy
+           </div>
+          <div class="col-3">
+               Kwota na dzień kończący poprzedni rok obrachunkowy
+           </div>
+      </div>
+      <div class="row">
+           <div class="col-3">
+               <p>A. Przepływy środków pieniężnych z działalności operacyjnej</p>
+               <p class="mymarg">I. Zysk (strata) netto<p>
+               <p class="mymarg">II. Korekty razem<p>
+               <p class="mymarg2">1. Amortyzacja<p>
+               <p class="mymarg2">2. Zyski (straty) z tytułu różnic kursowych<p>
+               <p class="mymarg2">3. Odsetki i udziały w zyskach (dywidendy)<p>
+               <p class="mymarg2">4. Zysk (strata) z działalności inwestycyjnej<p>
+               <p class="mymarg2">5. Zmiana stanu rezerw<p>
+               <p class="mymarg2">6. Zmiana stanu zapasów<p>
+               <p class="mymarg2">7. Zmiana stanu należności<p>
+               <p class="mymarg2">8. Zmiana stanu zobowiązań krótkoterminowych, z wyjątkiem pożyczek i kredytów<p>
+               <p class="mymarg2">9. Zmiana stanu rozliczeń międzyokresowych<p>
+               <p class="mymarg2">10. Inne korekty<p>
+               <p class="mymarg">III. Przepływy pieniężne netto z działalności operacyjnej (I±II)<p>
+               <p>B. Przepływy środków pieniężnych z działalności inwestycyjnej</p>
+               <p class="mymarg">I. Wpływy<p>
+               <p class="mymarg2">1. Zbycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych<p>
+               <p class="mymarg2">2. Zbycie inwestycji w nieruchomości oraz wartości niematerialne i prawne<p>
+               <p class="mymarg2">3. Z aktywów finansowych, w tym:<p>
+               <p class="mymarg3">a) w jednostkach powiązanych<p>
+               <p class="mymarg3">b) w pozostałych jednostkach<p>
+               <p class="mymarg4">– zbycie aktywów finansowych<p>
+               <p class="mymarg4">– dywidendy i udziały w zyskach<p>
+               <p class="mymarg4">– spłata udzielonych pożyczek długoterminowych<p>
+               <p class="mymarg4">– odsetki<p>
+               <p class="mymarg4">– inne wpływy z aktywów finansowych<p>
+               <p class="mymarg2">4. Inne wpływy inwestycyjne<p>
+               <p class="mymarg">II. Wydatki<p>
+               <p class="mymarg2">1. Nabycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych<p>
+               <p class="mymarg2">2. Inwestycje w nieruchomości oraz wartości niematerialne i prawne<p>
+               <p class="mymarg2">3. Na aktywa finansowe, w tym:<p>
+               <p class="mymarg3">a) w jednostkach powiązanych<p>
+               <p class="mymarg3">b) w pozostałych jednostkach<p>
+               <p class="mymarg4">– nabycie aktywów finansowych<p>
+               <p class="mymarg4">– udzielone pożyczki długoterminowe<p>
+               <p class="mymarg2">4. Inne wydatki inwestycyjne<p>
+               <p class="mymarg">III. Przepływy pieniężne netto z działalności inwestycyjnej (I–II)
+               <p>C. Przepływy środków pieniężnych z działalności finansowej</p>
+               <p class="mymarg">I. Wpływy<p>
+               <p class="mymarg2">1. Wpływy netto z wydania udziałów (emisji akcji) i innych instrumentów kapitałowych oraz dopłat do kapitału<p>
+               <p class="mymarg2">2. Kredyty i pożyczki<p>
+               <p class="mymarg2">3. Emisja dłużnych papierów wartościowych<p>
+               <p class="mymarg2">4. Inne wpływy finansowe<p>
+               <p class="mymarg">II. Wydatki<p>
+               <p class="mymarg2">1. Nabycie udziałów (akcji) własnych<p>
+               <p class="mymarg2">2. Dywidendy i inne wypłaty na rzecz właścicieli<p>
+               <p class="mymarg2">3. Inne, niż wypłaty na rzecz właścicieli, wydatki z tytułu podziału zysku<p>
+               <p class="mymarg2">4. Spłaty kredytów i pożyczek<p>
+               <p class="mymarg2">5. Wykup dłużnych papierów wartościowych<p>
+               <p class="mymarg2">6. Z tytułu innych zobowiązań finansowych<p>
+               <p class="mymarg2">7. Płatności zobowiązań z tytułu umów leasingu finansowego<p>
+               <p class="mymarg2">8. Odsetki<p>
+               <p class="mymarg2">9. Inne wydatki finansowe<p>
+               <p class="mymarg">III. Przepływy pieniężne netto z działalności finansowej (I–II)<p>
+               <p>D. Przepływy pieniężne netto razem (A.III±B.III±C.III)</p>
+               <p>E. Bilansowa zmiana stanu środków pieniężnych, w tym:</p>
+               <p class="mymarg">– zmiana stanu środków pieniężnych z tytułu różnic kursowych<p>
+               <p>F. Środki pieniężne na początek okresu</p>
+               <p>G. Środki pieniężne na koniec okresu (F±D), w tym:</p>
+               <p class="mymarg">– o ograniczonej możliwości dysponowania<p>
+
+           </div>
+           <div class="col-3">
+               <p>{{ assets_fixed }}</p><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br><br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+           </div>
+           <div class="col-3">
+               <p>{{ assets_fixed }}</p><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ receivables_short_term }}<br><br><br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+               {{ assets_current }}<br><br>
+           </div>
+      </div>
+
+      <br>
+      <br>
 {% endblock %}
 
