@@ -76,21 +76,35 @@ def convert_to_float(root, value):
    element = root.find(value)
    if element:
        element_value = element.find('.//{*}KwotaA').text
-       element_value = round(float(element_value)/1000, 2)
+       # element_value = round(float(element_value)/1000, 2)
+       element_value = round(float(element_value), 2)
    else:
        element_value = 0.00
    return element_value
+
+def convert_to_float_value_before(root, value):
+  element = root.find(value)
+  if element:
+      element_value = element.find('.//{*}KwotaB').text
+      element_value = round(float(element_value), 2)
+  else:
+      element_value = 0.00
+  return element_value
+
+
 
 
 def give_depreciation(root, value_first, value_second):
    depreciation = root.find(value_first)
    if depreciation:
        depreciation = depreciation.find('.//{*}KwotaA').text
-       depreciation = round(float(depreciation) / 1000, 2)
+       # depreciation = round(float(depreciation) / 1000, 2)
+       depreciation = round(float(depreciation), 2)
    else:
        depreciation = root.find(value_second)
        depreciation = depreciation.find('.//{*}KwotaA').text
-       depreciation = round(float(depreciation) / 1000, 2)
+       # depreciation = round(float(depreciation) / 1000, 2)
+       depreciation = round(float(depreciation), 2)
    return depreciation
 
 
@@ -559,21 +573,160 @@ class FileDetail(View):
            report_continuing_denger = root.find('.//{*}P_5B')
            report_continuing_denger = report_continuing_denger.text
 
-           assets_fixed = './/{*}Aktywa_A'
-           # assets_fixed
-           assets_fixed = convert_to_float(root, assets_fixed)
-           assets_fixed_before = './/{*}Aktywa_B'
-           assets_fixed_before = convert_to_float(root, assets_fixed_before)
+           assets_fixed = convert_to_float(root, './/{*}Aktywa_A')
+           assets_fixed_before = convert_to_float_value_before(root, './/{*}Aktywa_A')
 
-           assets_current = './/{*}Aktywa_B'
-           assets_current = convert_to_float(root, assets_current)
+           assets_fixed_intangible = convert_to_float(root, './/{*}Aktywa_A_I')
+           assets_fixed_intangible_before = convert_to_float_value_before(root, './/{*}Aktywa_A_I')
 
-           element_assets_current = root.find('.//{*}Aktywa_B')
-           stock = './/{*}Aktywa_B_I'
-           stock = convert_to_float(element_assets_current, stock)
+           research_and_development = convert_to_float(root, './/{*}Aktywa_A_I_1')
+           research_and_development_before = convert_to_float_value_before(root, './/{*}Aktywa_A_I_1')
 
-           receivables_short_term = './/{*}Aktywa_B_II'
-           receivables_short_term = convert_to_float(root, receivables_short_term)
+           goodwill = convert_to_float(root, './/{*}Aktywa_A_I_2')
+           goodwill_before = convert_to_float_value_before(root, './/{*}Aktywa_A_I_2')
+
+           assets_fixed_intangible_other = convert_to_float(root, './/{*}Aktywa_A_I_3')
+           assets_fixed_intangible_other_before = convert_to_float_value_before(root, './/{*}Aktywa_A_I_3')
+
+           advances_for_assets_fixed_intangible = convert_to_float(root, './/{*}Aktywa_A_I_4')
+           advances_for_assets_fixed_intangible_before = convert_to_float_value_before(root, './/{*}Aktywa_A_I_4')
+
+           tangible_fixed_assets = convert_to_float(root, './/{*}Aktywa_A_II')
+           tangible_fixed_assets_before = convert_to_float_value_before(root, './/{*}Aktywa_A_II')
+
+           assets_fixed_assets_fixed = convert_to_float(root, './/{*}Aktywa_A_II_1')
+           assets_fixed_assets_fixed_before = convert_to_float_value_before(root, './/{*}Aktywa_A_II_1')
+
+           freehold_land = convert_to_float(root, './/{*}Aktywa_A_II_1_A')
+           freehold_land_before = convert_to_float_value_before(root, './/{*}Aktywa_A_II_1_A')
+
+           buildings_and_constructions = convert_to_float(root, './/{*}Aktywa_A_II_1_B')
+           buildings_and_constructions_before = convert_to_float_value_before(root, './/{*}Aktywa_A_II_1_B')
+
+           plant_and_equipment = convert_to_float(root, './/{*}Aktywa_A_II_1_C')
+           plant_and_equipment_before = convert_to_float_value_before(root, './/{*}Aktywa_A_II_1_C')
+
+           vehicles = convert_to_float(root, './/{*}Aktywa_A_II_1_D')
+           vehicles_before = convert_to_float_value_before(root, './/{*}Aktywa_A_II_1_D')
+
+           assets_fixed_assets_fixed_other = convert_to_float(root, './/{*}Aktywa_A_II_1_E')
+           assets_fixed_assets_fixed_other_before = convert_to_float_value_before(root, './/{*}Aktywa_A_II_1_E')
+
+           assets_under_construction = convert_to_float(root, './/{*}Aktywa_A_II_2')
+           assets_under_construction_before = convert_to_float_value_before(root, './/{*}Aktywa_A_II_2')
+
+           advances_for_assets_under_construction = convert_to_float(root, './/{*}Aktywa_A_II_3')
+           advances_for_assets_under_construction_before = convert_to_float_value_before(root, './/{*}Aktywa_A_II_3')
+
+           receivables_long_term = convert_to_float(root, './/{*}Aktywa_A_III')
+           receivables_long_term_before = convert_to_float_value_before(root, './/{*}Aktywa_A_III')
+
+           receivables_long_term_related = convert_to_float(root, './/{*}Aktywa_A_III_1')
+           receivables_long_term_related_before = convert_to_float_value_before(root, './/{*}Aktywa_A_III_1')
+
+           receivables_long_term_shares = convert_to_float(root, './/{*}Aktywa_A_III_2')
+           receivables_long_term_shares_before = convert_to_float_value_before(root, './/{*}Aktywa_A_III_2')
+
+           receivables_long_term_other = convert_to_float(root, './/{*}Aktywa_A_III_3')
+           receivables_long_term_other_before = convert_to_float_value_before(root, './/{*}Aktywa_A_III_3')
+
+           investments_long_term = convert_to_float(root, './/{*}Aktywa_A_IV')
+           investments_long_term_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV')
+
+           real_estate = convert_to_float(root, './/{*}Aktywa_A_IV_1')
+           real_estate_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_1')
+
+           investments_assets_fixed_intangible = convert_to_float(root, './/{*}Aktywa_A_IV_2')
+           investments_assets_fixed_intangible_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_2')
+           assets_financial_long_term = convert_to_float(root, './/{*}Aktywa_A_IV_3')
+           assets_financial_long_term_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3')
+
+           assets_financial_long_term_related = convert_to_float(root, './/{*}Aktywa_A_IV_3_A')
+           assets_financial_long_term_related_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_A')
+
+           assets_financial_long_term_related_shares_or_stocks = convert_to_float(root, './/{*}Aktywa_A_IV_3_A_1')
+           assets_financial_long_term_related_shares_or_stocks_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_A_1')
+
+           assets_financial_long_term_related_other_securities = convert_to_float(root, './/{*}Aktywa_A_IV_3_A_2')
+           assets_financial_long_term_related_other_securities_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_A_2')
+
+           assets_financial_long_term_related_loans_granted = convert_to_float(root, './/{*}Aktywa_A_IV_3_A_3')
+           assets_financial_long_term_related_loans_granted_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_A_3')
+
+           assets_financial_long_term_related_other = convert_to_float(root, './/{*}Aktywa_A_IV_3_A_4')
+           assets_financial_long_term_related_other_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_A_4')
+
+           assets_financial_long_term_shares = convert_to_float(root, './/{*}Aktywa_A_IV_3_B')
+           assets_financial_long_term_shares_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_B')
+
+           assets_financial_long_term_shares_shares_or_stocks = convert_to_float(root, './/{*}Aktywa_A_IV_3_B_1')
+           assets_financial_long_term_shares_shares_or_stocks_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_B_1')
+
+           assets_financial_long_term_shares_other_securities = convert_to_float(root, './/{*}Aktywa_A_IV_3_B_2')
+           assets_financial_long_term_shares_other_securities_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_B_2')
+
+           assets_financial_long_term_shares_loans_granted = convert_to_float(root, './/{*}Aktywa_A_IV_3_B_3')
+           assets_financial_long_term_shares_loans_granted_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_B_3')
+
+           assets_financial_long_term_shares_other = convert_to_float(root, './/{*}Aktywa_A_IV_3_B_4')
+           assets_financial_long_term_shares_other_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_B_4')
+
+           assets_financial_long_term_other = convert_to_float(root, './/{*}Aktywa_A_IV_3_C')
+           assets_financial_long_term_other_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_C')
+
+           assets_financial_long_term_other_shares_or_stocks = convert_to_float(root, './/{*}Aktywa_A_IV_3_C_1')
+           assets_financial_long_term_other_shares_or_stocks_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_C_1')
+
+           assets_financial_long_term_other_other_securities = convert_to_float(root, './/{*}Aktywa_A_IV_3_C_2')
+           assets_financial_long_term_other_other_securities_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_C_2')
+
+           assets_financial_long_term_other_loans_granted = convert_to_float(root, './/{*}Aktywa_A_IV_3_C_3')
+           assets_financial_long_term_other_loans_granted_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_C_3')
+
+           assets_financial_long_term_other_other = convert_to_float(root, './/{*}Aktywa_A_IV_3_C_4')
+           assets_financial_long_term_other_other_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_3_C_4')
+
+           assets_financial_long_term_other_assets_financial_other = convert_to_float(root, './/{*}Aktywa_A_IV_4')
+           assets_financial_long_term_other_assets_financial_other_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV_4')
+
+           prepayments_long_term = convert_to_float(root, './/{*}Aktywa_A_V')
+           prepayments_long_term_before = convert_to_float_value_before(root, './/{*}Aktywa_A_V')
+
+           deferred_tax_assets = convert_to_float(root, './/{*}Aktywa_A_V_1')
+           deferred_tax_assets_before = convert_to_float_value_before(root, './/{*}Aktywa_A_V_1')
+
+           prepayments_other = convert_to_float(root, './/{*}Aktywa_A_V_2')
+           prepayments_other_before = convert_to_float_value_before(root, './/{*}Aktywa_A_V_2')
+
+           assets_current = convert_to_float(root, './/{*}Aktywa_B')
+           assets_current_before = convert_to_float_value_before(root,  './/{*}Aktywa_B')
+
+           stock = convert_to_float(root, './/{*}Aktywa_B_I')
+           stock_before = convert_to_float_value_before(root, './/{*}Aktywa_B_I')
+
+           raw_materials = convert_to_float(root, './/{*}Aktywa_B_I_1')
+           raw_materials_before = convert_to_float_value_before(root, './/{*}Aktywa_B_I_1')
+
+           semi_finished_products = convert_to_float(root, './/{*}Aktywa_B_I_2')
+           semi_finished_products_before = convert_to_float_value_before(root, './/{*}Aktywa_B_I_2')
+
+           finished_products = convert_to_float(root, './/{*}Aktywa_B_I_3')
+           finished_products_before = convert_to_float_value_before(root, './/{*}Aktywa_B_I_3')
+
+           goods_for_resale = convert_to_float(root, './/{*}Aktywa_B_I_4')
+           goods_for_resale_before = convert_to_float_value_before(root, './/{*}Aktywa_B_I_4')
+
+           advances_for_deliveries = convert_to_float(root, './/{*}Aktywa_B_I_5')
+           advances_for_deliveries_before = convert_to_float_value_before(root, './/{*}Aktywa_B_I_5')
+
+           receivables_short_term = convert_to_float(root, './/{*}Aktywa_B_II')
+           receivables_short_term_before = convert_to_float_value_before(root, './/{*}Aktywa_B_II')
+
+           # receivables_short_term_related
+
+
+
+
 
            receivables_trade_related = './/{*}Aktywa_B_II_1_A'
            receivables_trade_related = convert_to_float(root, receivables_trade_related)
