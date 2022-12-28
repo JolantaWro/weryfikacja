@@ -143,7 +143,7 @@
                <p class="mymarg3">- inne aktywa pieniężne</p>
                <p class="mymarg">2. Inne inwestycje krótkoterminowe</p>
                <p class="mybold">IV. Krótkoterminowe rozliczenia międzyokresowe</p><br><br>
-               <p>A. Kapitał (fundusz) własny</p><br>
+               <p class="mybold">A. Kapitał (fundusz) własny</p><br>
                <p class="mybold">I. Kapitał (fundusz) podstawowy</p>
                <p class="mybold">II. Kapitał (fundusz) zapasowy, w tym:</p>
                <p class="mymarg">- nadwyżka wartości sprzedaży (wartości emisyjnej) nad wartością nominalną udziałów (akcji)<p>
@@ -154,7 +154,7 @@
                <p class="mymarg">- na udziały (akcje) własne</p>
                <p class="mybold">V. Zysk (strata) z lat ubiegłych</p>
                <p class="mybold">VI. Zysk (strata) netto</p>
-               VII. Odpisy z zysku netto w ciągu roku obrachunkowego (wartość ujemna)
+               <p class="mybold">VII. Odpisy z zysku netto w ciągu roku obrachunkowego (wartość ujemna)</p>
                <p class="mybold">B. Zobowiązania i rezerwy na zobowiązania</p><br>
                <p class="mybold">I. Rezerwy na zobowiązania</p>
                <p class="mymarg">1. Rezerwa z tyt. odroczonego podatku dochodowego</p>
@@ -194,7 +194,7 @@
                <p class="mymarg2">e) zaliczki otrzymane na dostawy i usługi</p>
                <p class="mymarg2">f) zobowiązania wekslowe</p>
                <p class="mymarg2">g) z tytułu podatków, ceł, ubezpieczeń społecznych i zdrowotnych oraz innych tytułów publicznoprawnych</p>
-               <p class="mymarg2">h) z tytułu wynagrodzeń</p>>
+               <p class="mymarg2">h) z tytułu wynagrodzeń</p>
                <p class="mymarg2">i) inne</p>
                <p class="mymarg">4. Fundusze specjalne</p>
                <p class="mybold">IV. Rozliczenia międzyokresowe</p>
@@ -203,8 +203,6 @@
                <p class="mymarg2">– długoterminowe</p>
                <p class="mymarg2">– krótkoterminowe</p>
 
-
-
            </div>
            <div class="col-3">
                <p class="mybold">{{ assets_fixed }}</p><br>
@@ -212,52 +210,149 @@
                {{ research_and_development }}<br><br>
                {{ goodwill }}<br><br>
                {{ assets_fixed_intangible_other }}<br><br>
-               {{ advances_for_assets_fixed_intangible }}<br><br><br>
+               {{ advances_for_assets_fixed_intangible }}<br><br>
                <p class="mybold">{{ tangible_fixed_assets }}</p>
                {{ assets_fixed_assets_fixed }}<br><br>
                {{ freehold_land }}<br><br><br><br>
                {{ buildings_and_constructions }}<br><br><br><br>
-               {{ plant_and_equipment }}<br><br><br>
+               {{ plant_and_equipment }}<br><br>
                {{ vehicles }}<br><br>
                {{ assets_fixed_assets_fixed_other }}<br><br>
                {{ assets_under_construction }}<br><br>
                {{ advances_for_assets_under_construction }}<br>
                <p></p>
-               <p class="mybold">{{ receivables_long_term }}</p><br>
-               {{ receivables_long_term_related }}<br><br><br>
-               {{ receivables_long_term_shares }}<br><br><br><br>
-               {{ receivables_long_term_other }}<br><br><br>
+               <p class="mybold">{{ receivables_long_term }}</p>
+               {{ receivables_long_term_related }}<br><br>
+               {{ receivables_long_term_shares }}<br><br><br>
+               {{ receivables_long_term_other }}<br>
                <p class="mybold">{{ investments_long_term }}</p>
                {{ real_estate }}<br><br>
                {{ investments_assets_fixed_intangible }}<br><br>
                {{ assets_financial_long_term }}<br><br><br>
-               {{ assets_financial_long_term_related }}<br><br><br>
+               {{ assets_financial_long_term_related }}<br><br>
                {{ assets_financial_long_term_related_shares_or_stocks }}<br><br><br>
-               {{ assets_financial_long_term_related_other_securities }}<br><br><br>
+               {{ assets_financial_long_term_related_other_securities }}<br><br>
                {{ assets_financial_long_term_related_loans_granted }}<br><br>
                {{ assets_financial_long_term_related_other }}<br><br><br><br>
-               {{ assets_financial_long_term_shares }}<br><br><br><br><br>
+               {{ assets_financial_long_term_shares }}<br><br><br>
                {{ assets_financial_long_term_shares_shares_or_stocks }}<br><br><br>
-               {{ assets_financial_long_term_shares_other_securities }}<br><br><br>
+               {{ assets_financial_long_term_shares_other_securities }}<br><br>
                {{ assets_financial_long_term_shares_loans_granted }}<br><br><br>
-               {{ assets_financial_long_term_shares_other }}<br><br><br>
-               {{ assets_financial_long_term_other }}<br><br><br>
+               {{ assets_financial_long_term_shares_other }}<br><br>
+               {{ assets_financial_long_term_other }}<br><br>
                {{ assets_financial_long_term_other_shares_or_stocks }}<br><br>
                {{ assets_financial_long_term_other_other_securities }}<br><br><br>
                {{ assets_financial_long_term_other_loans_granted }}<br><br><br>
                {{ assets_financial_long_term_other_other }}<br><br><br>
                {{ assets_financial_long_term_other_assets_financial_other }}<br><br>
                <p class="mybold">{{ prepayments_long_term }}</p><br><br>
-               {{ deferred_tax_assets }}<br><br><br>
+               {{ deferred_tax_assets }}<br><br>
                {{ prepayments_other }}<br><br><br><br>
                <p class="mybold">{{ assets_current }}</p><br>
                <p class="mybold">{{ stock }}</p>
-               {{ raw_materials }}<br><br>
+               {{ raw_materials }}<br>
                {{ semi_finished_products }}<br><br>
                {{ finished_products }}<br>
-               {{ goods_for_resale }}<br><br>
+               {{ goods_for_resale }}<br>
                {{ advances_for_deliveries }}<br><br>
                <p class="mybold">{{ receivables_short_term }}</p>
+               {{ receivables_short_term_related }}<br><br><br>
+               {{ receivables_short_term_related_trade_due_dates }}<br><br><br>
+               {{ receivables_short_term_related_trade_within_12 }}<br><br>
+               {{ receivables_short_term_related_trade_more_12 }}<br><br>
+               {{ receivables_short_term_related_other }}<br><br><br>
+               {{ receivables_short_term_shares }}<br><br><br><br>
+               {{ receivables_short_term_shares_trade_due_dates }}<br><br><br>
+               {{ receivables_short_term_shares_trade_within_12 }}<br><br>
+               {{ receivables_short_term_shares_trade_more_12 }}<br><br>
+               {{ receivables_short_term_shares_other }}<br><br><br>
+               {{ receivables_short_term_other }}<br><br><br>
+               {{ receivables_short_term_other_trade_due_dates }}<br><br><br>
+               {{ receivables_short_term_other_trade_within_12 }}<br><br>
+               {{ receivables_short_term_other_trade_more_12 }}<br><br><br>
+               {{ receivables_short_term_other_tax }}<br><br><br><br>
+               {{ receivables_short_term_other_other }}<br><br><br>
+               {{ receivables_short_term_other_in_court }}<br><br>
+               <p class="mybold">{{ investments_short_term }}</p>
+               {{ assets_financial_short_term }}<br><br>
+               {{ assets_financial_short_term_related }}<br><br><br>
+               {{ assets_financial_short_term_related_shares_or_stocks }}<br><br>
+               {{ assets_financial_short_term_related_other_securities }}<br><br>
+               {{ assets_financial_short_term_related_loans_granted }}<br><br><br>
+               {{ assets_financial_short_term_related_other }}<br><br><br>
+               {{ assets_financial_short_term_other }}<br><br>
+               {{ assets_financial_short_term_other_shares_or_stocks }}<br><br>
+               {{ assets_financial_short_term_other_other_securities }}<br><br><br>
+               {{ assets_financial_short_term_other_loans_granted }}<br><br>
+               {{ assets_financial_short_term_other_other }}<br><br><br>
+               {{ assets_cash }}<br><br><br><br>
+               {{ assets_cash_cash_on_hand }}<br><br><br>
+               {{ assets_cash_cash_other }}<br><br>
+               {{ assets_cash_other }}<br><br>
+               {{ investments_short_term_other }}<br><br><br>
+               <p class="mybold">{{ prepayments_short_term }}</p><br><br>
+               <p class="mybold">{{ equity }}</p><br>
+               <p class="mybold">{{ capital_share }}</p>
+               <p class="mybold">{{ capital_reserve }}</p><br><br><br>
+               {{ capital_reserve_sales_value }}<br><br><br><br>
+               <p class="mybold">{{ capital_from_revaluation }}</p><br>
+               {{ capital_from_revaluation_fair_value }}<br><br>
+               <p class="mybold">{{ capital_reserve_other }}</p><br>
+               {{ capital_reserve_other_created_with_statutes }}<br><br>
+               {{ capital_reserve_other_for_shares }}<br><br>
+               <p class="mybold">{{ accumulated_from_previous_years }}</p>
+               <p class="mybold">{{ net_profit_or_loss }}</p>
+               <p></p>
+               <p class="mybold">{{ advanced_distributions }}</p><br><br>
+               <p class="mybold">{{ liabilties_and_provisions }}</p><br>
+               <p class="mybold">{{ provisions }}</p><br>
+               {{ provision_for_income_tax }}<br><br>
+               {{ provision_for_employee_benefits }}<br><br>
+               {{ provision_long_term_for_employee_benefits }}<br><br>
+               {{ provision_short_term_for_employee_benefits }}<br><br>
+               {{ provision_other }}<br><br>
+               {{ provision_other_long_term }}<br><br>
+               {{ provision_other_short_term }}<br><br>
+               <p class="mybold">{{ liabilities_long_term }}</p>
+               {{ liabilities_long_term_related }}<br><br>
+               {{ liabilities_long_term_shares }}<br><br><br>
+               {{ liabilities_long_term_other }}<br><br>
+               {{ liabilities_long_term_other_credits }}<br><br>
+               {{ liabilities_long_term_other_debt_securities }}<br><br>
+               {{ liabilities_long_term_other_other_financial_liabilities }}<br><br><br>
+               {{ liabilities_long_term_other_promissory_obligations }}<br><br>
+               {{ liabilities_long_term_other_other }}<br>
+               <p></p>
+               <p class="mybold">{{ liabilities_short_therm }}</p>
+               {{ liabilities_short_term_related }}<br><br><br>
+               {{ liabilities_short_term_related_trade_due_dates }}<br><br><br>
+               {{ liabilities_short_term_related_trade_within_12 }}<br>
+               {{ liabilities_short_term_related_trade_more_12 }}<br><br>
+               {{ liabilities_short_term_related_other }}<br><br><br><br>
+               {{ liabilities_short_term_shares }}<br><br><br>
+               {{ liabilities_short_term_shares_trade_due_dates }}<br><br><br>
+               {{ liabilities_short_term_shares_trade_within_12 }}<br>
+               {{ liabilities_short_term_shares_trade_more_12 }}<br><br>
+               {{ liabilities_short_term_shares_other }}<br><br>
+               {{ liabilities_short_term_other }}<br><br>
+               {{ liabilities_short_term_other_credits }}<br><br>
+               {{ liabilities_short_term_other_debt_securities }}<br><br><br>
+               {{ liabilities_short_term_other_other_financial_liabilities }}<br><br><br>
+               {{ liabilities_short_term_other_trade_due_dates }}<br><br><br>
+               {{ liabilities_short_term_other_trade_within_12 }}<br>
+               {{ liabilities_short_term_other_trade_more_12 }}<br><br>
+               {{ liabilities_short_term_other_advances_for_deliveries }}<br><br><br>
+               {{ liabilities_short_term_other_promissory_obligations }}<br><br><br><br>
+               {{ liabilities_short_term_other_tax }}<br><br>
+               {{ liabilities_short_term_other_payroll }}<br><br>
+               {{ liabilities_short_term_other_other }}<br><br>
+               {{ liabilities_short_term_special_funds }}<br><br>
+               <p class="mybold">{{ accruals }}</p>
+               {{ accruals_negative_goodwill }}<br><br>
+               {{ accruals_other }}<br><br>
+               {{ accruals_other_long_term }}<br><br>
+               {{ accruals_other_short_term }}<br><br>
+
            </div>
            <div class="col-3">
                <p class="mybold">{{ assets_fixed_before }}</p><br>
@@ -265,57 +360,152 @@
                {{ research_and_development_before }}<br><br>
                {{ goodwill_before }}<br><br>
                {{ assets_fixed_intangible_other_before }}<br><br>
-               {{ advances_for_assets_fixed_intangible_before }}<br><br><br>
+               {{ advances_for_assets_fixed_intangible_before }}<br><br>
                <p class="mybold">{{ tangible_fixed_assets_before }}</p>
                {{ assets_fixed_assets_fixed_before }}<br><br>
                {{ freehold_land_before }}<br><br><br><br>
                {{ buildings_and_constructions_before }}<br><br><br><br>
-               {{ plant_and_equipment_before }}<br><br><br>
+               {{ plant_and_equipment_before }}<br><br>
                {{ vehicles_before }}<br><br>
                {{ assets_fixed_assets_fixed_other_before }}<br><br>
                {{ assets_under_construction_before }}<br><br>
                {{ advances_for_assets_under_construction_before }}<br>
                <p></p>
-               <p class="mybold">{{ receivables_long_term_before }}</p><br>
-               {{ receivables_long_term_related_before }}<br><br><br>
-               {{ receivables_long_term_shares_before }}<br><br><br><br>
-               {{ receivables_long_term_other_before }}<br><br><br>
+               <p class="mybold">{{ receivables_long_term_before }}</p>
+               {{ receivables_long_term_related_before }}<br><br>
+               {{ receivables_long_term_shares_before }}<br><br><br>
+               {{ receivables_long_term_other_before }}<br>
                <p class="mybold">{{ investments_long_term_before }}</p>
                {{ real_estate_before }}<br><br>
                {{ investments_assets_fixed_intangible_before }}<br><br>
                {{ assets_financial_long_term_before }}<br><br><br>
-               {{ assets_financial_long_term_related_before }}<br><br><br>
+               {{ assets_financial_long_term_related_before }}<br><br>
                {{ assets_financial_long_term_related_shares_or_stocks_before }}<br><br><br>
-               {{ assets_financial_long_term_related_other_securities_before }}<br><br><br>
+               {{ assets_financial_long_term_related_other_securities_before }}<br><br>
                {{ assets_financial_long_term_related_loans_granted_before }}<br><br>
                {{ assets_financial_long_term_related_other_before }}<br><br><br><br>
-               {{ assets_financial_long_term_shares_before }}<br><br><br><br><br>
+               {{ assets_financial_long_term_shares_before }}<br><br><br>
                {{ assets_financial_long_term_shares_shares_or_stocks_before }}<br><br><br>
-               {{ assets_financial_long_term_shares_other_securities_before }}<br><br><br>
+               {{ assets_financial_long_term_shares_other_securities_before }}<br><br>
                {{ assets_financial_long_term_shares_loans_granted_before }}<br><br><br>
-               {{ assets_financial_long_term_shares_other_before }}<br><br><br>
-               {{ assets_financial_long_term_other_before }}<br><br><br>
+               {{ assets_financial_long_term_shares_other_before }}<br><br>
+               {{ assets_financial_long_term_other_before }}<br><br>
                {{ assets_financial_long_term_other_shares_or_stocks_before }}<br><br>
                {{ assets_financial_long_term_other_other_securities_before }}<br><br><br>
                {{ assets_financial_long_term_other_loans_granted_before }}<br><br><br>
                {{ assets_financial_long_term_other_other_before }}<br><br><br>
                {{ assets_financial_long_term_other_assets_financial_other_before }}<br><br>
                <p class="mybold">{{ prepayments_long_term_before }}</p><br><br>
-               {{ deferred_tax_assets_before }}<br><br><br>
+               {{ deferred_tax_assets_before }}<br><br>
                {{ prepayments_other_before }}<br><br><br><br>
                <p class="mybold">{{ assets_current_before }}</p><br>
                <p class="mybold">{{ stock_before }}</p>
-               {{ raw_materials_before }}<br><br>
+               {{ raw_materials_before }}<br>
                {{ semi_finished_products_before }}<br><br>
                {{ finished_products_before }}<br>
-               {{ goods_for_resale_before }}<br><br>
+               {{ goods_for_resale_before }}<br>
                {{ advances_for_deliveries_before }}<br><br>
                <p class="mybold">{{ receivables_short_term_before }}</p>
+               {{ receivables_short_term_related_before }}<br><br><br>
+               {{ receivables_short_term_related_trade_due_dates_before }}<br><br><br>
+               {{ receivables_short_term_related_trade_within_12_before }}<br><br>
+               {{ receivables_short_term_related_trade_more_12_before }}<br><br>
+               {{ receivables_short_term_related_other_before }}<br><br><br>
+               {{ receivables_short_term_shares_before }}<br><br><br><br>
+               {{ receivables_short_term_shares_trade_due_dates_before }}<br><br><br>
+               {{ receivables_short_term_shares_trade_within_12_before }}<br><br>
+               {{ receivables_short_term_shares_trade_more_12_before }}<br><br>
+               {{ receivables_short_term_shares_other_before }}<br><br><br>
+               {{ receivables_short_term_other_before }}<br><br><br>
+               {{ receivables_short_term_other_trade_due_dates_before }}<br><br><br>
+               {{ receivables_short_term_other_trade_within_12_before }}<br><br>
+               {{ receivables_short_term_other_trade_more_12_before }}<br><br><br>
+               {{ receivables_short_term_other_tax_before }}<br><br><br><br>
+               {{ receivables_short_term_other_other_before }}<br><br><br>
+               {{ receivables_short_term_other_in_court_before }}<br><br>
+               <p class="mybold">{{ investments_short_term_before }}</p>
+               {{ assets_financial_short_term_before }}<br><br>
+               {{ assets_financial_short_term_related_before }}<br><br><br>
+               {{ assets_financial_short_term_related_shares_or_stocks_before }}<br><br>
+               {{ assets_financial_short_term_related_other_securities_before }}<br><br>
+               {{ assets_financial_short_term_related_loans_granted_before }}<br><br><br>
+               {{ assets_financial_short_term_related_other_before }}<br><br><br>
+               {{ assets_financial_short_term_other_before }}<br><br>
+               {{ assets_financial_short_term_other_shares_or_stocks_before }}<br><br>
+               {{ assets_financial_short_term_other_other_securities_before }}<br><br><br>
+               {{ assets_financial_short_term_other_loans_granted_before }}<br><br>
+               {{ assets_financial_short_term_other_other_before }}<br><br><br>
+               {{ assets_cash_before }}<br><br><br><br>
+               {{ assets_cash_cash_on_hand_before }}<br><br><br>
+               {{ assets_cash_cash_other_before }}<br><br>
+               {{ assets_cash_other_before }}<br><br>
+               {{ investments_short_term_other_before }}<br><br><br>
+               <p class="mybold">{{ prepayments_short_term_before }}</p><br><br>
+               <p class="mybold">{{ equity_before }}</p><br>
+               <p class="mybold">{{ capital_share_before }}</p>
+               <p class="mybold">{{ capital_reserve_before }}</p><br><br><br>
+               {{ capital_reserve_sales_value_before }}<br><br><br><br>
+               <p class="mybold">{{ capital_from_revaluation_before }}</p><br>
+               {{ capital_from_revaluation_fair_value_before }}<br><br>
+               <p class="mybold">{{ capital_reserve_other_before }}</p><br>
+               {{ capital_reserve_other_created_with_statutes_before }}<br><br>
+               {{ capital_reserve_other_for_shares_before }}<br><br>
+               <p class="mybold">{{ accumulated_from_previous_years_before }}</p>
+               <p class="mybold">{{ net_profit_or_loss_before }}</p>
+               <p></p>
+               <p class="mybold">{{ advanced_distributions_before }}</p><br><br>
+               <p class="mybold">{{ liabilties_and_provisions_before }}</p><br>
+               <p class="mybold">{{ provisions_before }}</p><br>
+               {{ provision_for_income_tax_before }}<br><br>
+               {{ provision_for_employee_benefits_before }}<br><br>
+               {{ provision_long_term_for_employee_benefits_before }}<br><br>
+               {{ provision_short_term_for_employee_benefits_before }}<br><br>
+               {{ provision_other_before }}<br><br>
+               {{ provision_other_long_term_before }}<br><br>
+               {{ provision_other_short_term_before }}<br><br>
+               <p class="mybold">{{ liabilities_long_term_before }}</p>
+               {{ liabilities_long_term_related_before }}<br><br>
+               {{ liabilities_long_term_shares_before }}<br><br><br>
+               {{ liabilities_long_term_other_before }}<br><br>
+               {{ liabilities_long_term_other_credits_before }}<br><br>
+               {{ liabilities_long_term_other_debt_securities_before }}<br><br>
+               {{ liabilities_long_term_other_other_financial_liabilities_before }}<br><br><br>
+               {{ liabilities_long_term_other_promissory_obligations_before }}<br><br>
+               {{ liabilities_long_term_other_other_before }}<br>
+               <p></p>
+               <p class="mybold">{{ liabilities_short_therm_before }}</p>
+               {{ liabilities_short_term_related_before }}<br><br><br>
+               {{ liabilities_short_term_related_trade_due_dates_before }}<br><br><br>
+               {{ liabilities_short_term_related_trade_within_12_before }}<br>
+               {{ liabilities_short_term_related_trade_more_12_before }}<br><br>
+               {{ liabilities_short_term_related_other_before }}<br><br><br><br>
+               {{ liabilities_short_term_shares_before }}<br><br><br>
+               {{ liabilities_short_term_shares_trade_due_dates_before }}<br><br><br>
+               {{ liabilities_short_term_shares_trade_within_12_before }}<br>
+               {{ liabilities_short_term_shares_trade_more_12_before }}<br><br>
+               {{ liabilities_short_term_shares_other_before }}<br><br>
+               {{ liabilities_short_term_other_before }}<br><br>
+               {{ liabilities_short_term_other_credits_before }}<br><br>
+               {{ liabilities_short_term_other_debt_securities_before }}<br><br><br>
+               {{ liabilities_short_term_other_other_financial_liabilities_before }}<br><br><br>
+               {{ liabilities_short_term_other_trade_due_dates_before }}<br><br><br>
+               {{ liabilities_short_term_other_trade_within_12_before }}<br>
+               {{ liabilities_short_term_other_trade_more_12_before }}<br><br>
+               {{ liabilities_short_term_other_advances_for_deliveries_before }}<br><br><br>
+               {{ liabilities_short_term_other_promissory_obligations_before }}<br><br><br><br>
+               {{ liabilities_short_term_other_tax_before }}<br><br>
+               {{ liabilities_short_term_other_payroll_before }}<br><br>
+               {{ liabilities_short_term_other_other_before }}<br><br>
+               {{ liabilities_short_term_special_funds_before }}<br><br>
+               <p class="mybold">{{ accruals_before }}</p>
+               {{ accruals_negative_goodwill_before }}<br><br>
+               {{ accruals_other_before }}<br><br>
+               {{ accruals_other_long_term_before }}<br><br>
+               {{ accruals_other_short_term_before }}<br><br>
 
            </div>
        </div>
   <h3>Rachunek zysków i strat:</h3>
-  <h5>Rachunek zysków i strat (wariant kalkulacyjny):</h5>
       <div class="row">
            <div class="col-3">
 
@@ -329,194 +519,153 @@
       </div>
       <div class="row">
            <div class="col-3">
-               <p>A. Przychody netto ze sprzedaży produktów, towarów i materiałów, w tym:</p>
-               <p class="mymarg">– od jednostek powiązanych<p>
-               <p class="mymarg">I. Przychody netto ze sprzedaży produktów<p>
-               <p class="mymarg">II. Przychody netto ze sprzedaży towarów i materiałów<p>
-               <p>B. Koszty sprzedanych produktów, towarów i materiałów, w tym:</p>
-               <p class="mymarg">– jednostkom powiązanym<p>
-               <p class="mymarg">I. Koszt wytworzenia sprzedanych produktów<p>
-               <p class="mymarg">II. Wartość sprzedanych towarów i materiałów<p>
-               <p>C. Zysk (strata) brutto ze sprzedaży (A–B)</p>
-               <p>D. Koszty sprzedaży</p>
-               <p>E. Koszty ogólnego zarządu</p>
-               <p>F. Zysk (strata) ze sprzedaży (C–D–E)</p>
-               <p>G. Pozostałe przychody operacyjne</p>
-               <p class="mymarg">I. Zysk z tytułu rozchodu niefinansowych aktywów trwałych<p>
-               <p class="mymarg">II. Dotacje<p>
-               <p class="mymarg">III. Aktualizacja wartości aktywów niefinansowych<p>
-               <p class="mymarg">IV. Inne przychody operacyjne<p>
-               <p>H. Pozostałe koszty operacyjne</p>
-               <p class="mymarg">I. I. Strata z tytułu rozchodu niefinansowych aktywów trwałych<p>
-               <p class="mymarg">II. Aktualizacja wartości aktywów niefinansowych<p>
-               <p class="mymarg">III. Inne koszty operacyjne<p>
-               <p>I. Zysk (strata) z działalności operacyjnej (F+G–H)</p>
-               <p>J. Przychody finansowe</p>
-               <p class="mymarg">I. Dywidendy i udziały w zyskach, w tym:<p>
-               <p class="mymarg2">a) od jednostek powiązanych, w tym:<p>
-               <p class="mymarg3">– w których jednostka posiada zaangażowanie w kapitale<p>
-               <p class="mymarg2">b) od jednostek pozostałych, w tym:<p>
-               <p class="mymarg3">– w których jednostka posiada zaangażowanie w kapitale<p>
-               <p class="mymarg">II. Odsetki, w tym:<p>
-               <p class="mymarg2">– od jednostek powiązanych<p>
-               <p class="mymarg">III. Zysk z tytułu rozchodu aktywów finansowych, w tym:<p>
-               <p class="mymarg2">– w jednostkach powiązanych<p>
+               <p class="mybold">A. Przychody netto ze sprzedaży produktów, towarów i materiałów, w tym:</p>
+               <p class="mymarg">– od jednostek powiązanych</p>
+               <p class="mymarg">I. Przychody netto ze sprzedaży produktów</p>
+               <p class="mymarg">II. Przychody netto ze sprzedaży towarów i materiałów</p>
+               <p class="mybold">B. Koszty sprzedanych produktów, towarów i materiałów, w tym:</p>
+               <p class="mymarg">– jednostkom powiązanym</p>
+               <p class="mymarg">I. Koszt wytworzenia sprzedanych produktów</p>
+               <p class="mymarg">II. Wartość sprzedanych towarów i materiałów</p>
+               <p class="mybold">C. Zysk (strata) brutto ze sprzedaży (A–B)</p>
+               <p class="mybold">D. Koszty sprzedaży</p>
+               <p class="mybold">E. Koszty ogólnego zarządu</p>
+               <p class="mybold">F. Zysk (strata) ze sprzedaży (C–D–E)</p>
+               <p class="mybold">G. Pozostałe przychody operacyjne</p>
+               <p class="mymarg">I. Zysk z tytułu rozchodu niefinansowych aktywów trwałych</p>
+               <p class="mymarg">II. Dotacje</p>
+               <p class="mymarg">III. Aktualizacja wartości aktywów niefinansowych</p>
+               <p class="mymarg">IV. Inne przychody operacyjne</p>
+               <p class="mybold">H. Pozostałe koszty operacyjne</p>
+               <p class="mymarg">I. Strata z tytułu rozchodu niefinansowych aktywów trwałych</p>
+               <p class="mymarg">II. Aktualizacja wartości aktywów niefinansowych</p>
+               <p class="mymarg">III. Inne koszty operacyjne</p>
+               <p class="mybold">I. Zysk (strata) z działalności operacyjnej (F+G–H)</p>
+               <p class="mybold">J. Przychody finansowe</p>
+               <p class="mymarg">I. Dywidendy i udziały w zyskach, w tym:</p>
+               <p class="mymarg2">a) od jednostek powiązanych, w tym:</p>
+               <p class="mymarg3">– w których jednostka posiada zaangażowanie w kapitale</p>
+               <p class="mymarg2">b) od jednostek pozostałych, w tym:</p>
+               <p class="mymarg3">– w których jednostka posiada zaangażowanie w kapitale</p>
+               <p class="mymarg">II. Odsetki, w tym:</p>
+               <p class="mymarg2">– od jednostek powiązanych</p>
+               <p class="mymarg">III. Zysk z tytułu rozchodu aktywów finansowych, w tym:</p>
+               <p class="mymarg2">– w jednostkach powiązanych</p>
                <p class="mymarg">IV. Aktualizacja wartości aktywów finansowych
-               <p class="mymarg">V. Inne<p>
-               <p>K. Koszty finansowe</p>
-               <p class="mymarg">I. Odsetki, w tym:<p>
-               <p class="mymarg2">- od jednostek powiązanych, w tym:<p>
-               <p class="mymarg">II. Strata z tytułu rozchodu aktywów finansowych, w tym:<p>
-               <p class="mymarg2">– od jednostek powiązanych<p>
-               <p class="mymarg">III. Aktualizacja wartości aktywów finansowych<p>
-               <p class="mymarg">IV. Inne<p>
-               <p>L. Zysk (strata) brutto (I+J–K)</p>
-               <p>M. Podatek dochodowy</p>
-               <p>N. Pozostałe obowiązkowe zmniejszenia zysku (zwiększenia straty)</p>
-               <p>O. Zysk (strata) netto (L–M–N)</p>
+               <p class="mymarg">V. Inne</p>
+               <p class="mybold">K. Koszty finansowe</p>
+               <p class="mymarg">I. Odsetki, w tym:</p>
+               <p class="mymarg2">- od jednostek powiązanych</p>
+               <p class="mymarg">II. Strata z tytułu rozchodu aktywów finansowych, w tym:</p>
+               <p class="mymarg2">– od jednostek powiązanych</p>
+               <p class="mymarg">III. Aktualizacja wartości aktywów finansowych</p>
+               <p class="mymarg">IV. Inne</p>
+               <p class="mybold">L. Zysk (strata) brutto (I+J–K)</p>
+               <p class="mybold">M. Podatek dochodowy</p>
+               <p class="mybold">N. Pozostałe obowiązkowe zmniejszenia zysku (zwiększenia straty)</p>
+               <p class="mybold">O. Zysk (strata) netto (L–M–N)</p>
            </div>
-           <div class="col-3">
-               <p>{{ assets_fixed }}</p><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br><br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-           </div>
-           <div class="col-3">
-               <p>{{ assets_fixed }}</p><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br><br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-           </div>
-      </div>
-
-  <h3>Zestawienie zmian w kapitale (funduszu) własnym:</h3>
-
-      <div class="row">
-           <div class="col-3">
-
-           </div>
-           <div class="col-3">
-               Kwota na dzień kończący bieżący rok obrachunkowy
-           </div>
-          <div class="col-3">
-               Kwota na dzień kończący poprzedni rok obrachunkowy
-           </div>
-      </div>
-      <div class="row">
-           <div class="col-3">
-               <p>I. Kapitał (fundusz) własny na początek okresu (BO)</p>
-               <p class="mymarg">– zmiany przyjętych zasad (polityki) rachunkowości<p>
-               <p class="mymarg">– korekty błędów<p>
-               <p>Ia. Kapitał (fundusz) własny na początek okresu (BO), po korektach<p>
-               <p class="mymarg">1. Kapitał (fundusz) podstawowy na początek okresu<p>
-               <p class="mymarg2">1. Zmiany kapitału (funduszu) podstawowego<p>
-               <p class="mymarg3">a) zwiększenie (z tytułu)<p>
-               <p class="mymarg4">– wydania udziałów (emisji akcji)<p>
-               <p class="mymarg3">b) zmniejszenie (z tytułu)<p>
-               <p class="mymarg4">– umorzenia udziałów (akcji)<p>
-               <p class="mymarg2">2. Kapitał (fundusz) podstawowy na koniec okresu<p>
-               <p class="mymarg">2. Kapitał (fundusz) zapasowy na początek okresu<p>
-               <p class="mymarg2">1. Zmiany kapitału (funduszu) zapasowego<p>
-               <p class="mymarg3">a) zwiększenie (z tytułu)<p>
-               <p class="mymarg4">– emisji akcji powyżej wartości nominalnej<p>
-               <p class="mymarg4">– podziału zysku (ustawowo)<p>
-               <p class="mymarg4">– podziału zysku (ponad wymaganą ustawowo minimalną wartość)<p>
-               <p class="mymarg3">b) zmniejszenie (z tytułu)<p>
-               <p class="mymarg4">– pokrycia straty<p>
-               <p class="mymarg4">– dywidendy<p>
-               <p class="mymarg2">2. Stan kapitału (funduszu) zapasowego na koniec okresu<p>
-               <p class="mymarg">3. Kapitał (fundusz) z aktualizacji wyceny na początek okresu – zmiany przyjętych zasad (polityki) rachunkowości<p>
-               <p class="mymarg2">1. Zmiany kapitału (funduszu) z aktualizacji wyceny<p>
-               <p class="mymarg3">b) zmniejszenie (z tytułu)<p>
-               <p class="mymarg4">– zbycia środków trwałych<p>
-               <p class="mymarg2">2. Kapitał (fundusz) z aktualizacji wyceny na koniec okresu<p>
-               <p class="mymarg">4. Pozostałe kapitały (fundusze) rezerwowe na początek okresu<p>
-               <p class="mymarg2">2. Pozostałe kapitały (fundusze) rezerwowe na koniec okresu<p>
-               <p class="mymarg">5. Zysk (strata) z lat ubiegłych na początek okresu<p>
-               <p class="mymarg2">1. Zysk z lat ubiegłych na początek okresu<p>
-               <p class="mymarg3">– zmiany przyjętych zasad (polityki) rachunkowości<p>
-               <p class="mymarg3">– korekty błędów<p>
-               <p class="mymarg2">2. Zysk z lat ubiegłych na początek okresu, po korektach<p>
-               <p class="mymarg3">a) zwiększenie (z tytułu)<p>
-               <p class="mymarg4">– podziału zysku z lat ubiegłych<p>
-               <p class="mymarg3">b) zmniejszenie (z tytułu)<p>
-               <p class="mymarg4">– zwiększenia kapitału zapasowego<p>
-               <p class="mymarg2">3. Zysk z lat ubiegłych na koniec okresu<p>
-               <p class="mymarg2">4. Strata z lat ubiegłych na początek okresu<p>
-               <p class="mymarg3">– zmiany przyjętych zasad (polityki) rachunkowości<p>
-               <p class="mymarg3">– korekty błędów<p>
-               <p class="mymarg2">5. Strata z lat ubiegłych na początek okresu, po korektach<p>
-               <p class="mymarg3">a) zwiększenie (z tytułu)<p>
-               <p class="mymarg4">– przeniesienia straty z lat ubiegłych do pokrycia<p>
-               <p class="mymarg2">6. Strata z lat ubiegłych na koniec okresu<p>
-               <p class="mymarg2">7. Zysk (strata) z lat ubiegłych na koniec okresu<p>
-               <p class="mymarg">6. Wynik netto<p>
-               <p class="mymarg2">a) zysk netto<p>
-               <p class="mymarg2">b) strata netto<p>
-               <p class="mymarg2">c) odpisy z zysku<p>
-               <p>II. Kapitał (fundusz) własny na koniec okresu (BZ)</p>
-               <p>III. Kapitał (fundusz) własny, po uwzględnieniu proponowanego podziału zysku (pokrycia straty)</p>
+           <div class="col-3"><br>
+               <p class="mybold">{{ revenue }}</p><br>
+               {{ revenue_related }}<br><br>
+               {{ revenue_from_sale_products }}<br><br>
+               {{ revenue_net_from_sale_goods }}<br><br><br>
+               <p class="mybold">{{ costs_of_products_goods }}</p><br>
+               {{ costs_of_products_goods_related }}<br><br>
+               {{ costs_of_producing_products }}<br><br><br>
+               {{ value_of_sold_goods }}<br><br>
+               <p class="mybold">{{ profit_gross_sales }}</p><br>
+               <p class="mybold">{{ costs_selling }}</p>
+               <p class="mybold">{{ costs_general_administration }}</p>
+               <p class="mybold">{{ profit_on_sales }}</p><br>
+               <p class="mybold">{{ revenue_operating_other }}</p><br>
+               {{ profit_on_sales_non_financial_assets }}<br><br>
+               {{ subsidies }}<br><br>
+               {{ revaluation_non_financial_assets }}<br><br>
+               {{ other_revenue_operating_other }}<br>
+               <p class="mybold">{{ costs_operating_other }}</p>
+               {{ loss_on_sales_non_financial_assets }}<br><br>
+               {{ loss_revaluation_non_financial_assets }}<br><br><br>
+               {{ other_costs_operating_other }}<br><br>
+               <p class="mybold">{{ profit_from_operations }}</p>
+               <p class="mybold">{{ income_financial }}</p>
+               {{ dividends_profit_shares }}<br><br><br>
+               {{ dividends_profit_shares_related }}<br><br><br><br>
+               {{ dividends_profit_shares_related_shares }}<br><br><br><br>
+               {{ dividends_profit_shares_other }}<br><br><br><br>
+               {{ dividends_profit_shares_other_shares }}<br><br><br>
+               {{ interest }}<br><br>
+               {{ interest_related }}<br><br>
+               {{ gain_disposal_financial_assets }}<br><br><br>
+               {{ gain_disposal_financial_assets_related }}<br><br>
+               {{ revaluation_financial_assets }}<br><br>
+               {{ income_financial_other }}<br>
+               <p></p>
+               <p class="mybold">{{ costs_financial }}</p>
+               {{ costs_financial_interest }}<br><br>
+               {{ costs_financial_interest_related }}<br><br>
+               {{ costs_financial_loss_disposal_financial_assets }}<br><br>
+               {{ costs_financial_loss_disposal_financial_assets_related }}<br><br>
+               {{ costs_financial_revaluation_financial_assets }}<br><br>
+               {{ costs_financial_other }}<br><br>
+               <p class="mybold">{{ profit_loss_gross }}</p>
+               <p class="mybold">{{ tax }}</p><br>
+               <p class="mybold">{{ reductions_other }}</p><br>
+               <p class="mybold">{{ profit_loss_net }}</p><br>
 
            </div>
-           <div class="col-3">
-               <p>{{ assets_fixed }}</p><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br><br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-           </div>
-           <div class="col-3">
-               <p>{{ assets_fixed }}</p><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br><br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
+           <div class="col-3"><br>
+               <p class="mybold">{{ revenue_before }}</p><br>
+               {{ revenue_related_before }}<br><br>
+               {{ revenue_from_sale_products_before }}<br><br>
+               {{ revenue_net_from_sale_goods_before }}<br><br><br>
+               <p class="mybold">{{ costs_of_products_goods_before }}</p><br>
+               {{ costs_of_products_goods_related_before }}<br><br>
+               {{ costs_of_producing_products_before }}<br><br><br>
+               {{ value_of_sold_goods_before }}<br><br>
+               <p class="mybold">{{ profit_gross_sales_before }}</p><br>
+               <p class="mybold">{{ costs_selling_before }}</p>
+               <p class="mybold">{{ costs_general_administration_before }}</p>
+               <p class="mybold">{{ profit_on_sales_before }}</p><br>
+               <p class="mybold">{{ revenue_operating_other_before }}</p><br>
+               {{ profit_on_sales_non_financial_assets_before }}<br><br>
+               {{ subsidies_before }}<br><br>
+               {{ revaluation_non_financial_assets_before }}<br><br>
+               {{ other_revenue_operating_other_before }}<br>
+               <p class="mybold">{{ costs_operating_other_before }}</p>
+               {{ loss_on_sales_non_financial_assets_before }}<br><br>
+               {{ loss_revaluation_non_financial_assets_before }}<br><br><br>
+               {{ other_costs_operating_other_before }}<br><br>
+               <p class="mybold">{{ profit_from_operations_before }}</p>
+               <p class="mybold">{{ income_financial_before }}</p>
+               {{ dividends_profit_shares_before }}<br><br><br>
+               {{ dividends_profit_shares_related_before }}<br><br><br><br>
+               {{ dividends_profit_shares_related_shares_before }}<br><br><br><br>
+               {{ dividends_profit_shares_other_before }}<br><br><br><br>
+               {{ dividends_profit_shares_other_shares_before }}<br><br><br>
+               {{ interest_before }}<br><br>
+               {{ interest_related_before }}<br><br>
+               {{ gain_disposal_financial_assets_before }}<br><br><br>
+               {{ gain_disposal_financial_assets_related_before }}<br><br>
+               {{ revaluation_financial_assets_before }}<br><br>
+               {{ income_financial_other_before }}<br>
+               <p></p>
+               <p class="mybold">{{ costs_financial_before }}</p>
+               {{ costs_financial_interest_before }}<br><br>
+               {{ costs_financial_interest_related_before }}<br><br>
+               {{ costs_financial_loss_disposal_financial_assets_before }}<br><br>
+               {{ costs_financial_loss_disposal_financial_assets_related_before }}<br><br>
+               {{ costs_financial_revaluation_financial_assets_before }}<br><br>
+               {{ costs_financial_other_before }}<br><br>
+               <p class="mybold">{{ profit_loss_gross_before }}</p>
+               <p class="mybold">{{ tax_before }}</p><br>
+               <p class="mybold">{{ reductions_other_before }}</p><br>
+               <p class="mybold">{{ profit_loss_net_before }}</p><br>
+
+
            </div>
       </div>
   <h3>Rachunek przepływów pieniężnych:</h3>
-       metosa
 
       <div class="row">
            <div class="col-3">
@@ -628,7 +777,6 @@
                {{ assets_current }}<br><br>
            </div>
       </div>
-
       <br>
       <br>
 {% endblock %}

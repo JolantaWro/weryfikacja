@@ -722,90 +722,366 @@ class FileDetail(View):
            receivables_short_term = convert_to_float(root, './/{*}Aktywa_B_II')
            receivables_short_term_before = convert_to_float_value_before(root, './/{*}Aktywa_B_II')
 
-           # receivables_short_term_related
+           receivables_short_term_related = convert_to_float(root, './/{*}Aktywa_B_II_1')
+           receivables_short_term_related_before = convert_to_float_value_before(root, './/{*}Aktywa_B_II_1')
+           receivables_short_term_related_trade_due_dates = convert_to_float(root, './/{*}Aktywa_B_II_1_A')
+           receivables_short_term_related_trade_due_dates_before = convert_to_float_value_before(root, './/{*}Aktywa_B_II_1_A')
+           receivables_short_term_related_trade_within_12 = convert_to_float(root, './/{*}Aktywa_B_II_1_A_1')
+           receivables_short_term_related_trade_within_12_before = convert_to_float_value_before(root,
+                                                                                                 './/{*}Aktywa_B_II_1_A_1')
+           receivables_short_term_related_trade_more_12 = convert_to_float(root, './/{*}Aktywa_B_II_1_A_2')
+           receivables_short_term_related_trade_more_12_before = convert_to_float_value_before(root,
+                                                                                                 './/{*}Aktywa_B_II_1_A_2')
+           receivables_short_term_related_other = convert_to_float(root, './/{*}Aktywa_B_II_1_B')
+           receivables_short_term_related_other_before = convert_to_float_value_before(root,
+                                                                                               './/{*}Aktywa_B_II_1_B')
+
+           receivables_short_term_shares = convert_to_float(root, './/{*}Aktywa_B_II_2')
+           receivables_short_term_shares_before = convert_to_float_value_before(root, './/{*}Aktywa_B_II_2')
+           receivables_short_term_shares_trade_due_dates = convert_to_float(root, './/{*}Aktywa_B_II_2_A')
+           receivables_short_term_shares_trade_due_dates_before = convert_to_float_value_before(root,
+                                                                                         './/{*}Aktywa_B_II_2_A')
+           receivables_short_term_shares_trade_within_12 = convert_to_float(root, './/{*}Aktywa_B_II_2_A_1')
+           receivables_short_term_shares_trade_within_12_before = convert_to_float_value_before(root,
+                                                                                          './/{*}Aktywa_B_II_2_A_1')
+           receivables_short_term_shares_trade_more_12 = convert_to_float(root, './/{*}Aktywa_B_II_2_A_2')
+           receivables_short_term_shares_trade_more_12_before = convert_to_float_value_before(root,
+                                                                                        './/{*}Aktywa_B_II_2_A_2')
+           receivables_short_term_shares_other = convert_to_float(root, './/{*}Aktywa_B_II_2_B')
+           receivables_short_term_shares_other_before = convert_to_float_value_before(root,
+                                                                                       './/{*}Aktywa_B_II_2_B')
+
+           receivables_short_term_other = convert_to_float(root, './/{*}Aktywa_B_II_3')
+           receivables_short_term_other_before = convert_to_float_value_before(root, './/{*}Aktywa_B_II_3')
+           receivables_short_term_other_trade_due_dates = convert_to_float(root, './/{*}Aktywa_B_II_3_A')
+           receivables_short_term_other_trade_due_dates_before = convert_to_float_value_before(root,
+                                                                                          './/{*}Aktywa_B_II_3_A')
+           receivables_short_term_other_trade_within_12 = convert_to_float(root, './/{*}Aktywa_B_II_3_A_1')
+           receivables_short_term_other_trade_within_12_before = convert_to_float_value_before(root,
+                                                                                          './/{*}Aktywa_B_II_3_A_1')
+           receivables_short_term_other_trade_more_12 = convert_to_float(root, './/{*}Aktywa_B_II_3_A_2')
+           receivables_short_term_other_trade_more_12_before = convert_to_float_value_before(root,
+                                                                                        './/{*}Aktywa_B_II_3_A_2')
+           receivables_short_term_other_tax = convert_to_float(root, './/{*}Aktywa_B_II_3_B')
+           receivables_short_term_other_tax_before = convert_to_float_value_before(root,
+                                                                                      './/{*}Aktywa_B_II_3_B')
+           receivables_short_term_other_other = convert_to_float(root, './/{*}Aktywa_B_II_3_C')
+           receivables_short_term_other_other_before = convert_to_float_value_before(root,
+                                                                                   './/{*}Aktywa_B_II_3_C')
+
+           receivables_short_term_other_in_court = convert_to_float(root, './/{*}Aktywa_B_II_3_D')
+           receivables_short_term_other_in_court_before = convert_to_float_value_before(root,
+                                                                                     './/{*}Aktywa_B_II_3_D')
+
+           investments_short_term = convert_to_float(root, './/{*}Aktywa_B_III')
+           investments_short_term_before = convert_to_float_value_before(root, './/{*}Aktywa_B_III')
+
+           assets_financial_short_term = convert_to_float(root, './/{*}Aktywa_B_III_1')
+           assets_financial_short_term_before = convert_to_float_value_before(root, './/{*}Aktywa_B_III_1')
+           assets_financial_short_term_related = convert_to_float(root, './/{*}Aktywa_B_III_1_A')
+           assets_financial_short_term_related_before = convert_to_float_value_before(root, './/{*}Aktywa_B_III_1_A')
+           assets_financial_short_term_related_shares_or_stocks = convert_to_float(root, './/{*}Aktywa_B_III_1_A_1')
+           assets_financial_short_term_related_shares_or_stocks_before = convert_to_float_value_before(root,
+                                                                                                  './/{*}Aktywa_B_III_1_A_1')
+           assets_financial_short_term_related_other_securities = convert_to_float(root, './/{*}Aktywa_B_III_1_A_2')
+           assets_financial_short_term_related_other_securities_before = convert_to_float_value_before(root,
+                                                                                                  './/{*}Aktywa_B_III_1_A_2')
+           assets_financial_short_term_related_loans_granted = convert_to_float(root, './/{*}Aktywa_B_III_1_A_3')
+           assets_financial_short_term_related_loans_granted_before = convert_to_float_value_before(root,
+                                                                                               './/{*}Aktywa_B_III_1_A_3')
+           assets_financial_short_term_related_other = convert_to_float(root, './/{*}Aktywa_B_III_1_A_4')
+           assets_financial_short_term_related_other_before = convert_to_float_value_before(root,
+                                                                                           './/{*}Aktywa_B_III_1_A_4')
+
+           assets_financial_short_term_other = convert_to_float(root, './/{*}Aktywa_B_III_1_B')
+           assets_financial_short_term_other_before = convert_to_float_value_before(root, './/{*}Aktywa_B_III_1_B')
+           assets_financial_short_term_other_shares_or_stocks = convert_to_float(root, './/{*}Aktywa_B_III_1_B_1')
+           assets_financial_short_term_other_shares_or_stocks_before = convert_to_float_value_before(root,
+                                                                                                './/{*}Aktywa_B_III_1_B_1')
+           assets_financial_short_term_other_other_securities = convert_to_float(root, './/{*}Aktywa_B_III_1_B_2')
+           assets_financial_short_term_other_other_securities_before = convert_to_float_value_before(root,
+                                                                                                './/{*}Aktywa_B_III_1_B_2')
+           assets_financial_short_term_other_loans_granted = convert_to_float(root, './/{*}Aktywa_B_III_1_B_3')
+           assets_financial_short_term_other_loans_granted_before = convert_to_float_value_before(root,
+                                                                                             './/{*}Aktywa_B_III_1_B_3')
+           assets_financial_short_term_other_other = convert_to_float(root, './/{*}Aktywa_B_III_1_A_4')
+           assets_financial_short_term_other_other_before = convert_to_float_value_before(root,
+                                                                                            './/{*}Aktywa_B_III_1_B_4')
+           assets_cash = convert_to_float(root, './/{*}Aktywa_B_III_1_C')
+           assets_cash_before = convert_to_float_value_before(root, './/{*}Aktywa_B_III_1_C')
+
+           assets_cash_cash_on_hand = convert_to_float(root, './/{*}Aktywa_B_III_1_C_1')
+           assets_cash_cash_on_hand_before = convert_to_float_value_before(root, './/{*}Aktywa_B_III_1_C_1')
+           assets_cash_cash_other = convert_to_float(root, './/{*}Aktywa_B_III_1_C_2')
+           assets_cash_cash_other_before = convert_to_float_value_before(root, './/{*}Aktywa_B_III_1_C_2')
+           assets_cash_other = convert_to_float(root, './/{*}Aktywa_B_III_1_C_3')
+           assets_cash_other_before = convert_to_float_value_before(root, './/{*}Aktywa_B_III_1_C_3')
+
+           investments_short_term_other = convert_to_float(root, './/{*}Aktywa_B_III_2')
+           investments_short_term_other_before = convert_to_float_value_before(root, './/{*}Aktywa_B_III_2')
+
+           prepayments_short_term = convert_to_float(root, './/{*}Aktywa_A_IV')
+           prepayments_short_term_before = convert_to_float_value_before(root, './/{*}Aktywa_A_IV')
+
+           equity = convert_to_float(root, './/{*}Pasywa_A')
+           equity_before = convert_to_float_value_before(root, './/{*}Pasywa_A')
+
+
+           capital_share = convert_to_float(root, './/{*}Pasywa_A_I')
+           capital_share_before = convert_to_float_value_before(root, './/{*}Pasywa_A_I')
+
+           capital_reserve = convert_to_float(root, './/{*}Pasywa_A_II')
+           capital_reserve_before = convert_to_float_value_before(root, './/{*}Pasywa_A_II')
+           capital_reserve_sales_value = convert_to_float(root, './/{*}Pasywa_A_II_1')
+           capital_reserve_sales_value_before = convert_to_float_value_before(root, './/{*}Pasywa_A_II_1')
+
+           capital_from_revaluation = convert_to_float(root, './/{*}Pasywa_A_III')
+           capital_from_revaluation_before = convert_to_float_value_before(root, './/{*}Pasywa_A_III')
+
+           capital_from_revaluation_fair_value = convert_to_float(root, './/{*}Pasywa_A_III_1')
+           capital_from_revaluation_fair_value_before = convert_to_float_value_before(root, './/{*}Pasywa_A_III_1')
+
+           capital_reserve_other = convert_to_float(root, './/{*}Pasywa_A_IV')
+           capital_reserve_other_before = convert_to_float_value_before(root, './/{*}Pasywa_A_IV')
+           capital_reserve_other_created_with_statutes = convert_to_float(root, './/{*}Pasywa_A_IV_1')
+           capital_reserve_other_created_with_statutes_before = convert_to_float_value_before(root, './/{*}Pasywa_A_IV_1')
+           capital_reserve_other_for_shares = convert_to_float(root, './/{*}Pasywa_A_IV_2')
+           capital_reserve_other_for_shares_before = convert_to_float_value_before(root,
+                                                                                              './/{*}Pasywa_A_IV_2')
+           accumulated_from_previous_years = convert_to_float(root, './/{*}Pasywa_A_V')
+           accumulated_from_previous_years_before = convert_to_float_value_before(root, './/{*}Pasywa_A_V')
+           net_profit_or_loss = convert_to_float(root, './/{*}Pasywa_A_VI')
+           net_profit_or_loss_before = convert_to_float_value_before(root, './/{*}Pasywa_A_VI')
+           advanced_distributions = convert_to_float(root, './/{*}Pasywa_A_VII')
+           advanced_distributions_before = convert_to_float_value_before(root, './/{*}Pasywa_A_VII')
+
+           liabilties_and_provisions = convert_to_float(root, './/{*}Pasywa_B')
+           liabilties_and_provisions_before = convert_to_float_value_before(root, './/{*}Pasywa_B')
+
+           provisions = convert_to_float(root, './/{*}Pasywa_B_I')
+           provisions_before = convert_to_float_value_before(root, './/{*}Pasywa_B_I')
+
+           provision_for_income_tax = convert_to_float(root, './/{*}Pasywa_B_I_1')
+           provision_for_income_tax_before = convert_to_float_value_before(root, './/{*}Pasywa_B_I_1')
+           provision_for_employee_benefits = convert_to_float(root, './/{*}Pasywa_B_I_2')
+           provision_for_employee_benefits_before = convert_to_float_value_before(root, './/{*}Pasywa_B_I_2')
+           provision_long_term_for_employee_benefits = convert_to_float(root, './/{*}Pasywa_B_I_2_1')
+           provision_long_term_for_employee_benefits_before = convert_to_float_value_before(root, './/{*}Pasywa_B_I_2_1')
+           provision_short_term_for_employee_benefits = convert_to_float(root, './/{*}Pasywa_B_I_2_2')
+           provision_short_term_for_employee_benefits_before = convert_to_float_value_before(root,
+                                                                                            './/{*}Pasywa_B_I_2_2')
+           provision_other = convert_to_float(root, './/{*}Pasywa_B_I_3')
+           provision_other_before = convert_to_float_value_before(root, './/{*}Pasywa_B_I_3')
+           provision_other_long_term = convert_to_float(root, './/{*}Pasywa_B_I_3_1')
+           provision_other_long_term_before = convert_to_float_value_before(root, './/{*}Pasywa_B_I_3_1')
+           provision_other_short_term = convert_to_float(root, './/{*}Pasywa_B_I_3_2')
+           provision_other_short_term_before = convert_to_float_value_before(root, './/{*}Pasywa_B_I_3_2')
+
+           liabilities_long_term = convert_to_float(root, './/{*}Pasywa_B_II')
+           liabilities_long_term_before = convert_to_float_value_before(root, './/{*}Pasywa_B_II')
+
+           liabilities_long_term_related = convert_to_float(root, './/{*}Pasywa_B_II_1')
+           liabilities_long_term_related_before = convert_to_float_value_before(root, './/{*}Pasywa_B_II_1')
+           liabilities_long_term_shares = convert_to_float(root, './/{*}Pasywa_B_II_2')
+           liabilities_long_term_shares_before = convert_to_float_value_before(root, './/{*}Pasywa_B_II_2')
+           liabilities_long_term_other = convert_to_float(root, './/{*}Pasywa_B_II_3')
+           liabilities_long_term_other_before = convert_to_float_value_before(root, './/{*}Pasywa_B_II_3')
+           liabilities_long_term_other_credits = convert_to_float(root, './/{*}Pasywa_B_II_3_A')
+           liabilities_long_term_other_credits_before = convert_to_float_value_before(root, './/{*}Pasywa_B_II_3_A')
+           liabilities_long_term_other_debt_securities = convert_to_float(root, './/{*}Pasywa_B_II_3_B')
+           liabilities_long_term_other_debt_securities_before = convert_to_float_value_before(root, './/{*}Pasywa_B_II_3_B')
+           liabilities_long_term_other_other_financial_liabilities = convert_to_float(root, './/{*}Pasywa_B_II_3_C')
+           liabilities_long_term_other_other_financial_liabilities_before = convert_to_float_value_before(root,
+                                                                                              './/{*}Pasywa_B_II_3_C')
+           liabilities_long_term_other_promissory_obligations = convert_to_float(root, './/{*}Pasywa_B_II_3_D')
+           liabilities_long_term_other_promissory_obligations_before = convert_to_float_value_before(root,
+                                                                                                          './/{*}Pasywa_B_II_3_D')
+           liabilities_long_term_other_other = convert_to_float(root, './/{*}Pasywa_B_II_3_E')
+           liabilities_long_term_other_other_before = convert_to_float_value_before(root, './/{*}Pasywa_B_II_3_E')
+
+
+           liabilities_short_therm = convert_to_float(root, './/{*}Pasywa_B_III')
+           liabilities_short_therm_before = convert_to_float_value_before(root, './/{*}Pasywa_B_III')
+           liabilities_short_term_related = convert_to_float(root, './/{*}Pasywa_B_III_1')
+           liabilities_short_term_related_before = convert_to_float_value_before(root, './/{*}Pasywa_B_III_1')
+           liabilities_short_term_related_trade_due_dates = convert_to_float(root, './/{*}Pasywa_B_III_1_A')
+           liabilities_short_term_related_trade_due_dates_before = convert_to_float_value_before(root,
+                                                                            './/{*}Pasywa_B_III_1_A')
+           liabilities_short_term_related_trade_within_12 = convert_to_float(root, './/{*}Pasywa_B_III_1_A_1')
+           liabilities_short_term_related_trade_within_12_before = convert_to_float_value_before(root,
+                                                                           './/{*}Pasywa_B_III_1_A_1')
+           liabilities_short_term_related_trade_more_12 = convert_to_float(root, './/{*}Pasywa_B_III_1_A_2')
+           liabilities_short_term_related_trade_more_12_before = convert_to_float_value_before(root,
+                                                                        './/{*}Pasywa_B_III_1_A_2')
+           liabilities_short_term_related_other = convert_to_float(root, './/{*}Pasywa_B_III_1_B')
+           liabilities_short_term_related_other_before = convert_to_float_value_before(root,
+                                                                                      './/{*}Pasywa_B_III_1_B')
+
+           liabilities_short_term_shares = convert_to_float(root, './/{*}Pasywa_B_III_2')
+           liabilities_short_term_shares_before = convert_to_float_value_before(root, './/{*}Pasywa_B_III_2')
+           liabilities_short_term_shares_trade_due_dates = convert_to_float(root, './/{*}Pasywa_B_III_2_A')
+           liabilities_short_term_shares_trade_due_dates_before = convert_to_float_value_before(root,
+                                                                                         './/{*}Pasywa_B_III_2_A')
+           liabilities_short_term_shares_trade_within_12 = convert_to_float(root, './/{*}Pasywa_B_III_2_A_1')
+           liabilities_short_term_shares_trade_within_12_before = convert_to_float_value_before(root,
+                                                                                        './/{*}Pasywa_B_III_2_A_1')
+           liabilities_short_term_shares_trade_more_12 = convert_to_float(root, './/{*}Pasywa_B_III_2_A_2')
+           liabilities_short_term_shares_trade_more_12_before = convert_to_float_value_before(root,
+                                                                                       './/{*}Pasywa_B_III_2_A_2')
+           liabilities_short_term_shares_other = convert_to_float(root, './/{*}Pasywa_B_III_2_B')
+           liabilities_short_term_shares_other_before = convert_to_float_value_before(root,
+                                                                                       './/{*}Pasywa_B_III_2_B')
 
 
 
+           liabilities_short_term_other = convert_to_float(root, './/{*}Pasywa_B_III_3')
+           liabilities_short_term_other_before = convert_to_float_value_before(root, './/{*}Pasywa_B_III_3')
+           liabilities_short_term_other_credits = convert_to_float(root, './/{*}Pasywa_B_III_3_A')
+           liabilities_short_term_other_credits_before = convert_to_float_value_before(root,
+                                                                                     './/{*}Pasywa_B_III_3_A')
+           liabilities_short_term_other_debt_securities = convert_to_float(root, './/{*}Pasywa_B_III_3_B')
+           liabilities_short_term_other_debt_securities_before = convert_to_float_value_before(root,
+                                                                                  './/{*}Pasywa_B_III_3_B')
+           liabilities_short_term_other_other_financial_liabilities = convert_to_float(root, './/{*}Pasywa_B_III_3_C')
+           liabilities_short_term_other_other_financial_liabilities_before = convert_to_float_value_before(root,
+                                                                                    './/{*}Pasywa_B_III_3_C')
+           liabilities_short_term_other_trade_due_dates = convert_to_float(root, './/{*}Pasywa_B_III_3_D')
+           liabilities_short_term_other_trade_due_dates_before = convert_to_float_value_before(root,
+                                                                                      './/{*}Pasywa_B_III_3_D')
+           liabilities_short_term_other_trade_within_12 = convert_to_float(root, './/{*}Pasywa_B_III_3_D_1')
+           liabilities_short_term_other_trade_within_12_before = convert_to_float_value_before(root,
+                                                                                               './/{*}Pasywa_B_III_3_D_1')
+           liabilities_short_term_other_trade_more_12 = convert_to_float(root, './/{*}Pasywa_B_III_3_D_2')
+           liabilities_short_term_other_trade_more_12_before = convert_to_float_value_before(root,
+                                                                                               './/{*}Pasywa_B_III_3_D_2')
+           liabilities_short_term_other_advances_for_deliveries = convert_to_float(root, './/{*}Pasywa_B_III_3_E')
+           liabilities_short_term_other_advances_for_deliveries_before = convert_to_float_value_before(root,
+                                                                                               './/{*}Pasywa_B_III_3_E')
+           liabilities_short_term_other_promissory_obligations = convert_to_float(root, './/{*}Pasywa_B_III_3_F')
+           liabilities_short_term_other_promissory_obligations_before = convert_to_float_value_before(root,
+                                                                                                       './/{*}Pasywa_B_III_3_F')
+           liabilities_short_term_other_tax = convert_to_float(root, './/{*}Pasywa_B_III_3_G')
+           liabilities_short_term_other_tax_before = convert_to_float_value_before(root, './/{*}Pasywa_B_III_3_G')
 
+           liabilities_short_term_other_payroll = convert_to_float(root, './/{*}Pasywa_B_III_3_H')
+           liabilities_short_term_other_payroll_before = convert_to_float_value_before(root, './/{*}Pasywa_B_III_3_H')
+           liabilities_short_term_other_other = convert_to_float(root, './/{*}Pasywa_B_III_3_I')
+           liabilities_short_term_other_other_before = convert_to_float_value_before(root, './/{*}Pasywa_B_III_3_I')
 
-           receivables_trade_related = './/{*}Aktywa_B_II_1_A'
-           receivables_trade_related = convert_to_float(root, receivables_trade_related)
-           receivables_trade_shares = './/{*}Aktywa_B_II_2_A'
-           receivables_trade_shares = convert_to_float(root, receivables_trade_shares)
-           receivables_trade_other = './/{*}Aktywa_B_II_3_A'
-           receivables_trade_other = convert_to_float(root, receivables_trade_other)
-           receivables_trade = receivables_trade_related + receivables_trade_shares + receivables_trade_other
+           liabilities_short_term_special_funds = convert_to_float(root, './/{*}Pasywa_B_III_4')
+           liabilities_short_term_special_funds_before = convert_to_float_value_before(root, './/{*}Pasywa_B_III_4')
 
-           receivables_tax = './/{*}Aktywa_B_II_3_B'
-           receivables_tax = convert_to_float(root, receivables_tax)
+           accruals = convert_to_float(root, './/{*}Pasywa_B_IV')
+           accruals_before = convert_to_float_value_before(root, './/{*}Pasywa_B_IV')
+           accruals_negative_goodwill = convert_to_float(root, './/{*}Pasywa_B_IV_1')
+           accruals_negative_goodwill_before = convert_to_float_value_before(root, './/{*}Pasywa_B_IV_1')
+           accruals_other = convert_to_float(root, './/{*}Pasywa_B_IV_2')
+           accruals_other_before = convert_to_float_value_before(root, './/{*}Pasywa_B_IV_2')
+           accruals_other_long_term = convert_to_float(root, './/{*}Pasywa_B_IV_2_1')
+           accruals_other_long_term_before = convert_to_float_value_before(root, './/{*}Pasywa_B_IV_2_1')
+           accruals_other_short_term = convert_to_float(root, './/{*}Pasywa_B_IV_2_2')
+           accruals_other_short_term_before = convert_to_float_value_before(root, './/{*}Pasywa_B_IV_2_2')
 
-           investments_short_term = './/{*}Aktywa_B_III'
-           investments_short_term = convert_to_float(root, investments_short_term)
+           revenue = convert_to_float(root, './/{*}A')
+           revenue_before = convert_to_float_value_before(root, './/{*}A')
+           revenue_related = convert_to_float(root, './/{*}A_J')
+           revenue_related_before = convert_to_float_value_before(root, './/{*}A_J')
+           revenue_from_sale_products = convert_to_float(root, './/{*}A_I')
+           revenue_from_sale_products_before = convert_to_float_value_before(root, './/{*}A_I')
+           revenue_net_from_sale_goods = convert_to_float(root, './/{*}A_II')
+           revenue_net_from_sale_goods_before = convert_to_float_value_before(root, './/{*}A_II')
 
-           assets_cash = './/{*}Aktywa_B_III_1_C'
-           assets_cash = convert_to_float(root, assets_cash)
+           costs_of_products_goods = convert_to_float(root, './/{*}B')
+           costs_of_products_goods_before = convert_to_float_value_before(root, './/{*}B')
+           costs_of_products_goods_related = convert_to_float(root, './/{*}B_J')
+           costs_of_products_goods_related_before = convert_to_float_value_before(root, './/{*}B_J')
+           costs_of_producing_products = convert_to_float(root, './/{*}B_I')
+           costs_of_producing_products_before = convert_to_float_value_before(root, './/{*}B_I')
+           value_of_sold_goods = convert_to_float(root, './/{*}B_II')
+           value_of_sold_goods_before = convert_to_float_value_before(root, './/{*}B_II')
+           profit_gross_sales = convert_to_float(root, './/{*}C')
+           profit_gross_sales_before = convert_to_float_value_before(root, './/{*}C')
+           costs_selling = convert_to_float(root, './/{*}D')
+           costs_selling_before = convert_to_float_value_before(root, './/{*}D')
+           costs_general_administration = convert_to_float(root, './/{*}E')
+           costs_general_administration_before = convert_to_float_value_before(root, './/{*}E')
+           profit_on_sales = convert_to_float(root, './/{*}F')
+           profit_on_sales_before = convert_to_float_value_before(root, './/{*}F')
+           revenue_operating_other = convert_to_float(root, './/{*}G')
+           revenue_operating_other_before = convert_to_float_value_before(root, './/{*}G')
+           profit_on_sales_non_financial_assets = convert_to_float(root, './/{*}G_I')
+           profit_on_sales_non_financial_assets_before = convert_to_float_value_before(root, './/{*}G_I')
+           subsidies = convert_to_float(root, './/{*}G_II')
+           subsidies_before = convert_to_float_value_before(root, './/{*}G_II')
+           revaluation_non_financial_assets = convert_to_float(root, './/{*}G_III')
+           revaluation_non_financial_assets_before = convert_to_float_value_before(root, './/{*}G_III')
+           other_revenue_operating_other = convert_to_float(root, './/{*}G_IV')
+           other_revenue_operating_other_before = convert_to_float_value_before(root, './/{*}G_IV')
+           costs_operating_other = convert_to_float(root, './/{*}H')
+           costs_operating_other_before = convert_to_float_value_before(root, './/{*}H')
+           loss_on_sales_non_financial_assets = convert_to_float(root, './/{*}H_I')
+           loss_on_sales_non_financial_assets_before = convert_to_float_value_before(root, './/{*}H_I')
+           loss_revaluation_non_financial_assets = convert_to_float(root, './/{*}H_II')
+           loss_revaluation_non_financial_assets_before = convert_to_float_value_before(root, './/{*}H_II')
+           other_costs_operating_other = convert_to_float(root, './/{*}H_III')
+           other_costs_operating_other_before = convert_to_float_value_before(root, './/{*}H_III')
 
-           equity = './/{*}Pasywa_A'
-           equity = convert_to_float(root, equity)
+           profit_from_operations = convert_to_float(root, './/{*}I')
+           profit_from_operations_before = convert_to_float_value_before(root, './/{*}I')
+           income_financial = convert_to_float(root, './/{*}J')
+           income_financial_before = convert_to_float_value_before(root, './/{*}J')
 
-           capital_share = './/{*}Pasywa_A_I'
-           capital_share = convert_to_float(root, capital_share)
+           dividends_profit_shares = convert_to_float(root, './/{*}J_I')
+           dividends_profit_shares_before = convert_to_float_value_before(root, './/{*}J_I')
 
-           provision = './/{*}Pasywa_B_I'
-           provision = convert_to_float(root, provision)
-           accruals = './/{*}Pasywa_B_IV'
-           accruals = convert_to_float(root, accruals)
-           provision_and_accruals = round(provision + accruals, 2)
+           dividends_profit_shares_related = convert_to_float(root, './/{*}J_I_A')
+           dividends_profit_shares_related_before = convert_to_float_value_before(root, './/{*}J_I_A')
+           dividends_profit_shares_related_shares = convert_to_float(root, './/{*}J_I_A_I')
+           dividends_profit_shares_related_shares_before = convert_to_float_value_before(root, './/{*}J_I_A_I')
 
-           liabilities_long_therm = './/{*}Pasywa_B_II'
-           liabilities_long_therm = convert_to_float(root, liabilities_long_therm)
+           dividends_profit_shares_other = convert_to_float(root, './/{*}J_I_B')
+           dividends_profit_shares_other_before = convert_to_float_value_before(root, './/{*}J_I_B')
+           dividends_profit_shares_other_shares = convert_to_float(root, './/{*}J_I_B_I')
+           dividends_profit_shares_other_shares_before = convert_to_float_value_before(root, './/{*}J_I_B_I')
 
-           liabilities_long_therm_credits = './/{*}Pasywa_B_II_3_A'
-           liabilities_long_therm_credits = convert_to_float(root, liabilities_long_therm_credits)
-           liabilities_long_therm_other_financial = './/{*}Pasywa_B_II_3_C'
-           liabilities_long_therm_other_financial = convert_to_float(root, liabilities_long_therm_other_financial)
+           interest = convert_to_float(root, './/{*}J_II')
+           interest_before = convert_to_float_value_before(root, './/{*}J_II')
 
-           liabilities_long_therm_financial = liabilities_long_therm_credits + liabilities_long_therm_other_financial
+           interest_related = convert_to_float(root, './/{*}J_II_A')
+           interest_related_before = convert_to_float_value_before(root, './/{*}J_II_A')
 
-           liabilities_short_therm = './/{*}Pasywa_B_III'
-           liabilities_short_therm = convert_to_float(root, liabilities_short_therm)
+           gain_disposal_financial_assets = convert_to_float(root, './/{*}J_III')
+           gain_disposal_financial_assets_before = convert_to_float_value_before(root, './/{*}J_III')
+           gain_disposal_financial_assets_related = convert_to_float(root, './/{*}J_III_A')
+           gain_disposal_financial_assets_related_before = convert_to_float_value_before(root, './/{*}J_III_A')
+           revaluation_financial_assets = convert_to_float(root, './/{*}J_IV')
+           revaluation_financial_assets_before = convert_to_float_value_before(root, './/{*}J_IV')
+           income_financial_other = convert_to_float(root, './/{*}J_V')
+           income_financial_other_before = convert_to_float_value_before(root, './/{*}J_V')
 
-           liabilities_short_therm_credits = './/{*}Pasywa_B_III_3_A'
-           liabilities_short_therm_credits = convert_to_float(root, liabilities_short_therm_credits)
-           liabilities_short_therm_other_financial = './/{*}Pasywa_B_III_3_C'
-           liabilities_short_therm_other_financial = convert_to_float(root, liabilities_short_therm_other_financial)
-           liabilities_short_therm_financial = liabilities_short_therm_credits+ liabilities_short_therm_other_financial
+           costs_financial = convert_to_float(root, './/{*}K')
+           costs_financial_before = convert_to_float_value_before(root, './/{*}K')
 
-           liabilities_short_therm_trade_related = './/{*}Pasywa_B_III_1_A'
-           liabilities_short_therm_trade_related = convert_to_float(root, liabilities_short_therm_trade_related)
-           liabilities_short_therm_trade_shares = './/{*}Pasywa_B_III_2_A'
-           liabilities_short_therm_trade_shares = convert_to_float(root, liabilities_short_therm_trade_shares)
-           liabilities_short_therm_trade_other = './/{*}Pasywa_B_III_3_D_1'
-           liabilities_short_therm_trade_other = convert_to_float(root, liabilities_short_therm_trade_other)
-           liabilities_trade = liabilities_short_therm_trade_related + liabilities_short_therm_trade_shares \
-                               + liabilities_short_therm_trade_other
-           revenue = './/{*}A'
-           revenue = convert_to_float(root, revenue)
-
-           profit_operating = './/{*}F'
-           profit_operating = convert_to_float(root, profit_operating)
-
-           depreciation = give_depreciation(root, './/{*}B_I', './/{*}A_II_1')
-
-           profit_gross = './/{*}I'
-           profit_gross = convert_to_float(root, profit_gross)
-
-           tax_income = './/{*}J'
-           tax_income = convert_to_float(root, tax_income)
-
-           profit_net = './/{*}L'
-           profit_net = convert_to_float(root, profit_net)
-
-           assets_total = './/{*}Aktywa'
-           assets_total = convert_to_float(root, assets_total)
-
-           liabilities_and_equity = './/{*}Pasywa'
-           liabilities_and_equity = convert_to_float(root, liabilities_and_equity)
+           costs_financial_interest = convert_to_float(root, './/{*}K_I')
+           costs_financial_interest_before = convert_to_float_value_before(root, './/{*}K_I')
+           costs_financial_interest_related = convert_to_float(root, './/{*}K_I_J')
+           costs_financial_interest_related_before = convert_to_float_value_before(root, './/{*}K_I_J')
+           costs_financial_loss_disposal_financial_assets = convert_to_float(root, './/{*}K_II')
+           costs_financial_loss_disposal_financial_assets_before = convert_to_float_value_before(root, './/{*}K_II')
+           costs_financial_loss_disposal_financial_assets_related = convert_to_float(root, './/{*}K_II_J')
+           costs_financial_loss_disposal_financial_assets_related_before = convert_to_float_value_before(root, './/{*}K_II_J')
+           costs_financial_revaluation_financial_assets = convert_to_float(root, './/{*}K_III')
+           costs_financial_revaluation_financial_assets_before = convert_to_float_value_before(root, './/{*}K_III')
+           costs_financial_other = convert_to_float(root, './/{*}K_IV')
+           costs_financial_other_before = convert_to_float_value_before(root, './/{*}K_IV')
+           profit_loss_gross = convert_to_float(root, './/{*}L')
+           profit_loss_gross_before = convert_to_float_value_before(root, './/{*}L')
+           tax = convert_to_float(root, './/{*}M')
+           tax_before = convert_to_float_value_before(root, './/{*}M')
+           reductions_other = convert_to_float(root, './/{*}N')
+           reductions_other_before = convert_to_float_value_before(root, './/{*}N')
+           profit_loss_net = convert_to_float(root, './/{*}O')
+           profit_loss_net_before = convert_to_float_value_before(root, './/{*}O')
 
        return render(request, 'file_detail.html', locals())
 
