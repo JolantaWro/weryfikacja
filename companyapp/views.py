@@ -63,11 +63,11 @@ class RatiosAdd(View):
 
 
            if capitalization > 20 and current_ratio > 1 and debt_to_equity_ratio < 300:
-               category = "Low risk"
+               category = "Niskie ryzyko"
            elif capitalization < 20 and current_ratio < 1 and debt_to_equity_ratio > 300 or debt_to_equity_ratio < 0:
-               category = "High risk"
+               category = "Wysokie ryzyko"
            else:
-               category = "Medium risk"
+               category = "Średnie ryzyko, zwróć uwagę na poziom kapitalizacji, płynności oraz zadłużenia"
 
        return render(request, 'ratios_detail.html', locals())
 
@@ -251,11 +251,11 @@ class RatiosAddFile(View):
            debt_financial_net_to_ebitda = round(debt_financial_net / ebitda, 2)
 
            if capitalization > 20 and current_ratio > 1 and debt_to_equity_ratio < 300:
-               category = "Low risk"
+               category = "Niskie ryzyko"
            elif capitalization < 20 and current_ratio < 1 and debt_to_equity_ratio > 300 or debt_to_equity_ratio < 0:
-               category = "High risk"
+               category = "Wysokie ryzyko"
            else:
-               category = "Medium risk"
+               category = "Średnie ryzyko, zwróć uwagę na poziom kapitalizacji, płynności oraz zadłużenia"
 
        return redirect('ratios_edit', company_name=company_name, number_nip=number_nip, year_result=year_result
                        , assets_fixed=assets_fixed, assets_current=assets_current, stock=stock
@@ -346,11 +346,11 @@ class RatiosEdit(View):
 
 
            if capitalization > 20 and current_ratio > 1 and debt_to_equity_ratio < 300:
-               category = "Low risk"
+               category = "Niskie ryzyko"
            elif capitalization < 20 and current_ratio < 1 and debt_to_equity_ratio > 300 or debt_to_equity_ratio < 0:
-               category = "High risk"
+               category = "Wysokie ryzyko"
            else:
-               category = "Medium risk"
+               category = "Średnie ryzyko, zwróć uwagę na poziom kapitalizacji, płynności oraz zadłużenia"
 
        return render(request, 'ratios_detail.html', locals())
 
@@ -494,11 +494,11 @@ class RatiosViewFile(View):
            debt_financial_net_to_ebitda = round(debt_financial_net / ebitda, 2)
 
            if capitalization > 20 and current_ratio > 1 and debt_to_equity_ratio < 300:
-               category = "Low risk"
+               category = "Niskie ryzyko"
            elif capitalization < 20 and current_ratio < 1 and debt_to_equity_ratio > 300 or debt_to_equity_ratio < 0:
-               category = "High risk"
+               category = "Wysokie ryzyko"
            else:
-               category = "Medium risk"
+               category = "Średnie ryzyko, zwróć uwagę na poziom kapitalizacji, płynności oraz zadłużenia"
 
        return render(request, 'ratios_detail.html', locals())
 
@@ -826,7 +826,6 @@ class FileDetail(View):
            equity = convert_to_float(root, './/{*}Pasywa_A')
            equity_before = convert_to_float_value_before(root, './/{*}Pasywa_A')
 
-
            capital_share = convert_to_float(root, './/{*}Pasywa_A_I')
            capital_share_before = convert_to_float_value_before(root, './/{*}Pasywa_A_I')
 
@@ -855,8 +854,8 @@ class FileDetail(View):
            advanced_distributions = convert_to_float(root, './/{*}Pasywa_A_VII')
            advanced_distributions_before = convert_to_float_value_before(root, './/{*}Pasywa_A_VII')
 
-           liabilties_and_provisions = convert_to_float(root, './/{*}Pasywa_B')
-           liabilties_and_provisions_before = convert_to_float_value_before(root, './/{*}Pasywa_B')
+           liabilities_and_provisions = convert_to_float(root, './/{*}Pasywa_B')
+           liabilities_and_provisions_before = convert_to_float_value_before(root, './/{*}Pasywa_B')
 
            provisions = convert_to_float(root, './/{*}Pasywa_B_I')
            provisions_before = convert_to_float_value_before(root, './/{*}Pasywa_B_I')
@@ -899,7 +898,6 @@ class FileDetail(View):
            liabilities_long_term_other_other = convert_to_float(root, './/{*}Pasywa_B_II_3_E')
            liabilities_long_term_other_other_before = convert_to_float_value_before(root, './/{*}Pasywa_B_II_3_E')
 
-
            liabilities_short_therm = convert_to_float(root, './/{*}Pasywa_B_III')
            liabilities_short_therm_before = convert_to_float_value_before(root, './/{*}Pasywa_B_III')
            liabilities_short_term_related = convert_to_float(root, './/{*}Pasywa_B_III_1')
@@ -931,8 +929,6 @@ class FileDetail(View):
            liabilities_short_term_shares_other = convert_to_float(root, './/{*}Pasywa_B_III_2_B')
            liabilities_short_term_shares_other_before = convert_to_float_value_before(root,
                                                                                        './/{*}Pasywa_B_III_2_B')
-
-
 
            liabilities_short_term_other = convert_to_float(root, './/{*}Pasywa_B_III_3')
            liabilities_short_term_other_before = convert_to_float_value_before(root, './/{*}Pasywa_B_III_3')
@@ -1082,6 +1078,111 @@ class FileDetail(View):
            reductions_other_before = convert_to_float_value_before(root, './/{*}N')
            profit_loss_net = convert_to_float(root, './/{*}O')
            profit_loss_net_before = convert_to_float_value_before(root, './/{*}O')
+
+           change_of_product_state = convert_to_float(root, './/{*}A_II')
+           change_of_product_state_before = convert_to_float_value_before(root, './/{*}A_II')
+
+           costs_of_producing_products_for_own_needs = convert_to_float(root, './/{*}A_III')
+           costs_of_producing_products_for_own_needs_before = convert_to_float_value_before(root, './/{*}A_III')
+
+           revenues_net_from_sale_goods = convert_to_float(root, './/{*}A_IV')
+           revenues_net_from_sale_goods_before = convert_to_float_value_before(root, './/{*}A_IV')
+           costs_operating_b = convert_to_float(root, './/{*}B')
+           costs_operating_b_before = convert_to_float_value_before(root, './/{*}B')
+           depreciation = convert_to_float(root, './/{*}B_I')
+           depreciation_before = convert_to_float_value_before(root, './/{*}B_I')
+           usage_materials_energy = convert_to_float(root, './/{*}B_II')
+           usage_materials_energy_before = convert_to_float_value_before(root, './/{*}B_II')
+           foreign_service = convert_to_float(root, './/{*}B_III')
+           foreign_service_before = convert_to_float_value_before(root, './/{*}B_III')
+           tax_and_fees = convert_to_float(root, './/{*}B_IV')
+           tax_and_fees_before = convert_to_float_value_before(root, './/{*}B_IV')
+           tax_excise = convert_to_float(root, './/{*}B_IV_1')
+           tax_excise_before = convert_to_float_value_before(root, './/{*}B_IV_1')
+           salaries = convert_to_float(root, './/{*}B_V')
+           salaries_before = convert_to_float_value_before(root, './/{*}B_V')
+           social_other_benefits = convert_to_float(root, './/{*}B_VI')
+           social_other_benefits_before = convert_to_float_value_before(root, './/{*}B_VI')
+           social_other_benefits_retirement = convert_to_float(root, './/{*}B_VI_1')
+           social_other_benefits_retirement_before = convert_to_float_value_before(root, './/{*}B_VI_1')
+           costs_operating_b_other_costs = convert_to_float(root, './/{*}B_VII')
+           costs_operating_b_other_costs_before = convert_to_float_value_before(root, './/{*}B_VII')
+           costs_operating_b_value_of_sold_goods = convert_to_float(root, './/{*}B_VIII')
+           costs_operating_b_value_of_sold_goods_before = convert_to_float_value_before(root, './/{*}B_VIII')
+           var_comparative_revenue_operating_other = convert_to_float(root, './/{*}D')
+           var_comparative_revenue_operating_other_before = convert_to_float_value_before(root, './/{*}D')
+           var_comparative_profit_on_sales_non_financial_assets = convert_to_float(root, './/{*}D_I')
+           var_comparative_profit_on_sales_non_financial_assets_before = convert_to_float_value_before(root, './/{*}D_I')
+           var_comparative_subsidies = convert_to_float(root, './/{*}D_II')
+           var_comparative_subsidies_before = convert_to_float_value_before(root, './/{*}D_II')
+           var_comparative_revaluation_non_financial_assets = convert_to_float(root, './/{*}D_III')
+           var_comparative_revaluation_non_financial_assets_before = convert_to_float_value_before(root, './/{*}D_III')
+           var_comparative_other_revenue_operating_other = convert_to_float(root, './/{*}D_IV')
+           var_comparative_other_revenue_operating_other_before = convert_to_float_value_before(root, './/{*}D_IV')
+
+           var_comparative_costs_operating_other = convert_to_float(root, './/{*}E')
+           var_comparative_costs_operating_other_before = convert_to_float_value_before(root, './/{*}E')
+           var_comparative_loss_on_sales_non_financial_assets = convert_to_float(root, './/{*}E_I')
+           var_comparative_loss_on_sales_non_financial_assets_before = convert_to_float_value_before(root, './/{*}E_I')
+           var_comparative_loss_revaluation_non_financial_assets = convert_to_float(root, './/{*}E_II')
+           var_comparative_loss_revaluation_non_financial_assets_before = convert_to_float_value_before(root, './/{*}E_II')
+           var_comparative_other_costs_operating_other = convert_to_float(root, './/{*}E_III')
+           var_comparative_other_costs_operating_other_before = convert_to_float_value_before(root, './/{*}E_III')
+           var_comparative_profit_from_operations = convert_to_float(root, './/{*}F')
+           var_comparative_profit_from_operations_before = convert_to_float_value_before(root, './/{*}F')
+           var_comparative_income_financial = convert_to_float(root, './/{*}G')
+           var_comparative_income_financial_before = convert_to_float_value_before(root, './/{*}G')
+           var_comparative_dividends_profit_shares = convert_to_float(root, './/{*}G_I')
+           var_comparative_dividends_profit_shares_before = convert_to_float_value_before(root, './/{*}G_I')
+           var_comparative_dividends_profit_shares_related = convert_to_float(root, './/{*}G_I_A')
+           var_comparative_dividends_profit_shares_related_before = convert_to_float_value_before(root, './/{*}G_I_A')
+           var_comparative_dividends_profit_shares_related_shares = convert_to_float(root, './/{*}G_I_A_1')
+           var_comparative_dividends_profit_shares_related_shares_before = convert_to_float_value_before(root, './/{*}G_I_A_1')
+           var_comparative_dividends_profit_shares_other = convert_to_float(root, './/{*}G_I_B')
+           var_comparative_dividends_profit_shares_other_before = convert_to_float_value_before(root, './/{*}G_I_B')
+           var_comparative_dividends_profit_shares_other_shares = convert_to_float(root, './/{*}G_I_B_I')
+           var_comparative_dividends_profit_shares_other_shares_before = convert_to_float_value_before(root, './/{*}G_I_B_I')
+           var_comparative_interest = convert_to_float(root, './/{*}G_II')
+           var_comparative_interest_before = convert_to_float_value_before(root, './/{*}G_II')
+           var_comparative_interest_related = convert_to_float(root, './/{*}G_II_A')
+           var_comparative_interest_related_before = convert_to_float_value_before(root, './/{*}G_II_A')
+           var_comparative_gain_disposal_financial_assets = convert_to_float(root, './/{*}G_III')
+           var_comparative_gain_disposal_financial_assets_before = convert_to_float_value_before(root, './/{*}G_III')
+           var_comparative_gain_disposal_financial_assets_related = convert_to_float(root, './/{*}G_III_A')
+           var_comparative_gain_disposal_financial_assets_related_before = convert_to_float_value_before(root, './/{*}G_III_A')
+           var_comparative_revaluation_financial_assets = convert_to_float(root, './/{*}G_IV')
+           var_comparative_revaluation_financial_assets_before = convert_to_float_value_before(root, './/{*}G_IV')
+           var_comparative_income_financial_other = convert_to_float(root, './/{*}G_V')
+           var_comparative_income_financial_other_before = convert_to_float_value_before(root, './/{*}G_V')
+
+           var_comparative_costs_financial = convert_to_float(root, './/{*}H')
+           var_comparative_costs_financial_before = convert_to_float_value_before(root, './/{*}H')
+           var_comparative_costs_financial_interest = convert_to_float(root, './/{*}H_I')
+           var_comparative_costs_financial_interest_before = convert_to_float_value_before(root, './/{*}H_I')
+           var_comparative_costs_financial_interest_related = convert_to_float(root, './/{*}H_I_J')
+           var_comparative_costs_financial_interest_related_before = convert_to_float_value_before(root, './/{*}H_I_J')
+           var_comparative_costs_financial_loss_disposal_financial_assets = convert_to_float(root, './/{*}H_II')
+           var_comparative_costs_financial_loss_disposal_financial_assets_before = convert_to_float_value_before(root, './/{*}H_II')
+           var_comparative_costs_financial_loss_disposal_financial_assets_related = convert_to_float(root, './/{*}H_II_J')
+           var_comparative_costs_financial_loss_disposal_financial_assets_related_before = convert_to_float_value_before(root,
+                                                                                                        './/{*}H_II_J')
+           var_comparative_costs_financial_revaluation_financial_assets = convert_to_float(root, './/{*}H_III')
+           var_comparative_costs_financial_revaluation_financial_assets_before = convert_to_float_value_before(root, './/{*}H_III')
+           var_comparative_costs_financial_other = convert_to_float(root, './/{*}H_IV')
+           var_comparative_costs_financial_other_before = convert_to_float_value_before(root, './/{*}H_IV')
+
+           var_comparative_profit_loss_gross = convert_to_float(root, './/{*}I')
+           var_comparative_profit_loss_gross_before = convert_to_float_value_before(root, './/{*}I')
+           var_comparative_tax = convert_to_float(root, './/{*}J')
+           var_comparative_tax_before = convert_to_float_value_before(root, './/{*}J')
+           var_comparative_reductions_other = convert_to_float(root, './/{*}K')
+           var_comparative_reductions_other_before = convert_to_float_value_before(root, './/{*}K')
+           var_comparative_profit_loss_net = convert_to_float(root, './/{*}L')
+           var_comparative_profit_loss_net_before = convert_to_float_value_before(root, './/{*}L')
+
+           code_report = root.find('.//{*}RZiSKalk')
+           if code_report is not None:
+               message = f"Wariant kalkulacyjny"
 
        return render(request, 'file_detail.html', locals())
 
