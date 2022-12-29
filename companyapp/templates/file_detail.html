@@ -304,7 +304,7 @@
                <p class="mybold">{{ net_profit_or_loss }}</p>
                <p></p>
                <p class="mybold">{{ advanced_distributions }}</p><br><br>
-               <p class="mybold">{{ liabilties_and_provisions }}</p><br>
+               <p class="mybold">{{ liabilities_and_provisions }}</p><br>
                <p class="mybold">{{ provisions }}</p><br>
                {{ provision_for_income_tax }}<br><br>
                {{ provision_for_employee_benefits }}<br><br>
@@ -454,7 +454,7 @@
                <p class="mybold">{{ net_profit_or_loss_before }}</p>
                <p></p>
                <p class="mybold">{{ advanced_distributions_before }}</p><br><br>
-               <p class="mybold">{{ liabilties_and_provisions_before }}</p><br>
+               <p class="mybold">{{ liabilities_and_provisions_before }}</p><br>
                <p class="mybold">{{ provisions_before }}</p><br>
                {{ provision_for_income_tax_before }}<br><br>
                {{ provision_for_employee_benefits_before }}<br><br>
@@ -506,6 +506,8 @@
            </div>
        </div>
   <h3>Rachunek zysków i strat:</h3>
+  {% if message %}
+      {{ message }}
       <div class="row">
            <div class="col-3">
 
@@ -612,7 +614,6 @@
                <p class="mybold">{{ tax }}</p><br>
                <p class="mybold">{{ reductions_other }}</p><br>
                <p class="mybold">{{ profit_loss_net }}</p><br>
-
            </div>
            <div class="col-3"><br>
                <p class="mybold">{{ revenue_before }}</p><br>
@@ -661,122 +662,186 @@
                <p class="mybold">{{ tax_before }}</p><br>
                <p class="mybold">{{ reductions_other_before }}</p><br>
                <p class="mybold">{{ profit_loss_net_before }}</p><br>
-
-
            </div>
       </div>
-  <h3>Rachunek przepływów pieniężnych:</h3>
+      {% else %}
+            Wariant powównawczy
 
-      <div class="row">
-           <div class="col-3">
+           <div class="row">
+                <div class="col-3">
 
+                </div>
+                <div class="col-3">
+                    Kwota na dzień kończący bieżący rok obrachunkowy
+                </div>
+                <div class="col-3">
+                    Kwota na dzień kończący poprzedni rok obrachunkowy
+                </div>
            </div>
-           <div class="col-3">
-               Kwota na dzień kończący bieżący rok obrachunkowy
-           </div>
-          <div class="col-3">
-               Kwota na dzień kończący poprzedni rok obrachunkowy
-           </div>
-      </div>
-      <div class="row">
-           <div class="col-3">
-               <p>A. Przepływy środków pieniężnych z działalności operacyjnej</p>
-               <p class="mymarg">I. Zysk (strata) netto<p>
-               <p class="mymarg">II. Korekty razem<p>
-               <p class="mymarg2">1. Amortyzacja<p>
-               <p class="mymarg2">2. Zyski (straty) z tytułu różnic kursowych<p>
-               <p class="mymarg2">3. Odsetki i udziały w zyskach (dywidendy)<p>
-               <p class="mymarg2">4. Zysk (strata) z działalności inwestycyjnej<p>
-               <p class="mymarg2">5. Zmiana stanu rezerw<p>
-               <p class="mymarg2">6. Zmiana stanu zapasów<p>
-               <p class="mymarg2">7. Zmiana stanu należności<p>
-               <p class="mymarg2">8. Zmiana stanu zobowiązań krótkoterminowych, z wyjątkiem pożyczek i kredytów<p>
-               <p class="mymarg2">9. Zmiana stanu rozliczeń międzyokresowych<p>
-               <p class="mymarg2">10. Inne korekty<p>
-               <p class="mymarg">III. Przepływy pieniężne netto z działalności operacyjnej (I±II)<p>
-               <p>B. Przepływy środków pieniężnych z działalności inwestycyjnej</p>
-               <p class="mymarg">I. Wpływy<p>
-               <p class="mymarg2">1. Zbycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych<p>
-               <p class="mymarg2">2. Zbycie inwestycji w nieruchomości oraz wartości niematerialne i prawne<p>
-               <p class="mymarg2">3. Z aktywów finansowych, w tym:<p>
-               <p class="mymarg3">a) w jednostkach powiązanych<p>
-               <p class="mymarg3">b) w pozostałych jednostkach<p>
-               <p class="mymarg4">– zbycie aktywów finansowych<p>
-               <p class="mymarg4">– dywidendy i udziały w zyskach<p>
-               <p class="mymarg4">– spłata udzielonych pożyczek długoterminowych<p>
-               <p class="mymarg4">– odsetki<p>
-               <p class="mymarg4">– inne wpływy z aktywów finansowych<p>
-               <p class="mymarg2">4. Inne wpływy inwestycyjne<p>
-               <p class="mymarg">II. Wydatki<p>
-               <p class="mymarg2">1. Nabycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych<p>
-               <p class="mymarg2">2. Inwestycje w nieruchomości oraz wartości niematerialne i prawne<p>
-               <p class="mymarg2">3. Na aktywa finansowe, w tym:<p>
-               <p class="mymarg3">a) w jednostkach powiązanych<p>
-               <p class="mymarg3">b) w pozostałych jednostkach<p>
-               <p class="mymarg4">– nabycie aktywów finansowych<p>
-               <p class="mymarg4">– udzielone pożyczki długoterminowe<p>
-               <p class="mymarg2">4. Inne wydatki inwestycyjne<p>
-               <p class="mymarg">III. Przepływy pieniężne netto z działalności inwestycyjnej (I–II)
-               <p>C. Przepływy środków pieniężnych z działalności finansowej</p>
-               <p class="mymarg">I. Wpływy<p>
-               <p class="mymarg2">1. Wpływy netto z wydania udziałów (emisji akcji) i innych instrumentów kapitałowych oraz dopłat do kapitału<p>
-               <p class="mymarg2">2. Kredyty i pożyczki<p>
-               <p class="mymarg2">3. Emisja dłużnych papierów wartościowych<p>
-               <p class="mymarg2">4. Inne wpływy finansowe<p>
-               <p class="mymarg">II. Wydatki<p>
-               <p class="mymarg2">1. Nabycie udziałów (akcji) własnych<p>
-               <p class="mymarg2">2. Dywidendy i inne wypłaty na rzecz właścicieli<p>
-               <p class="mymarg2">3. Inne, niż wypłaty na rzecz właścicieli, wydatki z tytułu podziału zysku<p>
-               <p class="mymarg2">4. Spłaty kredytów i pożyczek<p>
-               <p class="mymarg2">5. Wykup dłużnych papierów wartościowych<p>
-               <p class="mymarg2">6. Z tytułu innych zobowiązań finansowych<p>
-               <p class="mymarg2">7. Płatności zobowiązań z tytułu umów leasingu finansowego<p>
-               <p class="mymarg2">8. Odsetki<p>
-               <p class="mymarg2">9. Inne wydatki finansowe<p>
-               <p class="mymarg">III. Przepływy pieniężne netto z działalności finansowej (I–II)<p>
-               <p>D. Przepływy pieniężne netto razem (A.III±B.III±C.III)</p>
-               <p>E. Bilansowa zmiana stanu środków pieniężnych, w tym:</p>
-               <p class="mymarg">– zmiana stanu środków pieniężnych z tytułu różnic kursowych<p>
-               <p>F. Środki pieniężne na początek okresu</p>
-               <p>G. Środki pieniężne na koniec okresu (F±D), w tym:</p>
-               <p class="mymarg">– o ograniczonej możliwości dysponowania<p>
-
-           </div>
-           <div class="col-3">
-               <p>{{ assets_fixed }}</p><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br><br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-           </div>
-           <div class="col-3">
-               <p>{{ assets_fixed }}</p><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ receivables_short_term }}<br><br><br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-               {{ assets_current }}<br><br>
-           </div>
-      </div>
+           <div class="row">
+                <div class="col-3">
+                    <p class="mybold">A. Przychody netto ze sprzedaży i zrównane z nimi, w tym:</p>
+                    <p class="mymarg">– od jednostek powiązanych</p>
+                    <p class="mymarg">I. Przychody netto ze sprzedaży produktów</p>
+                    <p class="mymarg">II. Zmiana stanu produktów (zwiększenie – wartość dodatnia, zmniejszenie – wartość ujemna)</p>
+                    <p class="mymarg">III. Koszt wytworzenia produktów na własne potrzeby jednostki</p>
+                    <p class="mymarg">IV. Przychody netto ze sprzedaży towarów i materiałów</p>
+                    <p class="mybold">B. Koszty działalności operacyjnej</p>
+                    <p class="mymarg">I. Amortyzacja</p>
+                    <p class="mymarg">II. Zużycie materiałów i energii</p>
+                    <p class="mymarg">III. Usługi obce</p>
+                    <p class="mymarg">IV. Podatki i opłaty, w tym:</p>
+                    <p class="mymarg">– podatek akcyzowy</p>
+                    <p class="mymarg">V. Wynagrodzenia</p>
+                    <p class="mymarg">VI. Ubezpieczenia społeczne i inne świadczenia, w tym:</p>
+                    <p class="mymarg">– emerytalne</p>
+                    <p class="mymarg">VII. Pozostałe koszty rodzajowe</p>
+                    <p class="mymarg">VIII. Wartość sprzedanych towarów i materiałów</p>
+                    <p class="mybold">C. Zysk (strata) brutto ze sprzedaży (A–B)</p>
+                    <p class="mybold">D. Pozostałe przychody operacyjne</p>
+                    <p class="mymarg">I. Zysk z tytułu rozchodu niefinansowych aktywów trwałych</p>
+                    <p class="mymarg">II. Dotacje</p>
+                    <p class="mymarg">III. Aktualizacja wartości aktywów niefinansowych</p>
+                    <p class="mymarg">IV. Inne przychody operacyjne</p>
+                    <p class="mybold">E. Pozostałe koszty operacyjne</p>
+                    <p class="mymarg">I. Strata z tytułu rozchodu niefinansowych aktywów trwałych</p>
+                    <p class="mymarg">II. Aktualizacja wartości aktywów niefinansowych</p>
+                    <p class="mymarg">III. Inne koszty operacyjne</p>
+                    <p class="mybold">F. Zysk (strata) z działalności operacyjnej (C+D–E)</p>
+                    <p class="mybold">G. Przychody finansowe</p>
+                    <p class="mymarg">I. Dywidendy i udziały w zyskach, w tym:</p>
+                    <p class="mymarg2">a) od jednostek powiązanych, w tym:</p>
+                    <p class="mymarg3">– w których jednostka posiada zaangażowanie w kapitale</p>
+                    <p class="mymarg2">b) od jednostek pozostałych, w tym:</p>
+                    <p class="mymarg3">– w których jednostka posiada zaangażowanie w kapitale</p>
+                    <p class="mymarg">II. Odsetki, w tym:</p>
+                    <p class="mymarg2">– od jednostek powiązanych</p>
+                    <p class="mymarg">III. Zysk z tytułu rozchodu aktywów finansowych, w tym:</p>
+                    <p class="mymarg2">– w jednostkach powiązanych</p>
+                    <p class="mymarg">IV. Aktualizacja wartości aktywów finansowych
+                    <p class="mymarg">V. Inne</p>
+                    <p class="mybold">H. Koszty finansowe</p>
+                    <p class="mymarg">I. Odsetki, w tym:</p>
+                    <p class="mymarg2">- od jednostek powiązanych</p>
+                    <p class="mymarg">II. Strata z tytułu rozchodu aktywów finansowych, w tym:</p>
+                    <p class="mymarg2">– od jednostek powiązanych</p>
+                    <p class="mymarg">III. Aktualizacja wartości aktywów finansowych</p>
+                    <p class="mymarg">IV. Inne</p>
+                    <p class="mybold">I. Zysk (strata) brutto (F+G–H)</p>
+                    <p class="mybold">J. Podatek dochodowy</p>
+                    <p class="mybold">K. Pozostałe obowiązkowe zmniejszenia zysku (zwiększenia straty)</p>
+                    <p class="mybold">L. Zysk (strata) netto (I–J–K)</p>
+                </div>
+                <div class="col-3"><br>
+                    <p class="mybold">{{ revenue }}</p>
+                    {{ revenue_related }}<br><br>
+                    {{ revenue_from_sale_products }}<br><br><br>
+                    {{ change_of_product_state }}<br><br><br>
+                    {{ costs_of_producing_products_for_own_needs }}<br><br>
+                    {{ revenues_net_from_sale_goods }}<br><br>
+                    <p class="mybold">{{ costs_operating_b }}</p>
+                    <p>{{ depreciation }}</p>
+                    <p>{{ usage_materials_energy }}</p>
+                    <p>{{ foreign_service }}</p>
+                    {{ tax_and_fees }}<br>
+                    {{ tax_excise }}<br>
+                    {{ salaries }}<br><br>
+                    <p>{{ social_other_benefits }}</p>
+                    <p>{{ social_other_benefits_retirement }}</p>
+                    <p>{{ costs_operating_b_other_costs }}</p>
+                    <p>{{ costs_operating_b_value_of_sold_goods }}</p><br>
+                    <p class="mybold">{{ profit_gross_sales }}</p><br>
+                    <p class="mybold">{{ var_comparative_revenue_operating_other }}</p><br>
+                    {{ var_comparative_profit_on_sales_non_financial_assets }}<br><br>
+                    {{ var_comparative_subsidies }}<br><br>
+                    {{ var_comparative_revaluation_non_financial_assets }}<br><br>
+                    {{ var_comparative_other_revenue_operating_other }}<br>
+                    <p class="mybold">{{ var_comparative_costs_operating_other }}</p><br>
+                    {{ var_comparative_loss_on_sales_non_financial_assets }}<br><br>
+                    {{ var_comparative_loss_revaluation_non_financial_assets }}<br><br>
+                    {{ var_comparative_other_costs_operating_other }}<br><br>
+                    <p class="mybold">{{ var_comparative_profit_from_operations }}</p>
+                    <p class="mybold">{{ var_comparative_income_financial }}</p>
+                    {{ var_comparative_dividends_profit_shares }}<br><br><br>
+                    {{ var_comparative_dividends_profit_shares_related }}<br><br><br><br>
+                    {{ var_comparative_dividends_profit_shares_related_shares }}<br><br><br><br>
+                    {{ var_comparative_dividends_profit_shares_other }}<br><br><br><br>
+                    {{ var_comparative_dividends_profit_shares_other_shares }}<br><br><br>
+                    {{ var_comparative_interest }}<br><br>
+                    {{ var_comparative_interest_related }}<br><br>
+                    {{ var_comparative_gain_disposal_financial_assets }}<br><br><br>
+                    {{ var_comparative_gain_disposal_financial_assets_related }}<br><br>
+                    {{ var_comparative_revaluation_financial_assets }}<br><br>
+                    {{ var_comparative_income_financial_other }}<br>
+                    <p></p>
+                    <p class="mybold">{{ var_comparative_costs_financial }}</p>
+                    {{ var_comparative_costs_financial_interest }}<br><br>
+                    {{ var_comparative_costs_financial_interest_related }}<br><br>
+                    {{ var_comparative_costs_financial_loss_disposal_financial_assets }}<br><br>
+                    {{ var_comparative_costs_financial_loss_disposal_financial_assets_related }}<br><br>
+                    {{ var_comparative_costs_financial_revaluation_financial_assets }}<br><br>
+                    {{ var_comparative_costs_financial_other }}<br><br>
+                    <p class="mybold">{{ var_comparative_profit_loss_gross }}</p>
+                    <p class="mybold">{{ var_comparative_tax }}</p><br>
+                    <p class="mybold">{{ var_comparative_reductions_other }}</p><br>
+                    <p class="mybold">{{ var_comparative_profit_loss_net }}</p><br>
+                </div>
+                <div class="col-3"><br>
+                    <p class="mybold">{{ revenue_before }}</p>
+                    {{ revenue_related_before }}<br><br>
+                    {{ revenue_from_sale_products_before }}<br><br><br>
+                    {{ change_of_product_state_before }}<br><br><br>
+                    {{ costs_of_producing_products_for_own_needs_before }}<br><br>
+                    {{ revenues_net_from_sale_goods_before }}<br><br>
+                    <p class="mybold">{{ costs_operating_b_before }}</p>
+                    <p>{{ depreciation_before }}</p>
+                    <p>{{ usage_materials_energy_before }}</p>
+                    <p>{{ foreign_service_before }}</p>
+                    {{ tax_and_fees_before }}<br>
+                    {{ tax_excise_before }}<br>
+                    {{ salaries_before }}<br><br>
+                    <p>{{ social_other_benefits_before }}</p>
+                    <p>{{ social_other_benefits_retirement_before }}</p>
+                    <p>{{ costs_operating_b_other_costs_before }}</p>
+                    <p>{{ costs_operating_b_value_of_sold_goods_before }}</p><br>
+                    <p class="mybold">{{ profit_gross_sales_before }}</p><br>
+                    <p class="mybold">{{ var_comparative_revenue_operating_other_before }}</p><br>
+                    {{ var_comparative_profit_on_sales_non_financial_assets_before }}<br><br>
+                    {{ var_comparative_subsidies_before }}<br><br>
+                    {{ var_comparative_revaluation_non_financial_assets_before }}<br><br>
+                    {{ var_comparative_other_revenue_operating_other_before }}<br>
+                    <p class="mybold">{{ var_comparative_costs_operating_other_before }}</p><br>
+                    {{ var_comparative_loss_on_sales_non_financial_assets_before }}<br><br>
+                    {{ var_comparative_loss_revaluation_non_financial_assets_before }}<br><br>
+                    {{ var_comparative_other_costs_operating_other_before }}<br><br>
+                    <p class="mybold">{{ var_comparative_profit_from_operations_before }}</p>
+                    <p class="mybold">{{ var_comparative_income_financial_before }}</p>
+                    {{ var_comparative_dividends_profit_shares_before }}<br><br><br>
+                    {{ var_comparative_dividends_profit_shares_related_before }}<br><br><br><br>
+                    {{ var_comparative_dividends_profit_shares_related_shares_before }}<br><br><br><br>
+                    {{ var_comparative_dividends_profit_shares_other_before }}<br><br><br><br>
+                    {{ var_comparative_dividends_profit_shares_other_shares_before }}<br><br><br>
+                    {{ var_comparative_interest_before }}<br><br>
+                    {{ var_comparative_interest_related_before }}<br><br>
+                    {{ var_comparative_gain_disposal_financial_assets_before }}<br><br><br>
+                    {{ var_comparative_gain_disposal_financial_assets_related_before }}<br><br>
+                    {{ var_comparative_revaluation_financial_assets_before }}<br><br>
+                    {{ var_comparative_income_financial_other_before }}<br>
+                    <p></p>
+                    <p class="mybold">{{ var_comparative_costs_financial_before }}</p>
+                    {{ var_comparative_costs_financial_interest_before }}<br><br>
+                    {{ var_comparative_costs_financial_interest_related_before }}<br><br>
+                    {{ var_comparative_costs_financial_loss_disposal_financial_assets_before }}<br><br>
+                    {{ var_comparative_costs_financial_loss_disposal_financial_assets_related_before }}<br><br>
+                    {{ var_comparative_costs_financial_revaluation_financial_assets_before }}<br><br>
+                    {{ var_comparative_costs_financial_other_before }}<br><br>
+                    <p class="mybold">{{ var_comparative_profit_loss_gross_before }}</p>
+                    <p class="mybold">{{ var_comparative_tax_before }}</p><br>
+                    <p class="mybold">{{ var_comparative_reductions_other_before }}</p><br>
+                    <p class="mybold">{{ var_comparative_profit_loss_net_before }}</p><br>
+                </div>
+            </div>
+      {% endif %}
       <br>
       <br>
 {% endblock %}
