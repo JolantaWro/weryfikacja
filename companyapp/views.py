@@ -1180,9 +1180,180 @@ class FileDetail(View):
            var_comparative_profit_loss_net = convert_to_float(root, './/{*}L')
            var_comparative_profit_loss_net_before = convert_to_float_value_before(root, './/{*}L')
 
+           opening_balance_equity = convert_to_float(root, './/{*}ZestZmianWKapitale')
+           opening_balance_equity_before = convert_to_float_value_before(root, './/{*}ZestZmianWKapitale')
+
+           changes_accounting_policies = convert_to_float(root, './/{*}I_1')
+           changes_accounting_policies_before = convert_to_float_value_before(root, './/{*}I_1')
+
+           error_corrections = convert_to_float(root, './/{*}I_2')
+           error_corrections_before = convert_to_float_value_before(root, './/{*}I_2')
+
+           opening_balance_equity_after_adjustments = convert_to_float(root, './/{*}IA')
+           opening_balance_equity_after_adjustments_before = convert_to_float_value_before(root, './/{*}IA')
+
+           opening_balance_share_capital = convert_to_float(root, './/{*}IA_1')
+           opening_balance_share_capital_before = convert_to_float_value_before(root, './/{*}IA_1')
+
+           opening_balance_share_capital_changes = convert_to_float(root, './/{*}IA_1_1')
+           opening_balance_share_capital_changes_before = convert_to_float_value_before(root, './/{*}IA_1_1')
+           opening_balance_share_capital_incrase = convert_to_float(root, './/{*}IA_1_1_A')
+           opening_balance_share_capital_incrase_before = convert_to_float_value_before(root, './/{*}IA_1_1_A')
+           opening_balance_share_capital_incrase_of_shares = convert_to_float(root, './/{*}IA_1_1_A_1')
+           opening_balance_share_capital_incrase_of_shares_before = convert_to_float_value_before(root,
+                                                                                                  './/{*}IA_1_1_A_1')
+           opening_balance_share_capital_decrease = convert_to_float(root, './/{*}IA_1_1_B')
+           opening_balance_share_capital_decrease_before = convert_to_float_value_before(root, './/{*}IA_1_1_B')
+           opening_balance_share_capital_decreasee_of_shares = convert_to_float(root, './/{*}IA_1_1_B_1')
+           opening_balance_share_capital_decreasee_of_shares_before = convert_to_float_value_before(root,
+                                                                                                    './/{*}IA_1_1_B_1')
+           closing_balance_share_capital = convert_to_float(root, './/{*}IA_1_2')
+           closing_balance_share_capital_before = convert_to_float_value_before(root, './/{*}IA_1_2')
+
+           opening_balance_supplementary_capital = convert_to_float(root, './/{*}IA_2')
+           opening_balance_supplementary_capital_before = convert_to_float_value_before(root, './/{*}IA_2')
+           opening_balance_supplementary_capital_changes = convert_to_float(root, './/{*}IA_2_1')
+           opening_balance_supplementary_capital_changes_before = convert_to_float_value_before(root, './/{*}IA_2_1')
+           opening_balance_supplementary_capital_incrase = convert_to_float(root, './/{*}IA_2_1_A')
+           opening_balance_supplementary_capital_incrase_before = convert_to_float_value_before(root, './/{*}IA_2_1_A')
+           opening_balance_supplementary_capital_issue_of_shares = convert_to_float(root, './/{*}IA_2_1_A_1')
+           opening_balance_supplementary_capital_issue_of_shares_before = convert_to_float_value_before(root,
+                                                                                                        './/{*}IA_2_1_A_1')
+           opening_balance_supplementary_capital_profit_distribution = convert_to_float(root, './/{*}IA_2_1_A_2')
+           opening_balance_supplementary_capital_profit_distribution_before = convert_to_float_value_before(root,
+                                                                                                            './/{*}IA_2_1_A_2')
+           opening_balance_supplementary_capital_profit_distribution_statutory = convert_to_float(root,
+                                                                                                  './/{*}IA_2_1_A_3')
+           opening_balance_supplementary_capital_profit_distribution_statutory_before = convert_to_float_value_before(
+               root,
+               './/{*}IA_2_1_A_3')
+
+           opening_balance_supplementary_capital_decreasee = convert_to_float(root, './/{*}IA_2_1_B')
+           opening_balance_supplementary_capital_decreasee_before = convert_to_float_value_before(root,
+                                                                                                  './/{*}IA_2_1_B')
+
+           opening_balance_supplementary_capital_decreasee_title = root.find('.//{*}IA_2_1_B')
+           opening_balance_supplementary_capital_decreasee_title = opening_balance_supplementary_capital_decreasee_title.find(
+               './/{*}NazwaPozycji').text
+
+           opening_balance_supplementary_capital_loss_coverage = convert_to_float(root, './/{*}IA_2_1_B_1')
+           opening_balance_supplementary_capital_loss_coverage_before = convert_to_float_value_before(root,
+                                                                                                      './/{*}IA_2_1_B_1')
+           opening_balance_supplementary_capital_dividend_root = root.find('.//{*}IA_2_1_B')
+           opening_balance_supplementary_capital_dividend = opening_balance_supplementary_capital_dividend_root.find(
+               './/{*}KwotyPozycji')
+           opening_balance_supplementary_capital_dividend_value = opening_balance_supplementary_capital_dividend.find(
+               './/{*}KwotaA').text
+           opening_balance_supplementary_capital_dividend_value = round(
+               float(opening_balance_supplementary_capital_dividend_value), 2)
+           opening_balance_supplementary_capital_dividend_value_before = opening_balance_supplementary_capital_dividend.find(
+               './/{*}KwotaB').text
+           opening_balance_supplementary_capital_dividend_value = round(
+               float(opening_balance_supplementary_capital_dividend_value), 2)
+
+           closing_balance_supplementary_capital = convert_to_float(root, './/{*}IA_2_2')
+           closing_balance_supplementary_capital_before = convert_to_float_value_before(root, './/{*}IA_2_2')
+
+           opening_balance_reveluation = convert_to_float(root, './/{*}IA_3')
+           opening_balance_reveluation_before = convert_to_float_value_before(root, './/{*}IA_3')
+           opening_balance_reveluation_changes = convert_to_float(root, './/{*}IA_3_1')
+           opening_balance_reveluation_changes_before = convert_to_float_value_before(root, './/{*}IA_3_1')
+           opening_balance_reveluation_changes_decreasee = convert_to_float(root, './/{*}IA_3_1_B')
+           opening_balance_reveluation_changes_decreasee_before = convert_to_float_value_before(root, './/{*}IA_3_1_B')
+           opening_balance_reveluation_changes_sales_assets = convert_to_float(root, './/{*}IA_3_1_B_1')
+           opening_balance_reveluation_changes_sales_assets_before = convert_to_float_value_before(root,
+                                                                                                   './/{*}IA_3_1_B_1')
+           closing_balance_reveluation = convert_to_float(root, './/{*}IA_3_2')
+           closing_balance_reveluation_before = convert_to_float_value_before(root, './/{*}IA_3_2')
+           opening_balance_other_capitals = convert_to_float(root, './/{*}IA_4')
+           opening_balance_other_capitals_before = convert_to_float_value_before(root, './/{*}IA_4')
+           opening_balance_other_capitals_bz = convert_to_float(root, './/{*}IA_4_2')
+           opening_balance_other_capitals_bz_before = convert_to_float_value_before(root, './/{*}IA_4_2')
+           opening_balance_profit_previous_years = convert_to_float(root, './/{*}IA_5')
+           opening_balance_profit_previous_years_before = convert_to_float_value_before(root, './/{*}IA_5')
+           opening_balance_profit_previous_years_profit = convert_to_float(root, './/{*}IA_5_1')
+           opening_balance_profit_previous_years_profit_before = convert_to_float_value_before(root, './/{*}IA_5_1')
+           opening_balance_profit_previous_years_changes_policies = convert_to_float(root, './/{*}IA_5_1_1')
+           opening_balance_profit_previous_years_changes_policies_before = convert_to_float_value_before(root,
+                                                                                                         './/{*}IA_5_1_1')
+           opening_balance_profit_previous_years_error_corrections = convert_to_float(root, './/{*}IA_5_1_2')
+           opening_balance_profit_previous_years_error_corrections_before = convert_to_float_value_before(root,
+                                                                                                          './/{*}IA_5_1_2')
+
+           opening_balance_profit_previous_years_after_adj = convert_to_float(root, './/{*}IA_5_2')
+           opening_balance_profit_previous_years_after_adj_before = convert_to_float_value_before(root, './/{*}IA_5_2')
+           opening_balance_profit_previous_years_after_adj_increase = convert_to_float(root, './/{*}IA_5_2_A')
+           opening_balance_profit_previous_years_after_adj_increase_before = convert_to_float_value_before(root,
+                                                                                                           './/{*}IA_5_2_A')
+           opening_balance_profit_previous_years_after_adj_distribution = convert_to_float(root, './/{*}IA_5_2_A_1')
+           opening_balance_profit_previous_years_after_adj_distribution_before = convert_to_float_value_before(root,
+                                                                                                               './/{*}IA_5_2_A_1')
+           opening_balance_profit_previous_years_after_adj_decrease_all = convert_to_float(root, './/{*}IA_5_2_B')
+           opening_balance_profit_previous_years_after_adj_decrease_all_before = convert_to_float_value_before(root,
+                                                                                                               './/{*}IA_5_2_B')
+
+           opening_balance_profit_previous_years_after_adj_decrease_root = root.find('.//{*}IA_5_2_B')
+           opening_balance_profit_previous_years_after_adj_decrease_title = opening_balance_profit_previous_years_after_adj_decrease_root.find(
+               './/{*}NazwaPozycji')
+           opening_balance_profit_previous_years_after_adj_decrease_title = opening_balance_profit_previous_years_after_adj_decrease_title.text
+
+           opening_balance_profit_previous_years_after_adj_decrease = opening_balance_profit_previous_years_after_adj_decrease_root.find(
+               './/{*}KwotyPozycji')
+           opening_balance_profit_previous_years_after_adj_decrease_value = opening_balance_profit_previous_years_after_adj_decrease.find(
+               './/{*}KwotaA').text
+           opening_balance_profit_previous_years_after_adj_decrease_value = round(
+               float(opening_balance_profit_previous_years_after_adj_decrease_value), 2)
+           opening_balance_profit_previous_years_after_adj_decrease_value_before = opening_balance_profit_previous_years_after_adj_decrease.find(
+               './/{*}KwotaB').text
+           opening_balance_profit_previous_years_after_adj_decrease_value_before = round(
+               float(opening_balance_profit_previous_years_after_adj_decrease_value_before), 2)
+
+           closing_balance_profit_previous_years = convert_to_float(root, './/{*}IA_5_3')
+           closing_balance_profit_previous_years_before = convert_to_float_value_before(root, './/{*}IA_5_3')
+
+           opening_balance_loss_profit_previous_years = convert_to_float(root, './/{*}IA_5_4')
+           opening_balance_loss_profit_previous_years_before = convert_to_float_value_before(root, './/{*}IA_5_4')
+           opening_balance_loss_profit_previous_years_changes_policies = convert_to_float(root, './/{*}IA_5_4_1')
+           opening_balance_loss_profit_previous_years_changes_policies_before = convert_to_float_value_before(root,
+                                                                                                              './/{*}IA_5_4_1')
+           opening_balance_loss_profit_previous_years_error_corrections = convert_to_float(root, './/{*}IA_5_4_2')
+           opening_balance_loss_profit_previous_years_error_corrections_before = convert_to_float_value_before(root,
+                                                                                                               './/{*}IA_5_4_2')
+           opening_balance_loss_profit_previous_years_after_adj = convert_to_float(root, './/{*}IA_5_5')
+           opening_balance_loss_profit_previous_years_after_adj_before = convert_to_float_value_before(root,
+                                                                                                       './/{*}IA_5_5')
+
+           opening_balance_loss_profit_previous_years_after_adj_increase = convert_to_float(root, './/{*}IA_5_5_A')
+           opening_balance_loss_profit_previous_years_after_adj_increase_before = convert_to_float_value_before(root,
+                                                                                                                './/{*}IA_5_5_A')
+           opening_balance_loss_profit_previous_years_loss_to_cover = convert_to_float(root, './/{*}IA_5_5_A_1')
+           opening_balance_loss_profit_previous_years_loss_to_cover_before = convert_to_float_value_before(root,
+                                                                                                           './/{*}IA_5_5_A_1')
+           closing_balance_loss_profit_previous_years = convert_to_float(root, './/{*}IA_5_6')
+           closing_balance_loss_profit_previous_years_before = convert_to_float_value_before(root, './/{*}IA_5_6')
+           closing_balance_loss_or_profit_previous_years = convert_to_float(root, './/{*}IA_5_7')
+           closing_balance_loss_or_profit_previous_years_before = convert_to_float_value_before(root, './/{*}IA_5_7')
+           result_net = convert_to_float(root, './/{*}IA_6')
+           result_net_before = convert_to_float_value_before(root, './/{*}IA_6')
+           result_net_profit = convert_to_float(root, './/{*}IA_6_A')
+           result_net_profit_before = convert_to_float_value_before(root, './/{*}IA_6_A')
+           result_net_loss = convert_to_float(root, './/{*}IA_6_B')
+           result_net_loss_before = convert_to_float_value_before(root, './/{*}IA_6_B')
+           result_net_write_offs = convert_to_float(root, './/{*}IA_6_C')
+           result_net_write_offs_before = convert_to_float_value_before(root, './/{*}IA_6_C')
+
+           closing_balance_equity = convert_to_float(root, './/{*}II')
+           closing_balance_equity_before = convert_to_float_value_before(root, './/{*}II')
+           closing_balance_equity_after_adj = convert_to_float(root, './/{*}III')
+           closing_balance_equity_after_adj_before = convert_to_float_value_before(root, './/{*}III')
+
            code_report = root.find('.//{*}RZiSKalk')
            if code_report is not None:
                message = f"Wariant kalkulacyjny"
+
+           code_cash_flow = root.find('.//{*}PrzeplywyPosr')
+           if code_report is not None:
+               intermediate = f"Wariant pośredni"
 
        return render(request, 'file_detail.html', locals())
 

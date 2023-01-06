@@ -352,7 +352,6 @@
                {{ accruals_other }}<br><br>
                {{ accruals_other_long_term }}<br><br>
                {{ accruals_other_short_term }}<br><br>
-
            </div>
            <div class="col-3">
                <p class="mybold">{{ assets_fixed_before }}</p><br>
@@ -502,7 +501,6 @@
                {{ accruals_other_before }}<br><br>
                {{ accruals_other_long_term_before }}<br><br>
                {{ accruals_other_short_term_before }}<br><br>
-
            </div>
        </div>
   <h3>Rachunek zysków i strat:</h3>
@@ -842,7 +840,366 @@
                 </div>
             </div>
       {% endif %}
+
+  <h3>Zestawienie zmian w kapitale (funduszu) własnym:</h3>
+
+  <div class="row">
+      <div class="col-3">
+
+      </div>
+      <div class="col-3">
+          Kwota na dzień kończący bieżący rok obrachunkowy
+      </div>
+      <div class="col-3">
+          Kwota na dzień kończący poprzedni rok obrachunkowy
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-3">
+          <p class="mybold">I. Kapitał (fundusz) własny na początek okresu (BO)</p>
+          <p class="mymarg">– zmiany przyjętych zasad (polityki) rachunkowości</p>
+          <p class="mymarg">– korekty błędów</p>
+          <p>Ia. Kapitał (fundusz) własny na początek okresu (BO), po korektach</p>
+          <p class="mymarg">1. Kapitał (fundusz) podstawowy na początek okresu</p>
+          <p class="mymarg2">1. Zmiany kapitału (funduszu) podstawowego</p>
+          <p class="mymarg3">a) zwiększenie (z tytułu)</p>
+          <p class="mymarg4">– wydania udziałów (emisji akcji)</p>
+          <p class="mymarg3">b) zmniejszenie (z tytułu)</p>
+          <p class="mymarg4">– umorzenia udziałów (akcji)</p>
+          <p class="mymarg2">2. Kapitał (fundusz) podstawowy na koniec okresu</p>
+          <p class="mymarg">2. Kapitał (fundusz) zapasowy na początek okresu</p>
+          <p class="mymarg2">1. Zmiany kapitału (funduszu) zapasowego</p>
+          <p class="mymarg3">a) zwiększenie (z tytułu)</p>
+          <p class="mymarg4">– emisji akcji powyżej wartości nominalnej</p>
+          <p class="mymarg4">– podziału zysku (ustawowo)</p>
+          <p class="mymarg4">– podziału zysku (ponad wymaganą ustawowo minimalną wartość)</p>
+          <p class="mymarg3">b) zmniejszenie (z tytułu)</p>
+          <p class="mymarg4">– pokrycia straty</p>
+          <p class="mymarg4">{{ opening_balance_supplementary_capital_decreasee_title }}</p>
+          <p class="mymarg2">2. Stan kapitału (funduszu) zapasowego na koniec okresu</p>
+          <p class="mymarg">3. Kapitał (fundusz) z aktualizacji wyceny na początek okresu – zmiany przyjętych zasad (polityki) rachunkowości</p>
+          <p class="mymarg2">1. Zmiany kapitału (funduszu) z aktualizacji wyceny</p>
+          <p class="mymarg3">b) zmniejszenie (z tytułu)</p>
+          <p class="mymarg4">– zbycia środków trwałych</p>
+          <p class="mymarg2">2. Kapitał (fundusz) z aktualizacji wyceny na koniec okresu</p>
+          <p class="mymarg">4. Pozostałe kapitały (fundusze) rezerwowe na początek okresu</p>
+          <p class="mymarg2">2. Pozostałe kapitały (fundusze) rezerwowe na koniec okresu</p>
+          <p class="mymarg">5. Zysk (strata) z lat ubiegłych na początek okresu</p>
+          <p class="mymarg2">1. Zysk z lat ubiegłych na początek okresu</p>
+          <p class="mymarg3">– zmiany przyjętych zasad (polityki) rachunkowości</p>
+          <p class="mymarg3">– korekty błędów</p>
+          <p class="mymarg2">2. Zysk z lat ubiegłych na początek okresu, po korektach</p>
+          <p class="mymarg3">a) zwiększenie (z tytułu)</p>
+          <p class="mymarg4">– podziału zysku z lat ubiegłych</p>
+          <p class="mymarg3">b) zmniejszenie (z tytułu)</p>
+          <p class="mymarg4">– {{ opening_balance_profit_previous_years_after_adj_decrease_title }}</p>
+          <p class="mymarg2">3. Zysk z lat ubiegłych na koniec okresu</p>
+          <p class="mymarg2">4. Strata z lat ubiegłych na początek okresu</p>
+          <p class="mymarg3">– zmiany przyjętych zasad (polityki) rachunkowości</p>
+          <p class="mymarg3">– korekty błędów</p>
+          <p class="mymarg2">5. Strata z lat ubiegłych na początek okresu, po korektach</p>
+          <p class="mymarg3">a) zwiększenie (z tytułu)</p>
+          <p class="mymarg4">– przeniesienia straty z lat ubiegłych do pokrycia</p>
+          <p class="mymarg2">6. Strata z lat ubiegłych na koniec okresu</p>
+          <p class="mymarg2">7. Zysk (strata) z lat ubiegłych na koniec okresu</p>
+          <p class="mymarg">6. Wynik netto</p>
+          <p class="mymarg2">a) zysk netto</p>
+          <p class="mymarg2">b) strata netto</p>
+          <p class="mymarg2">c) odpisy z zysku</p>
+          <p>II. Kapitał (fundusz) własny na koniec okresu (BZ)</p>
+          <p>III. Kapitał (fundusz) własny, po uwzględnieniu proponowanego podziału zysku (pokrycia straty)</p>
+      </div>
+      <div class="col-3">
+          <p class="mybold">{{ opening_balance_equity }}</p><br>
+          {{ changes_accounting_policies }}<br><br><br>
+          {{ error_corrections }}<br><br>
+          {{ opening_balance_equity_after_adjustments }}<br><br>
+          {{ opening_balance_share_capital }}<br><br><br>
+          {{ opening_balance_share_capital_changes }}<br><br><br>
+          {{ opening_balance_share_capital_incrase }}<br><br><br>
+          {{ opening_balance_share_capital_incrase_of_shares }}<br><br><br><br>
+          {{ opening_balance_share_capital_decrease }}<br><br><br>
+          {{ opening_balance_share_capital_decreasee_of_shares }}<br><br><br><br>
+          {{ closing_balance_share_capital }}<br><br><br>
+          {{ opening_balance_supplementary_capital }}<br><br><br>
+          {{ opening_balance_supplementary_capital_changes }}<br><br><br>
+          {{ opening_balance_supplementary_capital_incrase }}<br><br><br>
+          {{ opening_balance_supplementary_capital_issue_of_shares }}<br><br><br><br>
+          {{ opening_balance_supplementary_capital_profit_distribution }}<br><br><br><br>
+          {{ opening_balance_supplementary_capital_profit_distribution_statutory }}<br><br><br><br><br><br>
+          {{ opening_balance_supplementary_capital_decreasee }}<br><br><br><br>
+          {{ opening_balance_supplementary_capital_loss_coverage }}<br><br><br>
+          {{ opening_balance_supplementary_capital_dividend_value }}<br><br><br>
+          {{ closing_balance_supplementary_capital }}<br><br><br>
+          {{ opening_balance_reveluation }}<br><br><br><br>
+          {{ opening_balance_reveluation_changes }}<br><br><br>
+          {{ opening_balance_reveluation_changes_decreasee }}<br><br><br><br>
+          {{ opening_balance_reveluation_changes_sales_assets }}<br><br><br><br>
+          {{ closing_balance_reveluation }}<br><br><br><br>
+          {{ opening_balance_other_capitals }}<br><br><br>
+          {{ opening_balance_other_capitals_bz }}<br><br>
+          {{ opening_balance_profit_previous_years }}<br><br><br>
+          {{ opening_balance_profit_previous_years_profit }}<br><br><br>
+          {{ opening_balance_profit_previous_years_changes_policies }}<br><br><br>
+          {{ opening_balance_profit_previous_years_error_corrections }}<br><br><br>
+          {{ opening_balance_profit_previous_years_after_adj }}<br><br><br>
+          {{ opening_balance_profit_previous_years_after_adj_increase }}<br><br><br>
+          {{ opening_balance_profit_previous_years_after_adj_distribution }}<br><br><br><br>
+          {{ opening_balance_profit_previous_years_after_adj_decrease_all }}<br><br><br>
+          {{ opening_balance_profit_previous_years_after_adj_decrease_value }}<br><br><br><br>
+          {{ closing_balance_profit_previous_years }}<br><br><br>
+          {{ opening_balance_loss_profit_previous_years }}<br><br><br>
+          {{ opening_balance_loss_profit_previous_years_changes_policies }}<br><br><br>
+          {{ opening_balance_loss_profit_previous_years_error_corrections }}<br><br><br>
+          {{ opening_balance_loss_profit_previous_years_after_adj }}<br><br><br>
+          {{ opening_balance_loss_profit_previous_years_after_adj_increase }}<br><br><br>
+          {{ opening_balance_loss_profit_previous_years_loss_to_cover }}<br><br><br><br><br>
+          {{ closing_balance_loss_profit_previous_years }}<br><br><br>
+          {{ closing_balance_loss_or_profit_previous_years }}<br><br><br>
+          {{ result_net }}<br><br>
+          {{ result_net_profit }}<br><br>
+          {{ result_net_loss }}<br><br>
+          {{ result_net_write_offs }}<br><br>
+          {{ closing_balance_equity }}<br><br><br>
+          {{ closing_balance_equity_after_adj }}<br><br>
+      </div>
+      <div class="col-3">
+          <p class="mybold">{{ opening_balance_equity_before }}</p><br>
+          {{ changes_accounting_policies_before }}<br><br><br>
+          {{ error_corrections_before }}<br><br>
+          {{ opening_balance_equity_after_adjustments_before }}<br><br>
+          {{ opening_balance_share_capital_before }}<br><br><br>
+          {{ opening_balance_share_capital_changes_before }}<br><br><br>
+          {{ opening_balance_share_capital_incrase_before }}<br><br><br>
+          {{ opening_balance_share_capital_incrase_of_shares_before }}<br><br><br><br>
+          {{ opening_balance_share_capital_decrease_before }}<br><br><br>
+          {{ opening_balance_share_capital_decreasee_of_shares_before }}<br><br><br><br>
+          {{ closing_balance_share_capital_before }}<br><br><br>
+          {{ opening_balance_supplementary_capital_before }}<br><br><br>
+          {{ opening_balance_supplementary_capital_changes_before }}<br><br><br>
+          {{ opening_balance_supplementary_capital_incrase_before }}<br><br><br>
+          {{ opening_balance_supplementary_capital_issue_of_shares_before }}<br><br><br><br>
+          {{ opening_balance_supplementary_capital_profit_distribution_before }}<br><br><br><br>
+          {{ opening_balance_supplementary_capital_profit_distribution_statutory_before }}<br><br><br><br><br><br>
+          {{ opening_balance_supplementary_capital_decreasee_before }}<br><br><br><br>
+          {{ opening_balance_supplementary_capital_loss_coverage_before }}<br><br><br>
+          {{ opening_balance_supplementary_capital_dividend_value_before }}<br><br><br>
+          {{ closing_balance_supplementary_capital_before }}<br><br><br>
+          {{ opening_balance_reveluation_before }}<br><br><br><br>
+          {{ opening_balance_reveluation_changes_before }}<br><br><br>
+          {{ opening_balance_reveluation_changes_decreasee_before }}<br><br><br><br>
+          {{ opening_balance_reveluation_changes_sales_assets_before }}<br><br><br><br>
+          {{ closing_balance_reveluation_before }}<br><br><br><br>
+          {{ opening_balance_other_capitals_before }}<br><br><br>
+          {{ opening_balance_other_capitals_bz_before }}<br><br>
+          {{ opening_balance_profit_previous_years_before }}<br><br><br>
+          {{ opening_balance_profit_previous_years_profit_before }}<br><br><br>
+          {{ opening_balance_profit_previous_years_changes_policies_before }}<br><br><br>
+          {{ opening_balance_profit_previous_years_error_corrections_before }}<br><br><br>
+          {{ opening_balance_profit_previous_years_after_adj_before }}<br><br><br>
+          {{ opening_balance_profit_previous_years_after_adj_increase_before }}<br><br><br>
+          {{ opening_balance_profit_previous_years_after_adj_distribution_before }}<br><br><br><br>
+          {{ opening_balance_profit_previous_years_after_adj_decrease_all_before }}<br><br><br>
+          {{ opening_balance_profit_previous_years_after_adj_decrease_value_before }}<br><br><br><br>
+          {{ closing_balance_profit_previous_years_before }}<br><br><br>
+          {{ opening_balance_loss_profit_previous_years_before }}<br><br><br>
+          {{ opening_balance_loss_profit_previous_years_changes_policies_before }}<br><br><br>
+          {{ opening_balance_loss_profit_previous_years_error_corrections_before }}<br><br><br>
+          {{ opening_balance_loss_profit_previous_years_after_adj_before }}<br><br><br>
+          {{ opening_balance_loss_profit_previous_years_after_adj_increase_before }}<br><br><br>
+          {{ opening_balance_loss_profit_previous_years_loss_to_cover_before }}<br><br><br><br><br>
+          {{ closing_balance_loss_profit_previous_years_before }}<br><br><br>
+          {{ closing_balance_loss_or_profit_previous_years_before }}<br><br><br>
+          {{ result_net_before }}<br><br>
+          {{ result_net_profit_before }}<br><br>
+          {{ result_net_loss_before }}<br><br>
+          {{ result_net_write_offs_before }}<br><br>
+          {{ closing_balance_equity_before }}<br><br><br>
+          {{ closing_balance_equity_after_adj_before }}<br><br>
+      </div>
+  </div>
+  <h3>Rachunek przepływów pieniężnych:</h3>
+  {% if intermediate %}
+        {{ intermediate }}
+        <div class="row">
+            <div class="col-3">
+
+            </div>
+            <div class="col-3">
+                Kwota na dzień kończący bieżący rok obrachunkowy
+            </div>
+            <div class="col-3">
+                Kwota na dzień kończący poprzedni rok obrachunkowy
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <p>A. Przepływy środków pieniężnych z działalności operacyjnej</p>
+                <p class="mymarg">I. Zysk (strata) netto<p>
+                <p class="mymarg">II. Korekty razem<p>
+                <p class="mymarg2">1. Amortyzacja<p>
+                <p class="mymarg2">2. Zyski (straty) z tytułu różnic kursowych<p>
+                <p class="mymarg2">3. Odsetki i udziały w zyskach (dywidendy)<p>
+                <p class="mymarg2">4. Zysk (strata) z działalności inwestycyjnej<p>
+                <p class="mymarg2">5. Zmiana stanu rezerw<p>
+                <p class="mymarg2">6. Zmiana stanu zapasów<p>
+                <p class="mymarg2">7. Zmiana stanu należności<p>
+                <p class="mymarg2">8. Zmiana stanu zobowiązań krótkoterminowych, z wyjątkiem pożyczek i kredytów<p>
+                <p class="mymarg2">9. Zmiana stanu rozliczeń międzyokresowych<p>
+                <p class="mymarg2">10. Inne korekty<p>
+                <p class="mymarg">III. Przepływy pieniężne netto z działalności operacyjnej (I±II)<p>
+                <p>B. Przepływy środków pieniężnych z działalności inwestycyjnej</p>
+                <p class="mymarg">I. Wpływy<p>
+                <p class="mymarg2">1. Zbycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych<p>
+                <p class="mymarg2">2. Zbycie inwestycji w nieruchomości oraz wartości niematerialne i prawne<p>
+                <p class="mymarg2">3. Z aktywów finansowych, w tym:<p>
+                <p class="mymarg3">a) w jednostkach powiązanych<p>
+                <p class="mymarg3">b) w pozostałych jednostkach<p>
+                <p class="mymarg4">– zbycie aktywów finansowych<p>
+                <p class="mymarg4">– dywidendy i udziały w zyskach<p>
+                <p class="mymarg4">– spłata udzielonych pożyczek długoterminowych<p>
+                <p class="mymarg4">– odsetki<p>
+                <p class="mymarg4">– inne wpływy z aktywów finansowych<p>
+                <p class="mymarg2">4. Inne wpływy inwestycyjne<p>
+                <p class="mymarg">II. Wydatki<p>
+                <p class="mymarg2">1. Nabycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych<p>
+                <p class="mymarg2">2. Inwestycje w nieruchomości oraz wartości niematerialne i prawne<p>
+                <p class="mymarg2">3. Na aktywa finansowe, w tym:<p>
+                <p class="mymarg3">a) w jednostkach powiązanych<p>
+                <p class="mymarg3">b) w pozostałych jednostkach<p>
+                <p class="mymarg4">– nabycie aktywów finansowych<p>
+                <p class="mymarg4">– udzielone pożyczki długoterminowe<p>
+                <p class="mymarg2">4. Inne wydatki inwestycyjne<p>
+                <p class="mymarg">III. Przepływy pieniężne netto z działalności inwestycyjnej (I–II)
+                <p>C. Przepływy środków pieniężnych z działalności finansowej</p>
+                <p class="mymarg">I. Wpływy<p>
+                <p class="mymarg2">1. Wpływy netto z wydania udziałów (emisji akcji) i innych instrumentów kapitałowych oraz dopłat do kapitału<p>
+                <p class="mymarg2">2. Kredyty i pożyczki<p>
+                <p class="mymarg2">3. Emisja dłużnych papierów wartościowych<p>
+                <p class="mymarg2">4. Inne wpływy finansowe<p>
+                <p class="mymarg">II. Wydatki<p>
+                <p class="mymarg2">1. Nabycie udziałów (akcji) własnych<p>
+                <p class="mymarg2">2. Dywidendy i inne wypłaty na rzecz właścicieli<p>
+                <p class="mymarg2">3. Inne, niż wypłaty na rzecz właścicieli, wydatki z tytułu podziału zysku<p>
+                <p class="mymarg2">4. Spłaty kredytów i pożyczek<p>
+                <p class="mymarg2">5. Wykup dłużnych papierów wartościowych<p>
+                <p class="mymarg2">6. Z tytułu innych zobowiązań finansowych<p>
+                <p class="mymarg2">7. Płatności zobowiązań z tytułu umów leasingu finansowego<p>
+                <p class="mymarg2">8. Odsetki<p>
+                <p class="mymarg2">9. Inne wydatki finansowe<p>
+                <p class="mymarg">III. Przepływy pieniężne netto z działalności finansowej (I–II)<p>
+                <p>D. Przepływy pieniężne netto razem (A.III±B.III±C.III)</p>
+                <p>E. Bilansowa zmiana stanu środków pieniężnych, w tym:</p>
+                <p class="mymarg">– zmiana stanu środków pieniężnych z tytułu różnic kursowych<p>
+                <p>F. Środki pieniężne na początek okresu</p>
+                <p>G. Środki pieniężne na koniec okresu (F±D), w tym:</p>
+                <p class="mymarg">– o ograniczonej możliwości dysponowania<p>
+            </div>
+            <div class="col-3">
+                <p>{{ assets_fixed }}</p><br>
+                {{ assets_current }}<br><br>
+                {{ assets_current }}<br><br>
+                {{ receivables_short_term }}<br><br>
+                {{ assets_current }}<br><br>
+            </div>
+            <div class="col-3">
+                <p>{{ assets_fixed }}</p><br>
+                {{ assets_current }}<br><br>
+                {{ assets_current }}<br><br>
+                {{ receivables_short_term }}<br><br>
+            </div>
+      </div>
+      {% else %}
+            Wariant ......................
+            <div class="row">
+                <div class="col-3">
+
+                </div>
+                <div class="col-3">
+                    Kwota na dzień kończący bieżący rok obrachunkowy
+                </div>
+                <div class="col-3">
+                    Kwota na dzień kończący poprzedni rok obrachunkowy
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <p>A. Przepływy środków pieniężnych z działalności operacyjnej</p>
+                    <p class="mymarg">I. Zysk (strata) netto<p>
+                    <p class="mymarg">II. Korekty razem<p>
+                    <p class="mymarg2">1. Amortyzacja<p>
+                    <p class="mymarg2">2. Zyski (straty) z tytułu różnic kursowych<p>
+                    <p class="mymarg2">3. Odsetki i udziały w zyskach (dywidendy)<p>
+                    <p class="mymarg2">4. Zysk (strata) z działalności inwestycyjnej<p>
+                    <p class="mymarg2">5. Zmiana stanu rezerw<p>
+                    <p class="mymarg2">6. Zmiana stanu zapasów<p>
+                    <p class="mymarg2">7. Zmiana stanu należności<p>
+                    <p class="mymarg2">8. Zmiana stanu zobowiązań krótkoterminowych, z wyjątkiem pożyczek i kredytów<p>
+                    <p class="mymarg2">9. Zmiana stanu rozliczeń międzyokresowych<p>
+                    <p class="mymarg2">10. Inne korekty<p>
+                    <p class="mymarg">III. Przepływy pieniężne netto z działalności operacyjnej (I±II)<p>
+                    <p>B. Przepływy środków pieniężnych z działalności inwestycyjnej</p>
+                    <p class="mymarg">I. Wpływy<p>
+                    <p class="mymarg2">1. Zbycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych<p>
+                    <p class="mymarg2">2. Zbycie inwestycji w nieruchomości oraz wartości niematerialne i prawne<p>
+                    <p class="mymarg2">3. Z aktywów finansowych, w tym:<p>
+                    <p class="mymarg3">a) w jednostkach powiązanych<p>
+                    <p class="mymarg3">b) w pozostałych jednostkach<p>
+                    <p class="mymarg4">– zbycie aktywów finansowych<p>
+                    <p class="mymarg4">– dywidendy i udziały w zyskach<p>
+                    <p class="mymarg4">– spłata udzielonych pożyczek długoterminowych<p>
+                    <p class="mymarg4">– odsetki<p>
+                    <p class="mymarg4">– inne wpływy z aktywów finansowych<p>
+                    <p class="mymarg2">4. Inne wpływy inwestycyjne<p>
+                    <p class="mymarg">II. Wydatki<p>
+                    <p class="mymarg2">1. Nabycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych<p>
+                    <p class="mymarg2">2. Inwestycje w nieruchomości oraz wartości niematerialne i prawne<p>
+                    <p class="mymarg2">3. Na aktywa finansowe, w tym:<p>
+                    <p class="mymarg3">a) w jednostkach powiązanych<p>
+                    <p class="mymarg3">b) w pozostałych jednostkach<p>
+                    <p class="mymarg4">– nabycie aktywów finansowych<p>
+                    <p class="mymarg4">– udzielone pożyczki długoterminowe<p>
+                    <p class="mymarg2">4. Inne wydatki inwestycyjne<p>
+                    <p class="mymarg">III. Przepływy pieniężne netto z działalności inwestycyjnej (I–II)
+                    <p>C. Przepływy środków pieniężnych z działalności finansowej</p>
+                    <p class="mymarg">I. Wpływy<p>
+                    <p class="mymarg2">1. Wpływy netto z wydania udziałów (emisji akcji) i innych instrumentów kapitałowych oraz dopłat do kapitału<p>
+                    <p class="mymarg2">2. Kredyty i pożyczki<p>
+                    <p class="mymarg2">3. Emisja dłużnych papierów wartościowych<p>
+                    <p class="mymarg2">4. Inne wpływy finansowe<p>
+                    <p class="mymarg">II. Wydatki<p>
+                    <p class="mymarg2">1. Nabycie udziałów (akcji) własnych<p>
+                    <p class="mymarg2">2. Dywidendy i inne wypłaty na rzecz właścicieli<p>
+                    <p class="mymarg2">3. Inne, niż wypłaty na rzecz właścicieli, wydatki z tytułu podziału zysku<p>
+                    <p class="mymarg2">4. Spłaty kredytów i pożyczek<p>
+                    <p class="mymarg2">5. Wykup dłużnych papierów wartościowych<p>
+                    <p class="mymarg2">6. Z tytułu innych zobowiązań finansowych<p>
+                    <p class="mymarg2">7. Płatności zobowiązań z tytułu umów leasingu finansowego<p>
+                    <p class="mymarg2">8. Odsetki<p>
+                    <p class="mymarg2">9. Inne wydatki finansowe<p>
+                    <p class="mymarg">III. Przepływy pieniężne netto z działalności finansowej (I–II)<p>
+                    <p>D. Przepływy pieniężne netto razem (A.III±B.III±C.III)</p>
+                    <p>E. Bilansowa zmiana stanu środków pieniężnych, w tym:</p>
+                    <p class="mymarg">– zmiana stanu środków pieniężnych z tytułu różnic kursowych<p>
+                    <p>F. Środki pieniężne na początek okresu</p>
+                    <p>G. Środki pieniężne na koniec okresu (F±D), w tym:</p>
+                    <p class="mymarg">– o ograniczonej możliwości dysponowania<p>
+                </div>
+                <div class="col-3">
+                    <p>{{ assets_fixed }}</p><br>
+                    {{ assets_current }}<br><br>
+                    {{ assets_current }}<br><br>
+                    {{ receivables_short_term }}<br><br>
+                    {{ assets_current }}<br><br>
+                </div>
+                <div class="col-3">
+                    <p>{{ assets_fixed }}</p><br>
+                    {{ assets_current }}<br><br>
+                    {{ assets_current }}<br><br>
+                    {{ receivables_short_term }}<br><br>
+                </div>
+            </div>
+      {% endif %}
       <br>
       <br>
 {% endblock %}
-
