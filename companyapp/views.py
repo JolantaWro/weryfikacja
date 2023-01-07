@@ -535,6 +535,30 @@ class FileDetail(View):
            report_code = element_year.find('.//{*}KodSprawozdania')
            report_code = report_code.text
 
+           code_balance = root.find('.//{*}Bilans')
+           if code_balance is not None:
+               balance = f"Bilans"
+
+           code_profit_loss_account = root.find('.//{*}RZiS')
+           if code_profit_loss_account is not None:
+               profit_loss_account = f"Rachunek zysków i strat"
+
+           code_capital_changes = root.find('.//{*}ZestZmianWKapitale')
+           if code_capital_changes is not None:
+               capital_changes = f"Zestawienie zmian w kapitale (funduszu) własnym"
+
+           code_cash_flow = root.find('.//{*}RachPrzeplywow')
+           if code_cash_flow is not None:
+               code_cash_flow = f"Rachunek przepływów pieniężnych"
+
+           code_report = root.find('.//{*}RZiSKalk')
+           if code_report is not None:
+               message = f"Wariant kalkulacyjny"
+
+           code_cash_flow = root.find('.//{*}PrzeplywyPosr')
+           if code_report is not None:
+               intermediate = f"Metoda pośrednia"
+
            company_name = root.find('.//{*}NazwaFirmy')
            company_name = company_name.text
 
@@ -1233,23 +1257,24 @@ class FileDetail(View):
                                                                                                   './/{*}IA_2_1_B')
 
            opening_balance_supplementary_capital_decreasee_title = root.find('.//{*}IA_2_1_B')
-           opening_balance_supplementary_capital_decreasee_title = opening_balance_supplementary_capital_decreasee_title.find(
+           if opening_balance_supplementary_capital_decreasee_title is not None:
+               opening_balance_supplementary_capital_decreasee_title = opening_balance_supplementary_capital_decreasee_title.find(
                './/{*}NazwaPozycji').text
 
            opening_balance_supplementary_capital_loss_coverage = convert_to_float(root, './/{*}IA_2_1_B_1')
            opening_balance_supplementary_capital_loss_coverage_before = convert_to_float_value_before(root,
                                                                                                       './/{*}IA_2_1_B_1')
            opening_balance_supplementary_capital_dividend_root = root.find('.//{*}IA_2_1_B')
-           opening_balance_supplementary_capital_dividend = opening_balance_supplementary_capital_dividend_root.find(
+           if opening_balance_supplementary_capital_dividend_root is not None:
+               opening_balance_supplementary_capital_dividend = opening_balance_supplementary_capital_dividend_root.find(
                './/{*}KwotyPozycji')
-           opening_balance_supplementary_capital_dividend_value = opening_balance_supplementary_capital_dividend.find(
+               if opening_balance_supplementary_capital_dividend is not None:
+                   opening_balance_supplementary_capital_dividend_value = opening_balance_supplementary_capital_dividend.find(
                './/{*}KwotaA').text
-           opening_balance_supplementary_capital_dividend_value = round(
-               float(opening_balance_supplementary_capital_dividend_value), 2)
-           opening_balance_supplementary_capital_dividend_value_before = opening_balance_supplementary_capital_dividend.find(
+               opening_balance_supplementary_capital_dividend_value = round(float(opening_balance_supplementary_capital_dividend_value), 2)
+               opening_balance_supplementary_capital_dividend_value_before = opening_balance_supplementary_capital_dividend.find(
                './/{*}KwotaB').text
-           opening_balance_supplementary_capital_dividend_value = round(
-               float(opening_balance_supplementary_capital_dividend_value), 2)
+               opening_balance_supplementary_capital_dividend_value = round(float(opening_balance_supplementary_capital_dividend_value), 2)
 
            closing_balance_supplementary_capital = convert_to_float(root, './/{*}IA_2_2')
            closing_balance_supplementary_capital_before = convert_to_float_value_before(root, './/{*}IA_2_2')
@@ -1293,20 +1318,18 @@ class FileDetail(View):
                                                                                                                './/{*}IA_5_2_B')
 
            opening_balance_profit_previous_years_after_adj_decrease_root = root.find('.//{*}IA_5_2_B')
-           opening_balance_profit_previous_years_after_adj_decrease_title = opening_balance_profit_previous_years_after_adj_decrease_root.find(
+           if opening_balance_profit_previous_years_after_adj_decrease_root is not None:
+               opening_balance_profit_previous_years_after_adj_decrease_title = opening_balance_profit_previous_years_after_adj_decrease_root.find(
                './/{*}NazwaPozycji')
-           opening_balance_profit_previous_years_after_adj_decrease_title = opening_balance_profit_previous_years_after_adj_decrease_title.text
-
-           opening_balance_profit_previous_years_after_adj_decrease = opening_balance_profit_previous_years_after_adj_decrease_root.find(
+               opening_balance_profit_previous_years_after_adj_decrease_title = opening_balance_profit_previous_years_after_adj_decrease_title.text
+               opening_balance_profit_previous_years_after_adj_decrease = opening_balance_profit_previous_years_after_adj_decrease_root.find(
                './/{*}KwotyPozycji')
-           opening_balance_profit_previous_years_after_adj_decrease_value = opening_balance_profit_previous_years_after_adj_decrease.find(
+               opening_balance_profit_previous_years_after_adj_decrease_value = opening_balance_profit_previous_years_after_adj_decrease.find(
                './/{*}KwotaA').text
-           opening_balance_profit_previous_years_after_adj_decrease_value = round(
-               float(opening_balance_profit_previous_years_after_adj_decrease_value), 2)
-           opening_balance_profit_previous_years_after_adj_decrease_value_before = opening_balance_profit_previous_years_after_adj_decrease.find(
+               opening_balance_profit_previous_years_after_adj_decrease_value = round(float(opening_balance_profit_previous_years_after_adj_decrease_value), 2)
+               opening_balance_profit_previous_years_after_adj_decrease_value_before = opening_balance_profit_previous_years_after_adj_decrease.find(
                './/{*}KwotaB').text
-           opening_balance_profit_previous_years_after_adj_decrease_value_before = round(
-               float(opening_balance_profit_previous_years_after_adj_decrease_value_before), 2)
+               opening_balance_profit_previous_years_after_adj_decrease_value_before = round(float(opening_balance_profit_previous_years_after_adj_decrease_value_before), 2)
 
            closing_balance_profit_previous_years = convert_to_float(root, './/{*}IA_5_3')
            closing_balance_profit_previous_years_before = convert_to_float_value_before(root, './/{*}IA_5_3')
@@ -1347,13 +1370,140 @@ class FileDetail(View):
            closing_balance_equity_after_adj = convert_to_float(root, './/{*}III')
            closing_balance_equity_after_adj_before = convert_to_float_value_before(root, './/{*}III')
 
-           code_report = root.find('.//{*}RZiSKalk')
-           if code_report is not None:
-               message = f"Wariant kalkulacyjny"
-
-           code_cash_flow = root.find('.//{*}PrzeplywyPosr')
-           if code_report is not None:
-               intermediate = f"Wariant pośredni"
+           cash_flow_operating = convert_to_float(root, './/{*}A_I')
+           cash_flow_operating_before = convert_to_float_value_before(root, './/{*}A_I')
+           if code_cash_flow is not None:
+               cash_flow_operating = convert_to_float(code_cash_flow, './/{*}A_I')
+               cash_flow_operating_before = convert_to_float_value_before(code_cash_flow, './/{*}A_I')
+               cash_flow_operating_adjustments = convert_to_float(code_cash_flow, './/{*}A_II')
+               cash_flow_operating_adjustments_before = convert_to_float_value_before(code_cash_flow, './/{*}A_II')
+               cash_flow_operating_amortisation = convert_to_float(code_cash_flow, './/{*}A_II_1')
+               cash_flow_operating_amortisation_before = convert_to_float_value_before(code_cash_flow, './/{*}A_II_1')
+               cash_flow_operating_exchange_gains = convert_to_float(code_cash_flow, './/{*}A_II_2')
+               cash_flow_operating_exchange_gains_before = convert_to_float_value_before(code_cash_flow, './/{*}A_II_2')
+               cash_flow_operating_dividend = convert_to_float(code_cash_flow, './/{*}A_II_3')
+               cash_flow_operating_dividend_before = convert_to_float_value_before(code_cash_flow, './/{*}A_II_3')
+               cash_flow_operating_profit_or_loss_investment = convert_to_float(code_cash_flow, './/{*}A_II_4')
+               cash_flow_operating_profit_or_loss_investment_before = convert_to_float_value_before(code_cash_flow, './/{*}A_II_4')
+               cash_flow_operating_provisions_change = convert_to_float(code_cash_flow, './/{*}A_II_5')
+               cash_flow_operating_provisions_change_before = convert_to_float_value_before(code_cash_flow,
+                                                                                                './/{*}A_II_5')
+               cash_flow_operating_inventory_change = convert_to_float(code_cash_flow, './/{*}A_II_6')
+               cash_flow_operating_inventory_change_before = convert_to_float_value_before(code_cash_flow,
+                                                                                                './/{*}A_II_6')
+               cash_flow_operating_receivables_change = convert_to_float(code_cash_flow, './/{*}A_II_7')
+               cash_flow_operating_receivables_change_before = convert_to_float_value_before(code_cash_flow,
+                                                                                       './/{*}A_II_7')
+               cash_flow_operating_short_term_liabilities_change = convert_to_float(code_cash_flow, './/{*}A_II_8')
+               cash_flow_operating_short_term_liabilities_change_before = convert_to_float_value_before(code_cash_flow,
+                                                                                       './/{*}A_II_8')
+               cash_flow_operating_prepayments_change = convert_to_float(code_cash_flow, './/{*}A_II_9')
+               cash_flow_operating_prepayments_change_before = convert_to_float_value_before(code_cash_flow,
+                                                                                       './/{*}A_II_9')
+               cash_flow_operating_other_adjustments = convert_to_float(code_cash_flow, './/{*}A_II_10')
+               cash_flow_operating_other_adjustments_before = convert_to_float_value_before(code_cash_flow,
+                                                                                       './/{*}A_II_10')
+               net_cash_flow_operating = convert_to_float(code_cash_flow, './/{*}A_III')
+               net_cash_flow_operating_before = convert_to_float_value_before(code_cash_flow, './/{*}A_III')
+               cash_flow_investment_inflows = convert_to_float(code_cash_flow, './/{*}B_I')
+               cash_flow_investment_inflows_before = convert_to_float_value_before(code_cash_flow, './/{*}B_I')
+               cash_flow_investment_disposal_of_intangible = convert_to_float(code_cash_flow, './/{*}B_I_1')
+               cash_flow_investment_disposal_of_intangible_before = convert_to_float_value_before(code_cash_flow, './/{*}B_I_1')
+               cash_flow_investment_disposal_of_investments = convert_to_float(code_cash_flow, './/{*}B_I_2')
+               cash_flow_investment_disposal_of_investments_before = convert_to_float_value_before(code_cash_flow,
+                                                                                              './/{*}B_I_2')
+               cash_flow_investment_financial_assets = convert_to_float(code_cash_flow, './/{*}B_I_3')
+               cash_flow_investment_financial_assets_before = convert_to_float_value_before(code_cash_flow,
+                                                                                    './/{*}B_I_3')
+               cash_flow_investment_financial_assets_related = convert_to_float(code_cash_flow, './/{*}B_I_3_A')
+               cash_flow_investment_financial_assets_related_before = convert_to_float_value_before(code_cash_flow,
+                                                                             './/{*}B_I_3_A')
+               cash_flow_investment_financial_assets_other_related = convert_to_float(code_cash_flow, './/{*}B_I_3_B')
+               cash_flow_investment_financial_assets_other_related_before = convert_to_float_value_before(code_cash_flow,
+                                                                                     './/{*}B_I_3_B')
+               cash_flow_investment_sales_assets = convert_to_float(code_cash_flow, './/{*}B_I_3_B_1')
+               cash_flow_investment_sales_assets_before = convert_to_float_value_before(code_cash_flow, './/{*}B_I_3_B_1')
+               cash_flow_investment_dividend = convert_to_float(code_cash_flow, './/{*}B_I_3_B_2')
+               cash_flow_investment_dividend_before = convert_to_float_value_before(code_cash_flow, './/{*}B_I_3_B_2')
+               cash_flow_investment_repayment_granted = convert_to_float(code_cash_flow, './/{*}B_I_3_B_3')
+               cash_flow_investment_repayment_granted_before = convert_to_float_value_before(code_cash_flow, './/{*}B_I_3_B_3')
+               cash_flow_investment_interest = convert_to_float(code_cash_flow, './/{*}B_I_3_B_4')
+               cash_flow_investment_interest_before = convert_to_float_value_before(code_cash_flow, './/{*}B_I_3_B_4')
+               cash_flow_investment_other_inflows_assets = convert_to_float(code_cash_flow, './/{*}B_I_3_B_5')
+               cash_flow_investment_other_inflows_assets_before = convert_to_float_value_before(code_cash_flow, './/{*}B_I_3_B_5')
+               cash_flow_investment_other_inflows_investment = convert_to_float(code_cash_flow, './/{*}B_I_4')
+               cash_flow_investment_other_inflows_investment_before = convert_to_float_value_before(code_cash_flow,
+                                                                             './/{*}B_I_4')
+               cash_flow_investment_outflows = convert_to_float(code_cash_flow, './/{*}B_II')
+               cash_flow_investment_outflows_before = convert_to_float_value_before(code_cash_flow, './/{*}B_II')
+               cash_flow_investment_purchase_of_intangible = convert_to_float(code_cash_flow, './/{*}B_II_1')
+               cash_flow_investment_purchase_of_intangible_before = convert_to_float_value_before(code_cash_flow,
+                                                                                   './/{*}B_II_1')
+               cash_flow_investment_purchase_of_investments = convert_to_float(code_cash_flow, './/{*}B_II_2')
+               cash_flow_investment_purchase_of_investments_before = convert_to_float_value_before(code_cash_flow,
+                                                                                    './/{*}B_II_2')
+               cash_flow_investment_purchase_financial_assets = convert_to_float(code_cash_flow, './/{*}B_II_3')
+               cash_flow_investment_purchase_financial_assets_before = convert_to_float_value_before(code_cash_flow,
+                                                                             './/{*}B_II_3')
+               cash_flow_investment_purchase_financial_assets_related = convert_to_float(code_cash_flow, './/{*}B_II_3_A')
+               cash_flow_investment_purchase_financial_assets_related_before = convert_to_float_value_before(code_cash_flow,
+                                                                                                './/{*}B_II_3_A')
+               cash_flow_investment_purchase_financial_assets_other_related = convert_to_float(code_cash_flow, './/{*}B_II_3_B')
+               cash_flow_investment_purchase_financial_assets_other_related_before = convert_to_float_value_before(code_cash_flow,
+                                                                                           './/{*}B_II_3_B')
+               cash_flow_investment_purchase_assets = convert_to_float(code_cash_flow, './/{*}B_II_3_B_1')
+               cash_flow_investment_purchase_assets_before = convert_to_float_value_before(code_cash_flow, './/{*}B_II_3_B_1')
+               cash_flow_investment_loans_long_term = convert_to_float(code_cash_flow, './/{*}B_II_3_B_2')
+               cash_flow_investment_loans_long_term_before = convert_to_float_value_before(code_cash_flow, './/{*}B_II_3_B_2')
+               cash_flow_investment_other_outflows_investment = convert_to_float(code_cash_flow, './/{*}B_II_4')
+               cash_flow_investment_other_outflows_investment_before = convert_to_float_value_before(code_cash_flow,
+                                                                                     './/{*}B_II_4')
+               net_cash_flow_investment = convert_to_float(code_cash_flow, './/{*}B_III')
+               net_cash_flow_investment_before = convert_to_float_value_before(code_cash_flow, './/{*}B_III')
+               cash_flow_financial_inflows = convert_to_float(code_cash_flow, './/{*}C_I')
+               cash_flow_financial_inflows_before = convert_to_float_value_before(code_cash_flow, './/{*}C_I')
+               cash_flow_financial_net_inflows = convert_to_float(code_cash_flow, './/{*}C_I_1')
+               cash_flow_financial_net_inflows_before = convert_to_float_value_before(code_cash_flow, './/{*}C_I_1')
+               cash_flow_financial_credits = convert_to_float(code_cash_flow, './/{*}C_I_2')
+               cash_flow_financial_credits_before = convert_to_float_value_before(code_cash_flow, './/{*}C_I_2')
+               cash_flow_financial_issuance = convert_to_float(code_cash_flow, './/{*}C_I_3')
+               cash_flow_financial_issuance_before = convert_to_float_value_before(code_cash_flow, './/{*}C_I_3')
+               cash_flow_financial_other_inflows = convert_to_float(code_cash_flow, './/{*}C_I_4')
+               cash_flow_financial_other_inflows_before = convert_to_float_value_before(code_cash_flow, './/{*}C_I_4')
+               cash_flow_financial_outflows = convert_to_float(code_cash_flow, './/{*}C_II')
+               cash_flow_financial_outflows_before = convert_to_float_value_before(code_cash_flow, './/{*}C_II')
+               cash_flow_financial_purchase_shares = convert_to_float(code_cash_flow, './/{*}C_II_1')
+               cash_flow_financial_purchase_shares_before = convert_to_float_value_before(code_cash_flow, './/{*}C_II_1')
+               cash_flow_financial_dividend = convert_to_float(code_cash_flow, './/{*}C_II_2')
+               cash_flow_financial_dividend_before = convert_to_float_value_before(code_cash_flow, './/{*}C_II_2')
+               cash_flow_financial_profit_distribution = convert_to_float(code_cash_flow, './/{*}C_II_3')
+               cash_flow_financial_profit_distribution_before = convert_to_float_value_before(code_cash_flow, './/{*}C_II_3')
+               cash_flow_financial_repayment = convert_to_float(code_cash_flow, './/{*}C_II_4')
+               cash_flow_financial_repayment_before = convert_to_float_value_before(code_cash_flow, './/{*}C_II_4')
+               cash_flow_financial_redemption = convert_to_float(code_cash_flow, './/{*}C_II_5')
+               cash_flow_financial_redemption_before = convert_to_float_value_before(code_cash_flow, './/{*}C_II_5')
+               cash_flow_financial_other_payment = convert_to_float(code_cash_flow, './/{*}C_II_6')
+               cash_flow_financial_other_payment_before = convert_to_float_value_before(code_cash_flow, './/{*}C_II_6')
+               cash_flow_financial_leases = convert_to_float(code_cash_flow, './/{*}C_II_7')
+               cash_flow_financial_leases_before = convert_to_float_value_before(code_cash_flow, './/{*}C_II_7')
+               cash_flow_financial_interest = convert_to_float(code_cash_flow, './/{*}C_II_8')
+               cash_flow_financial_interest_before = convert_to_float_value_before(code_cash_flow, './/{*}C_II_8')
+               cash_flow_financial_other_outflows = convert_to_float(code_cash_flow, './/{*}C_II_9')
+               cash_flow_financial_other_outflows_before = convert_to_float_value_before(code_cash_flow, './/{*}C_II_9')
+               net_cash_flow_financial = convert_to_float(code_cash_flow, './/{*}C_III')
+               net_cash_flow_financial_before = convert_to_float_value_before(code_cash_flow, './/{*}C_III')
+               total_net_cash_flow = convert_to_float(code_cash_flow, './/{*}D')
+               total_net_cash_flow_before = convert_to_float_value_before(code_cash_flow, './/{*}D')
+               cash_flow_balance_sheet = convert_to_float(code_cash_flow, './/{*}E')
+               cash_flow_balance_sheet_before = convert_to_float_value_before(code_cash_flow, './/{*}E')
+               cash_flow_balance_sheet_exchange_change = convert_to_float(code_cash_flow, './/{*}E_1')
+               cash_flow_balance_sheet_exchange_change_before = convert_to_float_value_before(code_cash_flow, './/{*}E_1')
+               opening_cash_balance = convert_to_float(code_cash_flow, './/{*}F')
+               opening_cash_balance_before = convert_to_float_value_before(code_cash_flow, './/{*}F')
+               closing_cash_balance = convert_to_float(code_cash_flow, './/{*}G')
+               closing_cash_balance_before = convert_to_float_value_before(code_cash_flow, './/{*}G')
+               closing_cash_balance_of_limited = convert_to_float(code_cash_flow, './/{*}G_1')
+               closing_cash_balance_of_limited_before = convert_to_float_value_before(code_cash_flow, './/{*}G_1')
 
        return render(request, 'file_detail.html', locals())
 

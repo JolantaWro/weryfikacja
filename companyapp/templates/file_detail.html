@@ -44,7 +44,8 @@
    <h6> - czy nie istnieją okoliczności wskazujące na zagrożenie kontynuowania przez nią działalności {{ report_continuing_denger }}</h6>
   <br>
   <br>
-  <h3>Bilans</h3>
+  {% if balance %}
+  <h3>{{ balance }}</h3>
       <div class="row">
            <div class="col-3">
 
@@ -503,21 +504,25 @@
                {{ accruals_other_short_term_before }}<br><br>
            </div>
        </div>
-  <h3>Rachunek zysków i strat:</h3>
-  {% if message %}
-      {{ message }}
-      <div class="row">
+  {% else %}
+        Brak bilansu
+  {% endif %}
+  {% if profit_loss_account %}
+  <h3>{{ profit_loss_account }}</h3>
+    {% if message %}
+        {{ message }}
+        <div class="row">
            <div class="col-3">
 
            </div>
            <div class="col-3">
                Kwota na dzień kończący bieżący rok obrachunkowy
            </div>
-          <div class="col-3">
+           <div class="col-3">
                Kwota na dzień kończący poprzedni rok obrachunkowy
            </div>
-      </div>
-      <div class="row">
+        </div>
+        <div class="row">
            <div class="col-3">
                <p class="mybold">A. Przychody netto ze sprzedaży produktów, towarów i materiałów, w tym:</p>
                <p class="mymarg">– od jednostek powiązanych</p>
@@ -661,8 +666,8 @@
                <p class="mybold">{{ reductions_other_before }}</p><br>
                <p class="mybold">{{ profit_loss_net_before }}</p><br>
            </div>
-      </div>
-      {% else %}
+        </div>
+    {% else %}
             Wariant powównawczy
 
            <div class="row">
@@ -839,9 +844,13 @@
                     <p class="mybold">{{ var_comparative_profit_loss_net_before }}</p><br>
                 </div>
             </div>
-      {% endif %}
+    {% endif %}
+  {% else %}
+  Brak Rachunku zysku i strat
+  {% endif %}
 
-  <h3>Zestawienie zmian w kapitale (funduszu) własnym:</h3>
+  {% if capital_changes %}
+  <h3>{{ capital_changes }}</h3>
 
   <div class="row">
       <div class="col-3">
@@ -1018,8 +1027,13 @@
           {{ closing_balance_equity_after_adj_before }}<br><br>
       </div>
   </div>
-  <h3>Rachunek przepływów pieniężnych:</h3>
-  {% if intermediate %}
+  {% else %}
+  Brak zestawienia zmian w kapitale (funduszu) własnym
+  {% endif %}<br>
+
+  {% if code_cash_flow %}
+  <h3>{{ code_cash_flow }}</h3>
+    {% if intermediate %}
         {{ intermediate }}
         <div class="row">
             <div class="col-3">
@@ -1096,110 +1110,137 @@
                 <p class="mymarg">– o ograniczonej możliwości dysponowania<p>
             </div>
             <div class="col-3">
-                <p>{{ assets_fixed }}</p><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
-                {{ assets_current }}<br><br>
+                <p></p><br><br><br>
+                {{ cash_flow_operating }}<br><br>
+                {{ cash_flow_operating_adjustments }}<br><br>
+                {{ cash_flow_operating_amortisation }}<br><br>
+                {{ cash_flow_operating_exchange_gains }}<br><br>
+                {{ cash_flow_operating_dividend }}<br><br><br><br>
+                {{ cash_flow_operating_profit_or_loss_investment }}<br><br><br>
+                {{ cash_flow_operating_provisions_change }}<br><br>
+                {{ cash_flow_operating_inventory_change }}<br><br><br>
+                {{ cash_flow_operating_receivables_change }}<br><br><br><br>
+                {{ cash_flow_operating_short_term_liabilities_change }}<br><br><br><br><br>
+                {{ cash_flow_operating_prepayments_change }}<br><br><br>
+                {{ cash_flow_operating_other_adjustments }}<br><br><br>
+                {{ net_cash_flow_operating }}<br><br>
+                <p></p><br><br><br><br>
+                {{ cash_flow_investment_inflows }}<br><br><br>
+                {{ cash_flow_investment_disposal_of_intangible }}<br><br><br><br><br>
+                {{ cash_flow_investment_disposal_of_investments }}<br><br><br><br><br>
+                {{ cash_flow_investment_financial_assets }}<br><br><br>
+                {{ cash_flow_investment_financial_assets_related }}<br><br><br>
+                {{ cash_flow_investment_financial_assets_other_related }}<br><br><br><br>
+                {{ cash_flow_investment_sales_assets }}<br><br><br><br><br>
+                {{ cash_flow_investment_dividend }}<br><br><br><br><br>
+                {{ cash_flow_investment_repayment_granted }}<br><br><br><br><br><br>
+                {{ cash_flow_investment_interest }}<br><br><br><br><br>
+                {{ cash_flow_investment_other_inflows_assets }}<br><br><br><br>
+                {{ cash_flow_investment_other_inflows_investment }}<br><br>
+                {{ cash_flow_investment_outflows }}<br><br><br><br>
+                {{ cash_flow_investment_purchase_of_intangible }}<br><br><br><br>
+                {{ cash_flow_investment_purchase_of_investments }}<br><br><br><br><br>
+                {{ cash_flow_investment_purchase_financial_assets }}<br><br><br>
+                {{ cash_flow_investment_purchase_financial_assets_related }}<br><br><br>
+                {{ cash_flow_investment_purchase_financial_assets_other_related }}<br><br><br><br>
+                {{ cash_flow_investment_purchase_assets }}<br><br><br><br><br>
+                {{ cash_flow_investment_loans_long_term }}<br><br><br><br><br>
+                {{ cash_flow_investment_other_outflows_investment }}<br><br><br><br>
+                {{ net_cash_flow_investment }}<br>
+                <p></p><br><br><br><br>
+                {{ cash_flow_financial_inflows }}<br><br><br><br><br><br>
+                {{ cash_flow_financial_net_inflows }}<br><br><br>
+                {{ cash_flow_financial_credits }}<br><br><br>
+                {{ cash_flow_financial_issuance }}<br><br><br>
+                {{ cash_flow_financial_other_inflows }}<br><br>
+                {{ cash_flow_financial_outflows }}<br><br>
+                {{ cash_flow_financial_purchase_shares }}<br><br><br>
+                {{ cash_flow_financial_dividend }}<br><br><br><br>
+                {{ cash_flow_financial_profit_distribution }}<br><br><br><br>
+                {{ cash_flow_financial_repayment }}<br><br><br>
+                {{ cash_flow_financial_redemption }}<br><br><br>
+                {{ cash_flow_financial_other_payment }}<br><br><br>
+                {{ cash_flow_financial_leases }}<br><br>
+                {{ cash_flow_financial_interest }}<br><br>
+                {{ cash_flow_financial_other_outflows }}<br><br><br>
+                {{ net_cash_flow_financial }}<br><br><br><br>
+                {{ total_net_cash_flow }}<br><br><br>
+                {{ cash_flow_balance_sheet }}<br><br><br>
+                {{ cash_flow_balance_sheet_exchange_change }}<br><br><br>
+                {{ opening_cash_balance }}<br><br><br>
+                {{ closing_cash_balance }}<br><br><br>
+                {{ closing_cash_balance_of_limited }}<br><br><br>
             </div>
             <div class="col-3">
-                <p>{{ assets_fixed }}</p><br>
-                {{ assets_current }}<br><br>
-                {{ assets_current }}<br><br>
-                {{ receivables_short_term }}<br><br>
+                <p></p><br><br><br>
+                {{ cash_flow_operating_before }}<br><br>
+                {{ cash_flow_operating_adjustments_before }}<br><br>
+                {{ cash_flow_operating_amortisation_before }}<br><br>
+                {{ cash_flow_operating_exchange_gains_before }}<br><br>
+                {{ cash_flow_operating_dividend_before }}<br><br><br><br>
+                {{ cash_flow_operating_profit_or_loss_investment_before }}<br><br><br>
+                {{ cash_flow_operating_provisions_change_before }}<br><br>
+                {{ cash_flow_operating_inventory_change_before }}<br><br><br>
+                {{ cash_flow_operating_receivables_change_before }}<br><br><br><br>
+                {{ cash_flow_operating_short_term_liabilities_change_before }}<br><br><br><br><br>
+                {{ cash_flow_operating_prepayments_change_before }}<br><br><br>
+                {{ cash_flow_operating_other_adjustments_before }}<br><br><br>
+                {{ net_cash_flow_operating_before }}<br><br>
+                <p></p><br><br><br><br>
+                {{ cash_flow_investment_inflows_before }}<br><br><br>
+                {{ cash_flow_investment_disposal_of_intangible_before }}<br><br><br><br><br>
+                {{ cash_flow_investment_disposal_of_investments_before }}<br><br><br><br><br>
+                {{ cash_flow_investment_financial_assets_before }}<br><br><br>
+                {{ cash_flow_investment_financial_assets_related_before }}<br><br><br>
+                {{ cash_flow_investment_financial_assets_other_related_before }}<br><br><br><br>
+                {{ cash_flow_investment_sales_assets_before }}<br><br><br><br><br>
+                {{ cash_flow_investment_dividend_before }}<br><br><br><br><br>
+                {{ cash_flow_investment_repayment_granted_before }}<br><br><br><br><br><br>
+                {{ cash_flow_investment_interest_before }}<br><br><br><br><br>
+                {{ cash_flow_investment_other_inflows_assets_before }}<br><br><br><br>
+                {{ cash_flow_investment_other_inflows_investment_before }}<br><br>
+                {{ cash_flow_investment_outflows_before }}<br><br><br><br>
+                {{ cash_flow_investment_purchase_of_intangible_before }}<br><br><br><br>
+                {{ cash_flow_investment_purchase_of_investments_before }}<br><br><br><br><br>
+                {{ cash_flow_investment_purchase_financial_assets_before }}<br><br><br>
+                {{ cash_flow_investment_purchase_financial_assets_related_before }}<br><br><br>
+                {{ cash_flow_investment_purchase_financial_assets_other_related_before }}<br><br><br><br>
+                {{ cash_flow_investment_purchase_assets_before }}<br><br><br><br><br>
+                {{ cash_flow_investment_loans_long_term_before }}<br><br><br><br><br>
+                {{ cash_flow_investment_other_outflows_investment_before }}<br><br><br><br>
+                {{ net_cash_flow_investment_before }}<br>
+                <p></p><br><br><br><br>
+                {{ cash_flow_financial_inflows_before }}<br><br><br><br><br><br>
+                {{ cash_flow_financial_net_inflows_before }}<br><br><br>
+                {{ cash_flow_financial_credits_before }}<br><br><br>
+                {{ cash_flow_financial_issuance_before }}<br><br><br>
+                {{ cash_flow_financial_other_inflows_before }}<br><br>
+                {{ cash_flow_financial_outflows_before }}<br><br>
+                {{ cash_flow_financial_purchase_shares_before }}<br><br><br>
+                {{ cash_flow_financial_dividend_before }}<br><br><br><br>
+                {{ cash_flow_financial_profit_distribution_before }}<br><br><br><br>
+                {{ cash_flow_financial_repayment_before }}<br><br><br>
+                {{ cash_flow_financial_redemption_before }}<br><br><br>
+                {{ cash_flow_financial_other_payment_before }}<br><br><br>
+                {{ cash_flow_financial_leases_before }}<br><br>
+                {{ cash_flow_financial_interest_before }}<br><br>
+                {{ cash_flow_financial_other_outflows_before }}<br><br><br>
+                {{ net_cash_flow_financial_before }}<br><br><br><br>
+                {{ total_net_cash_flow_before }}<br><br><br>
+                {{ cash_flow_balance_sheet_before }}<br><br><br>
+                {{ cash_flow_balance_sheet_exchange_change_before }}<br><br><br>
+                {{ opening_cash_balance_before }}<br><br><br>
+                {{ closing_cash_balance_before }}<br><br><br>
+                {{ closing_cash_balance_of_limited_before }}<br><br><br>
             </div>
       </div>
       {% else %}
-            Wariant ......................
-            <div class="row">
-                <div class="col-3">
+            Metoda bezpośrednia - w trakcie realizacji
 
-                </div>
-                <div class="col-3">
-                    Kwota na dzień kończący bieżący rok obrachunkowy
-                </div>
-                <div class="col-3">
-                    Kwota na dzień kończący poprzedni rok obrachunkowy
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <p>A. Przepływy środków pieniężnych z działalności operacyjnej</p>
-                    <p class="mymarg">I. Zysk (strata) netto<p>
-                    <p class="mymarg">II. Korekty razem<p>
-                    <p class="mymarg2">1. Amortyzacja<p>
-                    <p class="mymarg2">2. Zyski (straty) z tytułu różnic kursowych<p>
-                    <p class="mymarg2">3. Odsetki i udziały w zyskach (dywidendy)<p>
-                    <p class="mymarg2">4. Zysk (strata) z działalności inwestycyjnej<p>
-                    <p class="mymarg2">5. Zmiana stanu rezerw<p>
-                    <p class="mymarg2">6. Zmiana stanu zapasów<p>
-                    <p class="mymarg2">7. Zmiana stanu należności<p>
-                    <p class="mymarg2">8. Zmiana stanu zobowiązań krótkoterminowych, z wyjątkiem pożyczek i kredytów<p>
-                    <p class="mymarg2">9. Zmiana stanu rozliczeń międzyokresowych<p>
-                    <p class="mymarg2">10. Inne korekty<p>
-                    <p class="mymarg">III. Przepływy pieniężne netto z działalności operacyjnej (I±II)<p>
-                    <p>B. Przepływy środków pieniężnych z działalności inwestycyjnej</p>
-                    <p class="mymarg">I. Wpływy<p>
-                    <p class="mymarg2">1. Zbycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych<p>
-                    <p class="mymarg2">2. Zbycie inwestycji w nieruchomości oraz wartości niematerialne i prawne<p>
-                    <p class="mymarg2">3. Z aktywów finansowych, w tym:<p>
-                    <p class="mymarg3">a) w jednostkach powiązanych<p>
-                    <p class="mymarg3">b) w pozostałych jednostkach<p>
-                    <p class="mymarg4">– zbycie aktywów finansowych<p>
-                    <p class="mymarg4">– dywidendy i udziały w zyskach<p>
-                    <p class="mymarg4">– spłata udzielonych pożyczek długoterminowych<p>
-                    <p class="mymarg4">– odsetki<p>
-                    <p class="mymarg4">– inne wpływy z aktywów finansowych<p>
-                    <p class="mymarg2">4. Inne wpływy inwestycyjne<p>
-                    <p class="mymarg">II. Wydatki<p>
-                    <p class="mymarg2">1. Nabycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych<p>
-                    <p class="mymarg2">2. Inwestycje w nieruchomości oraz wartości niematerialne i prawne<p>
-                    <p class="mymarg2">3. Na aktywa finansowe, w tym:<p>
-                    <p class="mymarg3">a) w jednostkach powiązanych<p>
-                    <p class="mymarg3">b) w pozostałych jednostkach<p>
-                    <p class="mymarg4">– nabycie aktywów finansowych<p>
-                    <p class="mymarg4">– udzielone pożyczki długoterminowe<p>
-                    <p class="mymarg2">4. Inne wydatki inwestycyjne<p>
-                    <p class="mymarg">III. Przepływy pieniężne netto z działalności inwestycyjnej (I–II)
-                    <p>C. Przepływy środków pieniężnych z działalności finansowej</p>
-                    <p class="mymarg">I. Wpływy<p>
-                    <p class="mymarg2">1. Wpływy netto z wydania udziałów (emisji akcji) i innych instrumentów kapitałowych oraz dopłat do kapitału<p>
-                    <p class="mymarg2">2. Kredyty i pożyczki<p>
-                    <p class="mymarg2">3. Emisja dłużnych papierów wartościowych<p>
-                    <p class="mymarg2">4. Inne wpływy finansowe<p>
-                    <p class="mymarg">II. Wydatki<p>
-                    <p class="mymarg2">1. Nabycie udziałów (akcji) własnych<p>
-                    <p class="mymarg2">2. Dywidendy i inne wypłaty na rzecz właścicieli<p>
-                    <p class="mymarg2">3. Inne, niż wypłaty na rzecz właścicieli, wydatki z tytułu podziału zysku<p>
-                    <p class="mymarg2">4. Spłaty kredytów i pożyczek<p>
-                    <p class="mymarg2">5. Wykup dłużnych papierów wartościowych<p>
-                    <p class="mymarg2">6. Z tytułu innych zobowiązań finansowych<p>
-                    <p class="mymarg2">7. Płatności zobowiązań z tytułu umów leasingu finansowego<p>
-                    <p class="mymarg2">8. Odsetki<p>
-                    <p class="mymarg2">9. Inne wydatki finansowe<p>
-                    <p class="mymarg">III. Przepływy pieniężne netto z działalności finansowej (I–II)<p>
-                    <p>D. Przepływy pieniężne netto razem (A.III±B.III±C.III)</p>
-                    <p>E. Bilansowa zmiana stanu środków pieniężnych, w tym:</p>
-                    <p class="mymarg">– zmiana stanu środków pieniężnych z tytułu różnic kursowych<p>
-                    <p>F. Środki pieniężne na początek okresu</p>
-                    <p>G. Środki pieniężne na koniec okresu (F±D), w tym:</p>
-                    <p class="mymarg">– o ograniczonej możliwości dysponowania<p>
-                </div>
-                <div class="col-3">
-                    <p>{{ assets_fixed }}</p><br>
-                    {{ assets_current }}<br><br>
-                    {{ assets_current }}<br><br>
-                    {{ receivables_short_term }}<br><br>
-                    {{ assets_current }}<br><br>
-                </div>
-                <div class="col-3">
-                    <p>{{ assets_fixed }}</p><br>
-                    {{ assets_current }}<br><br>
-                    {{ assets_current }}<br><br>
-                    {{ receivables_short_term }}<br><br>
-                </div>
-            </div>
       {% endif %}
+  {% else %}
+    Brak zestawienia: Rachunek przepływów pieniężnych
+  {% endif %}
       <br>
       <br>
 {% endblock %}
