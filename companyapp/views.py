@@ -373,10 +373,11 @@ class RatiosViewFile(View):
                                  , "http://www.mf.gov.pl/schematy/SF/DefinicjeTypySprawozdaniaFinansowe/2018/07/09/JednostkaInnaWZlotych")
 
            element_year = root.find('.//{*}Naglowek')
-           year = element_year.find('.//{*}OkresDo')
-           year_result = year.text
-           year_result = year_result[0:4]
-           year_result = int(year_result)
+           if element_year is not None:
+               year = element_year.find('.//{*}OkresDo')
+               year_result = year.text
+               year_result = year_result[0:4]
+               year_result = int(year_result)
 
            company_name = root.find('.//{*}NazwaFirmy')
            company_name = company_name.text
